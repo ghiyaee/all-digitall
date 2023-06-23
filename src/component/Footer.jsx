@@ -14,8 +14,8 @@ const link = [
 ];
 function Footer() {
   return (
-    <div className="flex justify-around h-32 items-center ">
-      <div className="text-white text-3xl flex gap-10">
+    <div className="flex justify-around h-32 items-center border-t mt-5">
+      <div className="text-zinc-800 text-3xl flex gap-10">
         {link.map((link) => (
           <Link key={link.id} to={'/'}>
             {link.title}

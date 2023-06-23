@@ -41,3 +41,7 @@ src:url('../public/BYekanv2.0/BYekan.ttf')
 text-7xl font-bold cursor-pointer 
  opacity-75 absolute top-[50%] left-0 transform -translate-y-[50%];
 }
+
+.style_conter_slider{
+@apply w-5 h-5  rounded-full flex items-center justify-center
+}

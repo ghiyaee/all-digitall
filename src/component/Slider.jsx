@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useEffect,useState } from 'react';
 function Slider() {
  const [moveSlider, setMoveSlider] = useState({
-   move: `transform translate-x-[0rem]`,
+   move: 'transform translate-x-[0rem]',
+   move1:'bg-yellow-500'
  });
      const [slider, setSlider] = useState([]);
      useEffect(() => {
@@ -15,7 +16,7 @@ function Slider() {
      }, []);
      useEffect(() => {
        const timer = setInterval(() => {
-         if (moveSlider.move === `transform translate-x-[0rem]`) {
+         if (moveSlider.move === 'transform translate-x-[0rem]') {
            setMoveSlider({ move: 'transform translate-x-[100rem]' });
          }
          if (moveSlider.move === 'transform translate-x-[100rem]') {
@@ -25,10 +26,10 @@ function Slider() {
            setMoveSlider({ move: 'transform translate-x-[300rem]' });
          }
          if (moveSlider.move === 'transform translate-x-[300rem]') {
-           setMoveSlider({ move: `transform translate-x-[400rem]` });
+           setMoveSlider({ move: 'transform translate-x-[400rem]' });
          }
           if (moveSlider.move === 'transform translate-x-[400rem]') {
-            setMoveSlider({ move: `transform translate-x-[0rem]` });
+            setMoveSlider({ move: 'transform translate-x-[0rem]' });
           }
        }, 5000);
        return () => {
@@ -36,8 +37,8 @@ function Slider() {
        };
      }, [moveSlider.move]);
   return (
-    <div className=" flex flex-wrap items-center gap-[100px] text-center  ">
-      <div className="flex flex-1 overflow-hidden gap-[60px]">
+    <div className=" flex flex-wrap items-center gap-[100px] text-center">
+      <div className="flex flex-1 overflow-hidden gap-[65px]">
         {slider.map((product) => (
           <div
             className={` flex gap-[200px] items-center bg-gradient-to-b 

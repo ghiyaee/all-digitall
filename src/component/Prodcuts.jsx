@@ -25,7 +25,7 @@ function Prodcuts() {
 
           <div className="text-xl font-bold mt-6 flex flex-col gap-4 ">
             <p> قیمت : {product.price} تومان</p>
-            <p className="absolute top-0 left-0 bg-yellow-400 p-1 rounded-tl-lg">
+            <p className="absolute top-0 left-0 bg-yellow-400 p-1 rounded-tl-lg rounded-br-lg">
               امتیاز :{product.rating}
             </p>
             <Link to={`/product/${product.slug}`}>
