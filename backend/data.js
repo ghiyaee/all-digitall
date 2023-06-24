@@ -7,7 +7,7 @@ const data = {
       category: 'mobile',
       img: '/img/app14.png',
       price: 5000,
-      countInStock: 10,
+      countInStock: 0,
       brand: 'appel',
       rating: 4.5,
       numReviews: 5,

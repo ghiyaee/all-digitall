@@ -15,18 +15,26 @@ function Product() {
   }, [slug]);
 
   return (
-    <div className="flex justify-around container m-auto">
-      <div className="w-96 p-6 rounded-lg bg-white">
-        <img src={product.img} alt="img" />
+    <div className="flex justify-around container m-auto ">
+      <div className="flex border p-10 items-center gap-[100px] bg-zinc-800 text-white">
+        <div className="w-96 p-6 rounded-lg ">
+          <img src={product.img} alt="img" />
+        </div>
+        <div className=" text-3xl font-[yekan] flex flex-col gap-3">
+          <h1 className="">برند :{product.name}</h1>
+          <p>امتیاز :{product.rating}</p>
+          <p>قیمت : {product.price} تومان</p>
+          <p>توضیحات : {product.description}</p>
+          <p> وضعیت : {product.countInStock > 0 ? 'موجود' : 'ناموجود'} </p>
+          <button
+            className={`bg-green-500 p-4 text-white rounded-lg w-full 
+          ${product.countInStock > 0 ? 'block' : 'hidden'}
+          `}
+          >
+            خرید
+          </button>
+        </div>
       </div>
-      <div className="bg-gradient-to-b from-white to-indigo-500 title text-3xl font-[yekan] ">
-        <h1 className="">برند :{product.name}</h1>
-        <p> موجودی: {product.countInStock}</p>
-        <p>امتیاز :{product.rating}</p>
-        <p>قیمت : {product.price} تومان</p>
-        <p>توضیحات : {product.description}</p>
-      </div>
-      <div>فاکتور</div>
     </div>
   );
 }
