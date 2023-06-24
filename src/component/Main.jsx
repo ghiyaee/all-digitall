@@ -1,13 +1,15 @@
 import React from 'react';
 import Slider from './Slider';
-import Prodcuts from './Prodcuts';
 import ListProducts from './ListProducts';
+import Categories from './Categories';
+import SpecialOffers from './SpecialOffers';
 function Main() {
   return (
     <div className="  flex flex-col  gap-28 container m-auto ">
       <Slider/>
-      <ListProducts/>
-      <Prodcuts/>
+      <ListProducts />
+      <Categories />
+      <SpecialOffers/>
     </div>
   );
 }

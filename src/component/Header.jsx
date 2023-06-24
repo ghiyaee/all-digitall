@@ -24,7 +24,7 @@ const link = [
 ];
 function Header() {
   return (
-    <div className="h-32 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white opacity-95">
+    <div className="h-32 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white ">
       <Link to={'/'} className="text-3xl  text-red-500">
         دیجیتال مارکت
       </Link>

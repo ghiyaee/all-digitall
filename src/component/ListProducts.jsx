@@ -1,27 +1,31 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 function ListProducts() {
   const [products, setProducts] = useState([]);
+  const [counter, setCounter] = useState(0);
   const [move, setMove] = useState({
     move: `transform -translate-x-[26rem]`,
   });
-     const handelLeft = () => {
-       if (move.move === 'transform translate-x-[35rem]') {
-         setMove({ move: 'transform translate-x-64' });
-       }
-       if (move.move === `transform translate-x-64`) {
-         setMove({ move: 'transform -translate-x-[26rem]' });
-       }
-     };
-     const handelRight = () => {
-       if (move.move === `transform -translate-x-[26rem]`) {
-         setMove({ move: 'transform translate-x-64' });
-       }
-       if (move.move === `transform translate-x-64`) {
-         setMove({ move: 'transform translate-x-[35rem]' });
-       }
-     };
+  const handelLeft = () => {
+    if (move.move === 'transform translate-x-[35rem]') {
+      setMove({ move: 'transform translate-x-64' });
+         setCounter((prve) => prve - 1);
+    }
+    if (move.move === `transform translate-x-64`) {
+      setMove({ move: 'transform -translate-x-[26rem]' });
+    }
+  };
+  const handelRight = () => {
+    if (move.move === `transform -translate-x-[26rem]`) {
+      setMove({ move: 'transform translate-x-64' });
+    }
+    if (move.move === `transform translate-x-64`) {
+      setMove({ move: 'transform translate-x-[35rem]' });
+      setCounter(prve=> prve +1)
+    }
+  };
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get('/api/products');
@@ -52,11 +56,20 @@ function ListProducts() {
       </div>
       <div
         onClick={handelLeft}
-        className={`style_slider_handelLeft ${
+        className={`style_slider_handelLeft flex items-center ${
           move.move === `transform -translate-x-[26rem]` ? 'hidden' : 'block'
         } `}
       >
-        {'>'}
+        <p
+          className={`text-xl p-2 text-red-500 bg-white hover:bg-red-500
+           hover:text-white hover:border  duration-1000 w-24 h-24 flex 
+           items-center text-center rounded-full  ${
+            counter === 1 ? 'black' : 'hidden'
+          }`}
+        >
+          <Link to={'/Products'}> مشاهده همه</Link>
+        </p>
+        { '>'}
       </div>
     </div>
   );
