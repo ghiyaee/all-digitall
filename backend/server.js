@@ -15,6 +15,7 @@ app.get('/api/products/slug/:slug', (req, res) => {
     const product=data.products.find(f=> f.slug === req.params.slug)
     res.send(product);
 });
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => {

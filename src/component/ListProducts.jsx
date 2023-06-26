@@ -41,8 +41,10 @@ function ListProducts() {
           className={`h-64 w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[280px] bg-white p-6 rounded-lg flex justify-center">
-            <img alt="imag" src={product.img} />
+          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center">
+            <Link to={`/product/${product.slug}`}>
+              <img alt="imag" src={product.img} />
+            </Link>
           </div>
         </div>
       ))}
@@ -64,12 +66,12 @@ function ListProducts() {
           className={`text-xl p-2 text-red-500 bg-white hover:bg-red-500
            hover:text-white hover:border  duration-1000 w-24 h-24 flex 
            items-center text-center rounded-full  ${
-            counter === 1 ? 'black' : 'hidden'
-          }`}
+             counter === 1 ? 'black' : 'hidden'
+           }`}
         >
           <Link to={'/Products'}> مشاهده همه</Link>
         </p>
-        { '>'}
+        {'>'}
       </div>
     </div>
   );
