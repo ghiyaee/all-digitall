@@ -10,7 +10,9 @@ body {
   direction: rtl;
   
 }
-
+.imgw{
+width:64px
+}
 @font-face{
 font-family:sogand;
 src:url('../public/SOGAND.ttf')

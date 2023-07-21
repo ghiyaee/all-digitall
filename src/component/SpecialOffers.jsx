@@ -14,16 +14,14 @@ function SpecialOffers() {
       </h1>
       <div className="flex gap-[60px] ">
         {link.map((link) => (
-          <div>
+          <div key={link.name}>
             <p
               className="w-[300px] h-[300px] bg-red-500  flex-col
                     flex items-center justify-center text-black text-2xl
                     font-[yekan]   rounded-xl
                    "
             >
-              <div className="w-16">
-                <img src={link.img} alt="img" />
-              </div>
+              <img src={link.img} alt="img" className="imgw" />
               {link.name}
             </p>
           </div>

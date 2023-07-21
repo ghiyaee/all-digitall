@@ -14,16 +14,16 @@ function Categories() {
       </h1>
       <div className="flex gap-[100px] ">
         {link.map((link) => (
-          <div>
+          <div key={link.name}>
             <p
               className="w-44 h-44 bg-red-500 rounded-full flex-col
                     flex items-center justify-center text-black text-2xl
                     font-[yekan] border-[5px] border-green-300  bg-gradient-to-b 
                     from-blue-500  to-yellow-100"
             >
-              <div className="w-16">
-                <img src={link.img} alt="img" />
-              </div>
+              {/* <div className="w-16"> */}
+              <img src={link.img} alt="img" className="imgw" />
+              {/* </div> */}
               {link.name}
             </p>
           </div>

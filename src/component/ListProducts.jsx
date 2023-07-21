@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 function ListProducts() {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(0);
@@ -28,8 +29,12 @@ function ListProducts() {
   };
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('/api/products');
-      setProducts(res.data);
+      try {
+        const res = await axios.get('/api/products');
+        setProducts(res.data);
+      } catch (error) {
+        toast.error('ارتباط با اینترنت قطع شده است')
+      }
     };
     fetchData();
   }, []);
@@ -37,11 +42,11 @@ function ListProducts() {
     <div className="style_slider ">
       {products.map((product) => (
         <div
-          key={product.id}
+          key={product._id}
           className={`h-64 w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center">
+          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-90 duration-700">
             <Link to={`/product/${product.slug}`}>
               <img alt="imag" src={product.img} />
             </Link>

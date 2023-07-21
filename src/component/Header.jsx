@@ -1,46 +1,49 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
-const link = [
-  {
-    id: 1,
-    title: 'سبدخرید',
-    url: '/Card',
-  },
-  {
-    id: 3,
-    title: 'حساب کاربری',
-    url: '/',
-  },
-  {
-    id: 4,
-    title: 'داشبورد',
-    url: '/',
-  },
-];
+import {FaUserAlt} from 'react-icons/fa'
 function Header() {
-  const { cart } = useContext(Store)
+  const { cart, userinfo } = useContext(Store);
   return (
-    <div className="h-32 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white ">
+    <div className="h-24 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white  ">
       <Link to={'/'} className="text-3xl  text-red-500">
         دیجیتال مارکت
       </Link>
-      <div className="flex gap-4 text-zinc-800 border p-2 rounded-lg text-xl">
-        {cart.length > 0 ? (
-          <span className="bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center">
-            {cart.reduce((a, c) => a + c.conter, 0)}
-          </span>
-        ) : (
-          ''
-        )}
-        {link.map((link) => (
-          <Link key={link.id} to={link.url} className="">
-            {link.title}
+      <div className="flex  text-zinc-800 border p-3 rounded-lg text-2xl ">
+        <ul className="flex gap-5">
+          <Link to={'/Card'}>
+            <li>سبدخرید</li>
           </Link>
-        ))}
+          {cart.length > 0 ? (
+            <span className="bg-blue-500 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center">
+              {cart.reduce((a, c) => a + c.conter, 0)}
+            </span>
+          ) : (
+            ''
+          )}
+          {userinfo.length > 0 ? (
+            <li className="flex gap-3">
+              <FaUserAlt className="text-red-500" />:
+              <Link to={'/Dashboard'} className="text-blue-600">
+                {userinfo[0].name}
+              </Link>
+              <Link
+                to={'/'}
+                className="text-red-500"
+                onClick={() => userinfo('')}
+              >
+                خروج
+              </Link>
+            </li>
+          ) : (
+            <Link to={'/SignIn'}>
+              <li>حساب کاربری</li>
+            </Link>
+          )}
+        </ul>
       </div>
     </div>
   );
 }
 
-export default Header
+export default Header;

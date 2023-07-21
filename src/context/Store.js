@@ -19,8 +19,11 @@ export const Store = createContext();
 
 export const StoreProvider = ({ children }) => {
 //  const [state,despatch]=useReducer(reducer,initail)
-  const [cart,setCart]=useState([])
+  const [cart, setCart] = useState([])
+  const [userinfo, setUserInFo] = useState([])
+  const [like, setLike] = useState(0)
+  const [dislike, setDisLike] = useState(0);
   return (
-    <Store.Provider value={{ cart,setCart }}>{children}</Store.Provider>
+    <Store.Provider value={{ cart,setCart ,userinfo,setUserInFo,like,setLike,dislike,setDisLike}}>{children}</Store.Provider>
   );
 };
