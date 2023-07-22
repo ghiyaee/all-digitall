@@ -1,9 +1,10 @@
 
 import mongoose from "mongoose";
+import User from '../models/userModel.js';
 const productsSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, },
-    slug: { type: String, required: true,},
+    name: { type: String, required: true },
+    slug: { type: String, required: true },
     img: { type: String, required: true },
     brand: { type: String, required: true },
     category: { type: String, required: true },
@@ -12,8 +13,14 @@ const productsSchema = new mongoose.Schema(
     countInStock: { type: Number, required: true },
     rating: { type: Number, required: true },
     numReviews: { type: Number, required: true },
-    comment:[{type:String}]
-    },
+    postComment:{type:mongoose.Schema.Types.ObjectId,Ref:"User",required:true},
+    comment: [
+      {
+        text: { type: String, required: true },
+        date: { type: Date, default: Date.now },
+      },
+    ],
+  },
   {
     timestamps: true,
   }

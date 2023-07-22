@@ -23,7 +23,26 @@ export const StoreProvider = ({ children }) => {
   const [userinfo, setUserInFo] = useState([])
   const [like, setLike] = useState(0)
   const [dislike, setDisLike] = useState(0);
+   const [likeComment, setLikeComment] = useState(0);
+   const [dislikeComment, setDisLikeComment] = useState(0);
   return (
-    <Store.Provider value={{ cart,setCart ,userinfo,setUserInFo,like,setLike,dislike,setDisLike}}>{children}</Store.Provider>
+    <Store.Provider
+      value={{
+        cart,
+        setCart,
+        userinfo,
+        setUserInFo,
+        like,
+        setLike,
+        dislike,
+        setDisLike,
+        dislikeComment,
+        setDisLikeComment,
+        likeComment,
+        setLikeComment,
+      }}
+    >
+      {children}
+    </Store.Provider>
   );
 };

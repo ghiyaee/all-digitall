@@ -90,9 +90,6 @@ function Product() {
         </div>
       </div>
       <ViewPoint product={product} />
-      {/* {product.comment?.map((t) => (
-        <div className="border p-5 text-xl ">{t}</div>
-      ))} */}
     </div>
   );
 }

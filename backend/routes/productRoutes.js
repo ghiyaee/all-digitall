@@ -16,9 +16,10 @@ productRouter.post('/Edit', async (req, res) => {
   res.send(newProduct)
 })
 productRouter.post('/comment', async (req, res) => {
-  const pro = await Product.findOne({ _id: req.body.product })
-  pro.comment.push(req.body.text)
-  await pro.save();
+   const product = await Product.findOne({ _id: req.body.product })
+  product.comment.push({ text: req.body.text });
+  console.log(product);
+  await product.save()
   const newPro = await Product.findOne({_id:req.body.product})
   res.send(newPro);
 })
