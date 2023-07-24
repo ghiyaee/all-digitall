@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from './routes/productRoutes.js'
 import userRoutes from "./routes/userRoutes.js";
-// import textRouter from './routes/textRoutes.js'
+import commentRouter from './routes/commentRoutes.js'
 dotenv.config();
 mongoose
 .connect(process.env.MONGOURL)
@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}))
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter)
 app.use('/api/user', userRoutes);
-// app.use('/api/text', textRouter);
+app.use('/api/comment', commentRouter);
 
 // app.get('/api/products', (req, res) => {
 //     res.send(data.products)

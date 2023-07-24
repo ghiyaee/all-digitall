@@ -6,7 +6,6 @@ import Moment from 'react-moment';
 import { AiOutlineLike } from 'react-icons/ai';
 import { AiOutlineDislike } from 'react-icons/ai';
 function ViewPoint({ product }) {
-  console.log(product);
   const navigate = useNavigate();
   const {
     userinfo,
@@ -15,8 +14,8 @@ function ViewPoint({ product }) {
     dislikeComment,
     setDisLikeComment,
   } = useContext(Store);
-  const [text, setText] = useState();
-  const [comment, setComment] = useState(product.comment);
+  const [newComment, setNewComment] = useState();
+  const [comment, setComment] = useState();
   const handelLike = () => {
     if (!likeComment) {
       setLikeComment(likeComment + 1);
@@ -27,29 +26,46 @@ function ViewPoint({ product }) {
   };
   const handeDislLike = () => {
     if (!dislikeComment) {
-     setDisLikeComment(dislikeComment + 1);
+      setDisLikeComment(dislikeComment + 1);
     }
     if (dislikeComment) {
-     setDisLikeComment(dislikeComment - 1);
+      setDisLikeComment(dislikeComment - 1);
     }
   };
   const handelViewPoint = async (e) => {
     if (userinfo.length > 0) {
       e.preventDefault();
-      const fetchText = await axios.post('/api/products/comment', {
+      const fetchText = await axios.post('/api/comment/newComment', {
         product,
-        text,
+        newComment,
+        userinfo,
       });
-      setComment(fetchText.data.comment);
-      setText('');
+      setComment(fetchText.data);
+      setNewComment('');
     } else {
       navigate('/SignIn');
     }
   };
+  const handelViewComment = async (e) => {
+      e.preventDefault();
+      const fetchText = await axios.post('/api/comment/search', { product }, )
+      setComment(fetchText.data)
+    // console.log(fetchText.data);
+    
+    }
+  
 
-  useEffect(() => {
-    setComment(product.comment);
-  }, [product.comment]);
+console.log(comment);
+  // useEffect(() => {
+  //     const fetchComment = async () => {
+  //       const comment = await axios.post('/api/comment/search', { product });
+  //       // const findP = comment.data.find(f => f.product_id === product._id)
+  //       // console.log(findP);
+  //       setComment(comment);
+  //     };
+  //     fetchComment();
+  
+  // }, [product]);
   return (
     <div className="font-[yekan]">
       <div className="flex flex-col gap-5 ">
@@ -63,9 +79,9 @@ function ViewPoint({ product }) {
             id=""
             cols="30"
             rows="10"
-            value={text}
+            value={newComment}
             className="border w-[600px] rounded-lg outline-none text-xl"
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setNewComment(e.target.value)}
           />
           <button
             className="bg-blue-500 text-white py-2 px-4 rounded-lg text-xl w-24"
@@ -73,17 +89,24 @@ function ViewPoint({ product }) {
           >
             ارسال
           </button>
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg text-xl w-24"
+            onClick={handelViewComment}
+          >
+            دیدن نظرات
+          </button>
         </form>
       </div>
       <div className="flex flex-col gap-5 mt-5">
         <h2 className="text-2xl ">دیدگاه کاربران</h2>
-        {comment?.map((comment, ind) => (
+        {comment ? (
           <div
             className="border p-5 text-xl flex flex-col gap-5 rounded-xl"
-            key={ind}
+            key={''}
           >
             <p className="text-red-500">
-              کاربر : <span className="text-blue-500">{userinfo[0].name}</span>
+              کاربر :{' '}
+              <span className="text-blue-500">{comment.user_id.name}</span>
             </p>
             <p className="text-justify">{comment.text}</p>
             <div className="flex justify-between items-center">
@@ -104,7 +127,11 @@ function ViewPoint({ product }) {
               </div>
             </div>
           </div>
-        ))}
+        ) : (
+          ''
+        )}
+
+        {/* {comment.user_id.name} */}
       </div>
     </div>
   );
@@ -112,3 +139,34 @@ function ViewPoint({ product }) {
 
 export default ViewPoint;
 
+{
+  /* {comment?.map((comment, ind) => (
+          <div
+            className="border p-5 text-xl flex flex-col gap-5 rounded-xl"
+            key={ind}
+          >
+            <p className="text-red-500">
+              کاربر :{' '}
+              <span className="text-blue-500">{comment.user_id.name}</span>
+            </p>
+            <p className="text-justify">{comment.text}</p>
+            <div className="flex justify-between items-center">
+              <Moment format="YYYY/MM/DD" locale="ir">
+                {new Date(comment.date)}
+              </Moment>
+              <div className="flex gap-5 items-center">
+                <span>{dislikeComment}</span>
+                <AiOutlineDislike
+                  className="cursor-pointer text-red-500"
+                  onClick={() => handeDislLike()}
+                />
+                <span>{likeComment}</span>
+                <AiOutlineLike
+                  className="cursor-pointer text-green-500"
+                  onClick={() => handelLike()}
+                />
+              </div>
+            </div>
+          </div>
+        ))} */
+}
