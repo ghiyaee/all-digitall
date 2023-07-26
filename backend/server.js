@@ -23,16 +23,8 @@ app.use('/api/products', productRouter)
 app.use('/api/user', userRoutes);
 app.use('/api/comment', commentRouter);
 
-// app.get('/api/products', (req, res) => {
-//     res.send(data.products)
-// })
 app.get('/api/slider', (req, res) => {
-    res.send(slider.products)
-    
-})
-
-app.use((err, req, res, next) => {
-    res.status(500).send({msg:err.message})
+    res.send(slider.products)   
 })
 
 const port = process.env.PORT || 5000;
