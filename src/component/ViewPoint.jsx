@@ -16,6 +16,7 @@ function ViewPoint({ product }) {
   } = useContext(Store);
   const [newComment, setNewComment] = useState();
   const [comment, setComment] = useState();
+  const [user, setUser] = useState(userinfo[0]._id);
   const handelLike = () => {
     if (!likeComment) {
       setLikeComment(likeComment + 1);
@@ -38,7 +39,7 @@ function ViewPoint({ product }) {
       const fetchText = await axios.post('/api/comment/newComment', {
         product,
         newComment,
-        userinfo,
+        user,
       });
       setComment(fetchText.data);
       setNewComment('');
@@ -47,15 +48,14 @@ function ViewPoint({ product }) {
     }
   };
   const handelViewComment = async (e) => {
-      e.preventDefault();
-      const fetchText = await axios.post('/api/comment/search', { product }, )
-      setComment(fetchText.data)
+    e.preventDefault();
+    const fetchText = await axios.post('/api/comment/search', { product });
+    setComment(fetchText.data);
     // console.log(fetchText.data);
-    
-    }
-  
+  };
+  console.log(user);
 
-console.log(comment);
+  console.log(comment);
   // useEffect(() => {
   //     const fetchComment = async () => {
   //       const comment = await axios.post('/api/comment/search', { product });
@@ -64,7 +64,7 @@ console.log(comment);
   //       setComment(comment);
   //     };
   //     fetchComment();
-  
+
   // }, [product]);
   return (
     <div className="font-[yekan]">
@@ -99,10 +99,11 @@ console.log(comment);
       </div>
       <div className="flex flex-col gap-5 mt-5">
         <h2 className="text-2xl ">دیدگاه کاربران</h2>
-        {comment ? (
+       
+        {comment?.map((comment, ind) => (
           <div
             className="border p-5 text-xl flex flex-col gap-5 rounded-xl"
-            key={''}
+            key={ind}
           >
             <p className="text-red-500">
               کاربر :{' '}
@@ -127,10 +128,38 @@ console.log(comment);
               </div>
             </div>
           </div>
+        ))}
+          {/* {comment ? (
+          <div
+            className="border p-5 text-xl flex flex-col gap-5 rounded-xl"
+            key={''}
+          >
+            <p className="text-red-500">
+              کاربر :
+              <span className="text-blue-500">{comment.text}</span>
+            </p>
+            <p className="text-justify">{''}</p>
+            <div className="flex justify-between items-center">
+              <Moment format="YYYY/MM/DD" locale="ir">
+                {new Date(comment.date)}
+              </Moment>
+              <div className="flex gap-5 items-center">
+                <span>{dislikeComment}</span>
+                <AiOutlineDislike
+                  className="cursor-pointer text-red-500"
+                  onClick={() => handeDislLike()}
+                />
+                <span>{likeComment}</span>
+                <AiOutlineLike
+                  className="cursor-pointer text-green-500"
+                  onClick={() => handelLike()}
+                />
+              </div>
+            </div>
+          </div>
         ) : (
           ''
-        )}
-
+        )} */}
         {/* {comment.user_id.name} */}
       </div>
     </div>
