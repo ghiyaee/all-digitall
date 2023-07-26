@@ -7,7 +7,7 @@ import { AiOutlineDislike } from 'react-icons/ai';
 import ViewPoint from './ViewPoint';
 function Product() {
   const navigation = useNavigate();
-  const { cart, setCart, like, setLike, dislike, setDisLike } =
+  const { cart, setCart, like, setLike, dislike, setDisLike ,userinfo} =
     useContext(Store);
   const [product, setProduct] = useState([]);
   const params = useParams();
@@ -48,49 +48,56 @@ function Product() {
   }, [slug]);
 
   return (
-    <div className="flex container m-auto gap-20 flex-col">
-      <div className="flex  justify-around  ">
-        <div className="flex  border p-10 items-center gap-[100px] shadow-2xl shadow-orange-400 text-black rounded-lg">
-          <div className="w-96 p-6 rounded-lg ">
-            <img src={product.img} alt="img" />
-          </div>
-          <div className=" text-3xl font-[yekan] flex flex-col gap-5">
-            <h1 className="">برند :{product.name}</h1>
-            <p>امتیاز :{product.rating}</p>
-            <p>قیمت : {product.price} تومان</p>
-            <p>توضیحات : {product.description}</p>
-            <p>
-              وضعیت :{product.countInStock > cart.length ? 'موجود' : 'ناموجود'}
-            </p>
-            <button
-              onClick={() => handelAddItem(product)}
-              className={`bg-blue-500 p-4 text-white rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
+    <>
+      {userinfo.length > 0 ? (
+        <div className="flex container m-auto gap-20 flex-col">
+          <div className="flex  justify-around  ">
+            <div className="flex  border p-10 items-center gap-[100px] shadow-2xl shadow-orange-400 text-black rounded-lg">
+              <div className="w-96 p-6 rounded-lg ">
+                <img src={product.img} alt="img" />
+              </div>
+              <div className=" text-3xl font-[yekan] flex flex-col gap-5">
+                <h1 className="">برند :{product.name}</h1>
+                <p>امتیاز :{product.rating}</p>
+                <p>قیمت : {product.price} تومان</p>
+                <p>توضیحات : {product.description}</p>
+                <p>
+                  وضعیت :
+                  {product.countInStock > cart.length ? 'موجود' : 'ناموجود'}
+                </p>
+                <button
+                  onClick={() => handelAddItem(product)}
+                  className={`bg-blue-500 p-4 text-white rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
           ${product.countInStock > cart.length ? 'block' : 'hidden'}
           `}
-            >
-              خرید
-            </button>
-            <div className="flex justify-around mt-5">
-              <div className="flex items-center gap-1 ">
-                <span>{dislike}</span>
-                <AiOutlineDislike
-                  className="cursor-pointer text-red-500"
-                  onClick={() => handeDislLike()}
-                />
-              </div>
-              <div className="flex gap-1">
-                <span>{like}</span>
-                <AiOutlineLike
-                  className="cursor-pointer text-green-500"
-                  onClick={() => handelLike()}
-                />
+                >
+                  خرید
+                </button>
+                <div className="flex justify-around mt-5">
+                  <div className="flex items-center gap-1 ">
+                    <span>{dislike}</span>
+                    <AiOutlineDislike
+                      className="cursor-pointer text-red-500"
+                      onClick={() => handeDislLike()}
+                    />
+                  </div>
+                  <div className="flex gap-1">
+                    <span>{like}</span>
+                    <AiOutlineLike
+                      className="cursor-pointer text-green-500"
+                      onClick={() => handelLike()}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <ViewPoint product={product} />
         </div>
-      </div>
-      <ViewPoint product={product} />
-    </div>
+      ) : (
+        navigation('/SignIn')
+      )}
+    </>
   );
 }
 
