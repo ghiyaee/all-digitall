@@ -1,6 +1,6 @@
 import express from 'express';
 import User from '../models/userModel.js';
-
+import bcrypt from 'bcrypt'
 const userRoutes = express.Router();
 
 userRoutes.get('/users', async (req, res) => {
@@ -27,7 +27,7 @@ userRoutes.post('/edit', async (req, res) => {
 userRoutes.post('/signin', async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
-    if (req.body.password === user.password) {
+    if (await bcrypt.compare(req.body.password , user.password)) {
       res.send({
         _id: user._id,
         name: user.name,
