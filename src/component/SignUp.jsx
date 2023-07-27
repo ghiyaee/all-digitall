@@ -15,7 +15,6 @@ function SignUp() {
       setEmail(state.email);
       setPassword(state.password);
     }
-  
   },[state])
   const handelSignupEdi = async (e) => {
       e.preventDefault();
@@ -33,18 +32,19 @@ function SignUp() {
   const handelSignUp = async (e) => {
    e.preventDefault()
    if (name === '' ) {
-    return
+     return;
+   } else { 
+     try {
+      const { user } = await axios.post('/api/user/signUp', {
+        name,
+        email,
+        password,
+      });
+      navigate('/SignIn')
+    } catch (error) {
+     
+    }
   }
-    try {
-     const { user } = await axios.post('/api/user/signUp', {
-       name,
-       email,
-       password,
-     });
-     navigate('/SignIn')
-   } catch (error) {
-    
-   }
   }
   return (
     <div className="contianer m-auto ">

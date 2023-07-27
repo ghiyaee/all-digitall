@@ -1,16 +1,17 @@
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
+const saltRounds = 12
 const data = {
   user: [
     {
       name: 'manoochehr',
       email: 'ghiyaee47@gmail.com',
-      password: 12345678,
+      password: await bcrypt.hash('user12345678', saltRounds),
       isAdmin: false,
     },
     {
-      name: 'admin',
+      name: 'داشبورد مدیر',
       email: 'admin@gmail.com',
-      password:12345678,
+      password: await bcrypt.hash('admin12345678', saltRounds),
       isAdmin: true,
     },
   ],
