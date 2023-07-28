@@ -60,23 +60,27 @@ function SignUp() {
           required
           placeholder="نام کاربری"
           className="py-5 px-8 rounded-lg outline-none border-b"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value.toLowerCase())}
         />
-       {!state ?  <input
-          value={email}
-          type="email"
-          required
-          placeholder="ایمیل"
-          className="py-5 px-8 rounded-lg outline-none border-b"
-          onChange={(e) => setEmail(e.target.value)}
-        /> :''}
+        {!state ? (
+          <input
+            value={email}
+            type="email"
+            required
+            placeholder="ایمیل"
+            className="py-5 px-8 rounded-lg outline-none border-b"
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
+          />
+        ) : (
+          ''
+        )}
         <input
           value={password}
           type="password"
           required
           placeholder="رمزعبور"
           className="py-5 px-8 rounded-lg outline-none border-b"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value.toLowerCase())}
         />
         {state ? (
           <button

@@ -53,7 +53,7 @@ function SignIn() {
           required
           placeholder="ایمیل"
           className="py-5 px-8 rounded-lg outline-none border-b"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
         />
         <input
           value={password}
@@ -61,9 +61,19 @@ function SignIn() {
           required
           placeholder="رمزعبور"
           className="py-5 px-8 rounded-lg outline-none border-b relative z-50"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) =>
+            setPassword(e.target.value.toLowerCase())
+          }
         />
-        {message ? (<p className={`text-red-500  transform ${move.move} absolute duration-500 z-0`}>{message}</p>) :("")}
+        {message ? (
+          <p
+            className={`text-red-500  transform ${move.move} absolute duration-500 z-0`}
+          >
+            {message}
+          </p>
+        ) : (
+          ''
+        )}
         <button
           className="bg-blue-500 py-5 w-full  hover:rounded-3xl hover:text-white duration-700"
           onClick={handelSignin}

@@ -9,7 +9,7 @@ const data = {
       isAdmin: false,
     },
     {
-      name: 'داشبورد مدیر',
+      name: 'مدیر',
       email: 'admin@gmail.com',
       password: await bcrypt.hash('admin12345678', saltRounds),
       isAdmin: true,
