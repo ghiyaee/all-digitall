@@ -97,7 +97,7 @@ function ViewPoint({ product }) {
             </p>
             <p className="text-justify">{comment.text}</p>
             <div className="flex justify-between items-center">
-              <Moment format="YYYY/MM/DD" locale="ir">
+              <Moment format='HH:D YYYY/DD/MM'>
                 {new Date(comment.date)}
               </Moment>
               <div className="flex gap-5 items-center">

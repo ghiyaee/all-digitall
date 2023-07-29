@@ -3,8 +3,8 @@ const saltRounds = 12
 const data = {
   user: [
     {
-      name: 'manoochehr',
-      email: 'ghiyaee47@gmail.com',
+      name: 'user1',
+      email: 'user1@gmail.com',
       password: await bcrypt.hash('user12345678', saltRounds),
       isAdmin: false,
     },

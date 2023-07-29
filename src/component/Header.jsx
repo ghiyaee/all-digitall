@@ -23,10 +23,16 @@ function Header() {
           )}
           {userinfo.length > 0 ? (
             <li className="flex gap-3">
-              <FaUserAlt className="text-red-500" />:
-              <Link to={'/Dashboard'} className="text-blue-600">
-                {userinfo[0].name}
-              </Link>
+              <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
+              {userinfo.isAdmin ? (
+                <Link to={'/Dashboard'} className="text-blue-600">
+                  {userinfo[0].name}
+                </Link>
+              ) : (
+                <Link to={'/DashboardUser'} className="text-blue-600">
+                  {userinfo[0].name}
+                </Link>
+              )}
               <Link
                 to={'/'}
                 className="text-red-500"

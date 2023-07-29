@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { Store } from '../context/Store';
 function Prodcuts() {
   const navigate = useNavigate()
-  const{userinfo}=useContext(Store)
+  const{userinfo,setProduct}=useContext(Store)
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -22,11 +22,12 @@ function Prodcuts() {
   return (
     <>
       {userinfo.length > 0 ? (
-        <div className="text-white flex flex-wrap gap-5 justify-center font-[yekan]">
+        <div className="text-white flex flex-wrap gap-8 justify-center font-[yekan]">
           {products?.map((product) => (
             <div
               className=" p-6 rounded-lg w-96 text-black
-             flex flex-col gap-0 justify-between items-center relative border"
+             flex flex-col gap-4 justify-between items-center relative  shadow-xl rounded-lg
+       shadow-orange-400"
               key={product._id}
             >
               <Link to={`/product/${product.slug}`}>

@@ -12,6 +12,8 @@ import CheckOut from './component/CheckOut';
 import Users from './component/Users'
 import Dashboard from './component/Dashboard'
 import ProductEdit from './component/ProductEdit';
+import Comments from './component/Comments';
+import DashboardUser from './component/Dashboarduser';
   import { ToastContainer } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 function App() {
@@ -35,7 +37,9 @@ function App() {
           <Route path="/CheckOut" element={<CheckOut />} />
           <Route path="/Users" element={<Users />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/DashboardUser" element={<DashboardUser />} />
           <Route path="/ProductEdit" element={<ProductEdit />} />
+          <Route path="/Comments" element={<Comments />} />
         </Routes>
         <Footer />
       </BrowserRouter>
