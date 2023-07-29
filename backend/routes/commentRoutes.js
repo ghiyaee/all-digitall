@@ -12,6 +12,7 @@ commentRouter.post('/search', async (req, res) => {
   res.send(com);
 });
 commentRouter.post('/user', async (req, res) => {
+  console.log(req.body.user);
   const com = await Comment.find({ user_id: req.body.user }).populate(
     ['user_id', 'product_id']
   );

@@ -8,7 +8,6 @@ function Comments() {
   const {userinfo}=useContext(Store)
   const [comment, setComment] = useState([])
   const [user, setUser] = useState(userinfo[0]._id);
-  console.log(user);
   const handelDeleteProduct = async (id) => {
     const fetchData = await axios.post('/api/comment/del', { id })
     setComment(fetchData.data)
@@ -24,8 +23,6 @@ function Comments() {
       };
       fetchData();
     }, [comment]);
-  console.log(comment);
-  console.log(userinfo);
   return (
     <div className=" flex flex-col gap-6 font-[yekan] p-10">
       <h2 className="text-black text-center text-3xl font-bold mt-5">

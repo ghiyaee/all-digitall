@@ -27,7 +27,7 @@ userRoutes.post('/edit', async (req, res) => {
 userRoutes.post('/signin', async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
-    if (await bcrypt.compare(req.body.password , user.password)) {
+    if (await bcrypt.compare(req.body.password, user.password)) {
       res.send({
         _id: user._id,
         name: user.name,
@@ -40,10 +40,11 @@ userRoutes.post('/signin', async (req, res) => {
   res.status(401).send({ msg: 'email or password not validation' });
 });
 userRoutes.post('/signUp', async (req, res) => {
+  const saltRounds = 12;
   const user = new User({
     name: req.body.name,
     email: req.body.email,
-    password: req.body.password,
+    password: await bcrypt.hash(req.body.password, saltRounds),
   });
   const newUser = await user.save();
   if (newUser) {

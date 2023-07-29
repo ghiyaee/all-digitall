@@ -8,16 +8,16 @@ import { Store } from '../context/Store';
 import Comments from './Comments';
 
 function DashboardUser() {
-  const [users, setUsers] = useState(true);
+  const [user, setUser] = useState(true);
   const [comments, setComments] = useState(false);
   const { userinfo } = useContext(Store);
   const handelUsers = () => {
-    setUsers(true);
+    setUser('');
   };
   const handelProducts = () => {};
   const handelComments = () => {
     setComments(true);
-    setUsers(false);
+    setUser(false);
   };
   return (
     <>
@@ -49,7 +49,7 @@ function DashboardUser() {
           </div>
         </div>
         <div className="border w-full rounded-lg text-black">
-          {users === true ? <User /> : comments === true ? <Comments /> : ''}
+          {user === true ? <User /> : comments === true ? <Comments /> : ''}
         </div>
       </div>
       

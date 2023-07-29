@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation ,useNavigate} from 'react-router-dom';
 function SignUp() {
+
     const navigate = useNavigate();
   const { state } = useLocation('');
   const [name, setName] = useState('')
@@ -50,7 +51,7 @@ function SignUp() {
     <div className="contianer m-auto ">
       <form
         className="flex flex-col gap-8 items-center shadow-2xl rounded-lg
-       shadow-orange-400 p-10 text-2xl font-[yekan] "
+       shadow-orange-400 p-10 text-2xl font-[yekan] w-[600px]"
       >
         {state ? <h2>فرم ویرایش کاربران</h2> : <h2>فرم ثبت نام</h2>}
 
@@ -59,7 +60,7 @@ function SignUp() {
           type="text"
           required
           placeholder="نام کاربری"
-          className="py-5 px-8 rounded-lg outline-none border-b"
+          className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
           onChange={(e) => setName(e.target.value.toLowerCase())}
         />
         {!state ? (
@@ -68,7 +69,7 @@ function SignUp() {
             type="email"
             required
             placeholder="ایمیل"
-            className="py-5 px-8 rounded-lg outline-none border-b"
+            className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
             onChange={(e) => setEmail(e.target.value.toLowerCase())}
           />
         ) : (
@@ -79,7 +80,7 @@ function SignUp() {
           type="password"
           required
           placeholder="رمزعبور"
-          className="py-5 px-8 rounded-lg outline-none border-b"
+          className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
           onChange={(e) => setPassword(e.target.value.toLowerCase())}
         />
         {state ? (
