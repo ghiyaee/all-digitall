@@ -26,37 +26,41 @@ function User() {
   console.log(users);
   return (
     <>
-        <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
-          <h2 className="text-3xl mt-5"> ویرایش کاربر</h2>
-          <div className="border py-3 px-10 text-lg w-[700px] shadow-2xl shadow-orange-400 ">
-            {users?.map((user) => (
-              <div
-                key={user._id}
-                className="flex justify-between items-center mt-5 gap-[50px] "
-              >     
-                    <div className='flex gap-10'>
-                      <p className="text-2xl">کاربر :{user.user_id.name}</p>
-                      <p className="text-2xl">{user.text}</p>
-                    </div>
-                    <div className="flex gap-5">
-                      <button
-                        className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
-                        onClick={() => handelUserEdi(user)}
-                      >
-                        ویرایش
-                      </button>
-                      <button
-                        className="bg-red-500 text-white p-2 rounded-lg w-[100px]"
-                        onClick={() => handelUserDel(user._id)}
-                      >
-                        حذف
-                      </button>
-                    </div>
+      <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
+        <h2 className="text-3xl mt-5"> ویرایش کامنت</h2>
+        <div className=" ">
+          {users?.map((user) => (
+            <div
+              key={user._id}
+              className=" p-10 rounded-lg text-black shadow-xl shadow-orange-200 m-4 "
+            >
+              <div className="flex flex-col gap-5 text-xl">
+                <div className="flex  gap-5">
+                  <p className="">کاربر:</p>
+                  <span className='text-blue-500'>
+                    <p>{user.user_id.name}</p>
+                  </span>
+                </div>
+                <p className=" w-[100%] block "> {user.text}</p>
+              <div className='flex gap-5'>
+                <button
+                  className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px] "
+                  onClick={() => handelUserEdi(user)}
+                >
+                  ویرایش
+                </button>
+                <button
+                  className="bg-red-500 text-white p-2 rounded-lg w-[100px]"
+                  onClick={() => handelUserDel(user._id)}
+                >
+                  حذف
+                </button>
               </div>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
-     
+      </div>
     </>
   );
 }
