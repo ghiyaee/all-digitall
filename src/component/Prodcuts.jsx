@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 import { Store } from '../context/Store';
 function Prodcuts() {
   const navigate = useNavigate()
-  const{userinfo,setProduct}=useContext(Store)
+  const { state, setProduct } = useContext(Store)
+  const {userinfo}=state
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {

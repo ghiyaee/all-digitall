@@ -5,7 +5,7 @@ import { Store } from '../context/Store';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 function SignIn() {
-  const { userinfo ,setUserInFo} = useContext(Store);
+  const {state,dispatch, userinfo ,setUserInFo} = useContext(Store);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('ایمیل یا پسورد معتبر نیست');
@@ -25,7 +25,8 @@ function SignIn() {
         password,
       });
       // setUserInFo(userinfo.concat({ ...data }))
-      setUserInFo([...userinfo,{...data}])
+      // setUserInFo([...userinfo, { ...data }])
+      dispatch({type:'LOGIN',payload:{...data}})
      navigate('/') 
      
     } catch (error) {

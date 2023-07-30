@@ -8,12 +8,13 @@ import { AiOutlineDislike } from 'react-icons/ai';
 function ViewPoint({ product }) {
   const navigate = useNavigate();
   const {
-    userinfo,
+    state,
     likeComment,
     setLikeComment,
     dislikeComment,
     setDisLikeComment,
   } = useContext(Store);
+  const {userinfo}=state
   const [newComment, setNewComment] = useState('');
   const [comment, setComment] = useState();
   const [user, setUser] = useState(userinfo[0]._id);

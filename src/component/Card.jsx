@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { Store } from '../context/Store';
 import { Link } from 'react-router-dom';
 function Card() {
-  const { cart, setCart, userinfo } = useContext(Store);
+  const { cart, setCart, state } = useContext(Store);
+  const {userinfo}=state
   const handelInc = (item) => {
     const newCart = [...cart];
     const index = newCart.findIndex((f) => f.id === item.id);

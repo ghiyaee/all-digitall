@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
 import {FaUserAlt} from 'react-icons/fa'
 function Header() {
-  const { cart, userinfo } = useContext(Store);
+  const { state, cart,  } = useContext(Store);
+  const { userinfo } = state
+  console.log(userinfo);
   return (
     <div className="h-24 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white  ">
       <Link to={'/'} className="text-3xl  text-red-500">

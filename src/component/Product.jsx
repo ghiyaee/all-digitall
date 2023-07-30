@@ -7,8 +7,9 @@ import { AiOutlineDislike } from 'react-icons/ai';
 import ViewPoint from './ViewPoint';
 function Product() {
   const navigation = useNavigate();
-  const { cart, setCart, like, setLike, dislike, setDisLike ,userinfo} =
+  const { cart, setCart, like, setLike, dislike, setDisLike ,state} =
     useContext(Store);
+  const {userinfo}=state
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;

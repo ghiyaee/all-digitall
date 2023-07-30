@@ -5,7 +5,8 @@ import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { Store } from '../context/Store';
 function Comments() {
-  const {userinfo}=useContext(Store)
+  const { state } = useContext(Store)
+  const {userinfo}=state
   const [comment, setComment] = useState([])
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(userinfo[0]._id);
@@ -28,7 +29,7 @@ function Comments() {
   return (
     <>
       {loading ? (
-        <p>loading...</p>
+        <p className='text-3xl '>loading...</p>
       ) : (
         <div className=" flex flex-col gap-6 font-[yekan] p-10">
           <h2 className="text-black text-center text-3xl font-bold mt-5">
@@ -60,11 +61,11 @@ function Comments() {
                 </div>
               ))}
             </div>
-          ) : (
+          ) : !loading  ?  (
             <div className="flex items-center justify-center mt-[100px] text-2xl text-red-500">
               هیچ دیدگاهی ثبت نشده است
             </div>
-          )}
+          ):''}
         </div>
       )}
     </>

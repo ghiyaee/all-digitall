@@ -12,7 +12,8 @@ import DashboardUser from './Dashboarduser';
 function Dashboard() {
   const [users, setUsers] = useState(false);
   const [comments, setComments] = useState(false);
-  const { userinfo } = useContext(Store);
+  const { state } = useContext(Store);
+  const { userinfo } = state;
   const handelUsers = () => {
     setUsers(true);
   };
@@ -65,7 +66,7 @@ function Dashboard() {
           </div>
         </div>
       ) : (
-        <DashboardUser/>
+        <DashboardUser />
       )}
     </>
   );
