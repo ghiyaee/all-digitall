@@ -1,36 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Store } from '../context/Store';
 import { Link } from 'react-router-dom';
 function Card() {
-  const { cart, setCart, state } = useContext(Store);
-  const {userinfo}=state
+  const {  setCart, state ,dispatch} = useContext(Store);
+  const { userinfo, cart } = state;
+  const [conter,setConter]=useState(cart.cartItem)
   const handelInc = (item) => {
-    const newCart = [...cart];
-    const index = newCart.findIndex((f) => f.id === item.id);
-    if (newCart[index].countInStock > newCart[index].conter)
-      newCart[index].conter += 1;
-    setCart([...newCart]);
+    if (item.countInStock > item.conter) {
+      dispatch({ type: 'ADD_ITEM_CONTER' ,payload: {...item,conter}});
+    } else {
+      return
+    }
   };
   const handelDec = (item) => {
-    const exits = cart.indexOf(item);
-    const newItem = cart;
-    if (newItem[exits].conter > 0) {
-      newItem[exits].conter -= 1;
-      setCart([...newItem]);
+    if (item.conter > 1 ) {
+      dispatch({ type: 'DEC_ITEM_CONTER', payload: { ...item, conter } });
     } else {
-      return;
+      return 
     }
   };
   const handelDele = (item) => {
-    const NewItem = cart.filter((f) => f._id !== item._id);
-    setCart([...NewItem]);
+    dispatch({ type: 'DELE_ITEM',payload:{...item} });
   };
+  console.log(cart)
   return (
     <>
-      {cart.length > 0 ? (
+      {cart.cartItem.length > 0 ? (
         <div className="flex gap-[100px] items-center justify-center font-[yekan] ">
           <div className="flex flex-col gap-10 ">
-            {cart.map((item) => (
+            {cart.cartItem.map((item) => (
               <div
                 key={item.name}
                 className="flex items-center gap-10 border p-8 h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
@@ -53,7 +51,7 @@ function Card() {
                     <span className="text-black"> {item.conter}</span>
                     <span
                       className="border bg-yellow-50   cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
-                      onClick={() => handelInc(item)}
+                      onClick={() => handelInc( item)}
                     >
                       +
                     </span>
@@ -71,17 +69,17 @@ function Card() {
           <div className=" border p-8 h-3/4 font-[yekan] text-2xl flex flex-col gap-8 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
             <h2>فاکتور خرید</h2>
             <div className="flex flex-col gap-5">
-              <p>تعداد :{cart.reduce((a, c) => a + c.conter, 0)} </p>
+              <p>تعداد :{cart.cartItem.reduce((a, c) => a + c.conter, 0)} </p>
               <p>
-                جمع اقلام:{cart.reduce((a, c) => a + c.conter * c.price, 0)}
+                جمع اقلام:{cart.cartItem.reduce((a, c) => a + c.conter * c.price, 0)}
               </p>
               <p>
                 %9 مالیات ارزش برافزوده به تومان :
-                {cart.reduce((a, c) => a + (c.conter * c.price * 9) / 100, 0)}
+                {cart.cartItem.reduce((a, c) => a + (c.conter * c.price * 9) / 100, 0)}
               </p>
               <p>
                 جمع کالا با احتساب مالیات بر ارزش افزوده به تومان :
-                {cart.reduce(
+                {cart.cartItem.reduce(
                   (a, c) =>
                     a + c.conter * c.price + (c.conter * c.price * 9) / 100,
                   0
@@ -110,7 +108,7 @@ function Card() {
           </div>
         </div>
       ) : (
-        <div className="flex  justify-center   text-5xl text-red-500 ">
+        <div className="flex  justify-center p-10  text-5xl text-red-500 shadow-xl shadow-orange-200 ">
           سبد خرید شما خالی است .
           <Link to={'/'} className="text-blue-500">
             برگشت

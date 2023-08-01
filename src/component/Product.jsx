@@ -7,9 +7,9 @@ import { AiOutlineDislike } from 'react-icons/ai';
 import ViewPoint from './ViewPoint';
 function Product() {
   const navigation = useNavigate();
-  const { cart, setCart, like, setLike, dislike, setDisLike ,state} =
+  const { dispatch, setCart, like, setLike, dislike, setDisLike, state } =
     useContext(Store);
-  const {userinfo}=state
+  const { userinfo ,cart} = state;
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;
@@ -31,14 +31,9 @@ function Product() {
   };
 
   const handelAddItem = (item) => {
-    const exits = cart.find((f) => f._id === item._id);
-    if (!exits) {
-      // setCart(cart.concat({ ...product, conter: 1 }));
-      setCart([...cart, { ...product, conter: 1 }]);
-      navigation('/Card');
-    } else {
-      return;
-    }
+   
+    dispatch({ type: 'ADD_ITEM', payload: {...item ,conter:1}});
+    navigation('/Card');
   };
   useEffect(() => {
     const fetchData = async () => {
@@ -64,13 +59,13 @@ function Product() {
                 <p>توضیحات : {product.description}</p>
                 <p>
                   وضعیت :
-                  {product.countInStock > cart.length ? 'موجود' : 'ناموجود'}
+                  {product.countInStock > cart.cartItem.length ? 'موجود' : 'ناموجود'}
                 </p>
                 <button
                   onClick={() => handelAddItem(product)}
                   className={`bg-blue-500 p-4 text-white rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
-          ${product.countInStock > cart.length ? 'block' : 'hidden'}
-          `}
+                     ${product.countInStock > cart.cartItem.length ? 'block' : 'hidden'}
+                    `}
                 >
                   خرید
                 </button>
@@ -103,3 +98,12 @@ function Product() {
 }
 
 export default Product;
+
+ // setCart(cart.concat({ ...product, conter: 1 }));
+    // const exits = cart.find((f) => f._id === item._id);
+    // if (!exits) {
+    //   setCart([...cart, { ...product, conter: 1 }]);
+    //   navigation('/Card');
+    // } else {
+    //   return;
+    // }

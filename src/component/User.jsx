@@ -7,8 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 function User() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
-  const { userinfo } = useContext(Store);
-  const [user, setUser] = useState(userinfo[0]._id);
+  const { state } = useContext(Store);
+  const [user, setUser] = useState(state.userinfo[0]._id);
   const handelUserDel = async (user) => {
     const fetchUser = await axios.post('/api/user/del', { user });
     setUsers([...users, ...fetchUser]);
