@@ -21,21 +21,25 @@ const reducer = (state, action) => {
       };
     case 'DELE_ITEM':
       const itemDel = action.payload;
-      const itemDelete = state.cart.cartItem.filter(f => f._id !== itemDel._id)
-      return { ...state, cart: { ...state.cart, cartItem: itemDelete } }
-    
+      const itemDelete = state.cart.cartItem.filter(
+        (f) => f._id !== itemDel._id
+      );
+      return { ...state, cart: { ...state.cart, cartItem: itemDelete } };
+
     case 'DEC_ITEM_CONTER':
       const itemsConter = action.payload;
-      const conters = state.cart.cartItem.find(f => f._id === itemsConter._id);
-           conters.conter -= 1
-      return { ...state, cart: { ...state.cart, conters } }
-    
+      const conters = state.cart.cartItem.find(
+        (f) => f._id === itemsConter._id
+      );
+      conters.conter -= 1;
+      return { ...state, cart: { ...state.cart, conters } };
+
     case 'ADD_ITEM_CONTER':
       const itemConter = action.payload;
       const conter = state.cart.cartItem.find((c) => c._id === itemConter._id);
       conter.conter += 1;
       return { ...state, cart: { ...state.cart, conter } };
-    
+
     case 'LOGIN':
       return {
         ...state,

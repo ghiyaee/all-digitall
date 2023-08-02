@@ -9,6 +9,16 @@ function Prodcuts() {
   const { state, setProduct } = useContext(Store)
   const {userinfo}=state
   const [products, setProducts] = useState([]);
+
+  const [currentpage, setCurrentPage] = useState(1)
+  const recordspPage = 2;
+  const lastIndex = currentpage * recordspPage;
+  const fristIndex = lastIndex - recordspPage;
+  const records = products.slice(fristIndex, lastIndex);
+  const npage = Math.ceil(products.length / recordspPage);
+  const numbers = [...Array(npage + 1).keys()].slice(1)
+  console.log(npage);
+  console.log(currentpage);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,7 +34,7 @@ function Prodcuts() {
     <>
       {userinfo.length > 0 ? (
         <div className="text-white flex flex-wrap gap-8 justify-center font-[yekan]">
-          {products?.map((product) => (
+          {records?.map((product) => (
             <div
               className=" p-6 rounded-lg w-96 text-black
              flex flex-col gap-4 justify-between items-center relative  shadow-xl rounded-lg
@@ -55,6 +65,22 @@ function Prodcuts() {
       ) : (
         navigate('/SignIn')
       )}
+      <div className="flex justify-center mt-10">
+        <ul className="flex gap-4 text-2xl font-bold font-[yekan]">
+          {numbers
+            .map((n, i) => (
+              <li
+              className={`${
+                currentpage === n ? 'pageActive' : 'pageDeActive'
+              } w-10 h-10 flex justify-center items-center rounded-full  cursor-pointer  `}
+              onClick={() => setCurrentPage(n)}
+              >
+                {n}
+              </li>
+            ))
+            .reverse()}
+        </ul>
+      </div>
     </>
   );
 }

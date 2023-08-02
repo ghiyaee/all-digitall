@@ -52,3 +52,9 @@ text-7xl font-bold cursor-pointer
            hover:text-white hover:border duration-700 w-24 h-24 flex 
            items-center text-center rounded-full
 }
+.pageActive{
+@apply bg-red-500 text-yellow-100
+}
+.pageDeActive{
+@apply bg-red-300 text-yellow-100
+}
