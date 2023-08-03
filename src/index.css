@@ -53,8 +53,8 @@ text-7xl font-bold cursor-pointer
            items-center text-center rounded-full
 }
 .pageActive{
-@apply bg-red-500 text-yellow-100
+@apply bg-red-500 text-yellow-100 duration-500 scale-125
 }
 .pageDeActive{
-@apply bg-red-300 text-yellow-100
+@apply bg-red-300 text-yellow-100 duration-500 
 }

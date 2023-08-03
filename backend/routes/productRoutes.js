@@ -6,7 +6,7 @@ productRouter.get('/', async (req, res) => {
     const products = await Product.find();
     res.send(products)
 })
-productRouter.post('/catgory', async (req, res) => {
+productRouter.post('/category', async (req, res) => {
   const product = await Product.find({ category: req.body.state })
   res.send(product)
 })
