@@ -11,14 +11,13 @@ function Prodcuts() {
   const [products, setProducts] = useState([]);
 
   const [currentpage, setCurrentPage] = useState(1)
-  const recordspPage = 2;
+  const recordspPage = 4;
   const lastIndex = currentpage * recordspPage;
   const fristIndex = lastIndex - recordspPage;
   const records = products.slice(fristIndex, lastIndex);
   const npage = Math.ceil(products.length / recordspPage);
-  const numbers = [...Array(npage + 1).keys()].slice(1)
-  console.log(npage);
-  console.log(currentpage);
+  const numbers = [...Array(npage+1).keys()].slice(1)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,13 +35,13 @@ function Prodcuts() {
         <div className="text-white flex flex-wrap gap-8 justify-center font-[yekan]">
           {records?.map((product) => (
             <div
-              className=" p-6 rounded-lg w-96 text-black
-             flex flex-col gap-4 justify-between items-center relative  shadow-xl rounded-lg
-       shadow-orange-400"
+              className=" p-6   text-black
+               flex flex-col gap-4 justify-between items-center relative  shadow-xl rounded-lg w-[384px]
+                shadow-orange-400"
               key={product._id}
             >
               <Link to={`/product/${product.slug}`}>
-                <img alt="img" src={product.img} />
+                <img alt="img" src={product.img} className=' w-[200px] h-[200px]' />
               </Link>
 
               <div className="text-xl font-bold mt-6 flex flex-col gap-4 ">

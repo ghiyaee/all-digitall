@@ -5,17 +5,18 @@ import Main from './component/Main';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Product from './component/Product';
 import Products from './component/Prodcuts';
-import Card from './component/Card'
+import Card from './component/Card';
 import SignIn from './component/SignIn';
 import SignUp from './component/SignUp';
-import CheckOut from './component/CheckOut'; 
-import Users from './component/Users'
-import Dashboard from './component/Dashboard'
+import CheckOut from './component/CheckOut';
+import Users from './component/Users';
+import Dashboard from './component/Dashboard';
 import ProductEdit from './component/ProductEdit';
 import Comments from './component/Comments';
 import DashboardUser from './component/Dashboarduser';
-  import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import SearchProduct from './component/SearchProduct';
 function App() {
   return (
     <div className="flex flex-col justify-between min-h-screen ">
@@ -40,6 +41,7 @@ function App() {
           <Route path="/DashboardUser" element={<DashboardUser />} />
           <Route path="/ProductEdit" element={<ProductEdit />} />
           <Route path="/Comments" element={<Comments />} />
+          <Route path="/SearchProduct" element={<SearchProduct />} />
         </Routes>
         <Footer />
       </BrowserRouter>

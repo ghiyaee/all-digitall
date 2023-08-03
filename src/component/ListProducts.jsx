@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 function ListProducts() {
   const [products, setProducts] = useState([]);
   const [counter, setCounter] = useState(0);
+  const [currentPage,setCurrentPage]=useState(1)
   const [move, setMove] = useState({
     move: `transform -translate-x-[26rem]`,
   });
@@ -27,6 +28,10 @@ function ListProducts() {
       setCounter(prve=> prve +1)
     }
   };
+  const recordPage = 8;
+  const lastIndex = currentPage * recordPage;
+  const fristIndex = lastIndex - recordPage;
+  const records = products.slice(fristIndex, lastIndex);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -40,7 +45,7 @@ function ListProducts() {
   }, []);
   return (
     <div className="style_slider ">
-      {products.map((product) => (
+      {records.map((product) => (
         <div
           key={product._id}
           className={`h-64 w-96 flex justify-center  items-center  rounded-lg 
