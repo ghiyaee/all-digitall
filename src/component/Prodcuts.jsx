@@ -11,7 +11,7 @@ function Prodcuts() {
   const [products, setProducts] = useState([]);
 
   const [currentpage, setCurrentPage] = useState(1)
-  const recordspPage = 4;
+  const recordspPage = 8;
   const lastIndex = currentpage * recordspPage;
   const fristIndex = lastIndex - recordspPage;
   const records = products.slice(fristIndex, lastIndex);

@@ -21,17 +21,17 @@ function SearchItem() {
   
   console.log(products)
   return (
-    <div className='flex justify-center'>
+    <div className='container m-auto flex justify-center'>
       {products.msg ? (
         <p className="flex justify-center p-10 shadow-xl text-2xl font-[yekan] rounded-lg w-[384px]
                 shadow-orange-400">
           {products.msg}
         </p>
       ) : (
-        <div className="flex justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-8  ">
           {products?.map((product) => (
             <div
-              className=" p-6   text-black
+              className=" p-6 text-black
                flex flex-col gap- justify-between 
                items-center relative  shadow-xl rounded-lg w-[384px]
                 shadow-orange-400"
@@ -52,7 +52,7 @@ function SearchItem() {
                 </p>
                 <Link to={`/product/${product.slug}`}>
                   <button
-                    className="text-white bg-blue-500 p-2 hover:bg-blue-500 
+                    className="text-black bg-blue-300 border rounded-lg p-2 hover:bg-blue-500 
                  hover:text-white hover:rounded-3xl duration-500 w-full "
                   >
                     مشاهده

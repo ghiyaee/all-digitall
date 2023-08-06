@@ -17,10 +17,10 @@ function SearchBar() {
           <div className="relative">
             <input
               type="text"
-              className="border py-2 px-12 rounded-lg  outline-none text-2xl"
+              className="border py-2 px-12 rounded-lg  outline-none text-2xl shadow-xl shadow-orange-300"
               onChange={(e) => setProduct(e.target.value.toLowerCase())}
               value={product}
-              placeholder="جستجو"
+              placeholder=" جستجوکنید"
             />
             <button
               onClick={handelSearch}
