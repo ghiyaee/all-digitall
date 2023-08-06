@@ -17,6 +17,7 @@ import DashboardUser from './component/Dashboarduser';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchProduct from './component/SearchProduct';
+import SearchItem from './component/SearchItem';
 function App() {
   return (
     <div className="flex flex-col justify-between min-h-screen ">
@@ -42,6 +43,7 @@ function App() {
           <Route path="/ProductEdit" element={<ProductEdit />} />
           <Route path="/Comments" element={<Comments />} />
           <Route path="/SearchProduct" element={<SearchProduct />} />
+          <Route path="/SearchItem" element={<SearchItem />} />
         </Routes>
         <Footer />
       </BrowserRouter>

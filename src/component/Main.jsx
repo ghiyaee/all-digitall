@@ -6,10 +6,10 @@ import SpecialOffers from './SpecialOffers';
 function Main() {
   return (
     <div className="  flex flex-col  gap-28 container m-auto ">
-      <Slider/>
+      <Slider />
       <ListProducts />
       <Categories />
-      <SpecialOffers/>
+      <SpecialOffers />
     </div>
   );
 }

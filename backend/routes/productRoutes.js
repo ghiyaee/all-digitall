@@ -34,9 +34,20 @@ productRouter.post('/del', async (req, res) => {
 })
 
 productRouter.get('/slug/:slug', async (req, res) => {
-  console.log(req.body);
+
   const product = await Product.findOne({slug:req.params.slug});
   res.send(product);
 });
 
+productRouter.post('/searchProduct', async (req, res) => {
+  const product = await Product.find({ brand: req.body.state });
+  // if (product) {
+  //  return res.send(product);
+  // } else {
+  //  return res.status(401).send({ msg: 'محصولی یافت نشد' });
+  // }
+  product.length > 0
+    ? res.send(product)
+    : res.send({ msg: 'محصولی یافت نشد' });
+})
 export default productRouter;
