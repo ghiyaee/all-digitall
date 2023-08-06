@@ -13,45 +13,47 @@ function Header() {
       <Link to={'/'} className="text-3xl  text-red-500">
         دیجیتال مارکت
       </Link>
-      <SearchBar />
-      <div className="flex  text-zinc-800 border p-3 rounded-lg text-2xl ">
-        <ul className="flex gap-5">
-          <Link to={'/Card'}>
-            <li>سبدخرید</li>
-          </Link>
-          {cart.cartItem.length > 0 ? (
-            <span className="bg-blue-500 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center">
-              {cart.cartItem.reduce((a, c) => a + c.conter, 0)}
-            </span>
-          ) : (
-            ''
-          )}
-          {userinfo.length > 0 ? (
-            <li className="flex gap-3">
-              <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
-              {userinfo[0].isAdmin ? (
-                <Link to={'/Dashboard'} className="text-blue-600">
-                  {userinfo[0].name}
-                </Link>
-              ) : (
-                <Link to={'/DashboardUser'} className="text-blue-600">
-                  {userinfo[0].name}
-                </Link>
-              )}
-              <Link
-                to={'/'}
-                className="text-red-500"
-                onClick={() => userinfo('')}
-              >
-                خروج
-              </Link>
-            </li>
-          ) : (
-            <Link to={'/SignIn'}>
-              <li>حساب کاربری</li>
+      <div className="flex gap-3 ">
+        <SearchBar />
+        <div className="flex  text-zinc-800 border p-3 rounded-lg text-2xl shadow-lg shadow-orange-200">
+          <ul className="flex gap-5 ">
+            <Link to={'/Card'}>
+              <li>سبدخرید</li>
             </Link>
-          )}
-        </ul>
+            {cart.cartItem.length > 0 ? (
+              <span className="bg-blue-500 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center">
+                {cart.cartItem.reduce((a, c) => a + c.conter, 0)}
+              </span>
+            ) : (
+              ''
+            )}
+            {userinfo.length > 0 ? (
+              <li className="flex gap-3">
+                <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
+                {userinfo[0].isAdmin ? (
+                  <Link to={'/Dashboard'} className="text-blue-600">
+                    {userinfo[0].name}
+                  </Link>
+                ) : (
+                  <Link to={'/DashboardUser'} className="text-blue-600">
+                    {userinfo[0].name}
+                  </Link>
+                )}
+                <Link
+                  to={'/'}
+                  className="text-red-500"
+                  onClick={() => userinfo('')}
+                >
+                  خروج
+                </Link>
+              </li>
+            ) : (
+              <Link to={'/SignIn'}>
+                <li>حساب کاربری</li>
+              </Link>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );

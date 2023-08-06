@@ -4,12 +4,13 @@ import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Store } from '../context/Store';
+import { CgScrollV } from 'react-icons/cg';
 function Prodcuts() {
   const navigate = useNavigate()
   const { state, setProduct } = useContext(Store)
   const {userinfo}=state
   const [products, setProducts] = useState([]);
-
+ const [scroll, setScroll] = useState(false);
   const [currentpage, setCurrentPage] = useState(1)
   const recordspPage = 8;
   const lastIndex = currentpage * recordspPage;
@@ -29,8 +30,29 @@ function Prodcuts() {
     };
     fetchData();
   }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    });
+  }, []);
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
+      {scroll && (
+        <CgScrollV
+          onClick={scrollUp}
+          className=" fixed bottom-10 text-red-500 right-10 text-5xl"
+        />
+      )}
       {userinfo.length > 0 ? (
         <div className="text-white flex flex-wrap gap-8 justify-center font-[yekan]">
           {records?.map((product) => (
@@ -41,7 +63,11 @@ function Prodcuts() {
               key={product._id}
             >
               <Link to={`/product/${product.slug}`}>
-                <img alt="img" src={product.img} className=' w-[200px] h-[200px]' />
+                <img
+                  alt="img"
+                  src={product.img}
+                  className=" w-[200px] h-[200px]"
+                />
               </Link>
 
               <div className="text-xl font-bold mt-6 flex flex-col gap-4 ">
@@ -69,10 +95,10 @@ function Prodcuts() {
           {numbers
             .map((n, i) => (
               <li
-              className={`${
-                currentpage === n ? 'pageActive' : 'pageDeActive'
-              } w-10 h-10 flex justify-center items-center rounded-full  cursor-pointer  `}
-              onClick={() => setCurrentPage(n)}
+                className={`${
+                  currentpage === n ? 'pageActive' : 'pageDeActive'
+                } w-10 h-10 flex justify-center items-center rounded-full  cursor-pointer  `}
+                onClick={() => setCurrentPage(n)}
               >
                 {n}
               </li>

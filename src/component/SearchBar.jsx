@@ -13,11 +13,11 @@ function SearchBar() {
   }
     return (
       <div>
-        <form className=" flex items-center gap-2">
+        <form className=" ">
           <div className="relative">
             <input
               type="text"
-              className="border py-2 px-12 rounded-lg  outline-none text-2xl shadow-xl shadow-orange-300"
+              className="border p-3 w-[400px] rounded-lg  outline-none text-2xl shadow-lg shadow-orange-200"
               onChange={(e) => setProduct(e.target.value.toLowerCase())}
               value={product}
               placeholder=" جستجوکنید"

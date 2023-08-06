@@ -5,6 +5,7 @@ import { Store } from '../context/Store';
 import { AiOutlineLike } from 'react-icons/ai';
 import { AiOutlineDislike } from 'react-icons/ai';
 import ViewPoint from './ViewPoint';
+import {CgScrollV} from 'react-icons/cg'
 function Product() {
   const navigation = useNavigate();
   const { dispatch, setCart, like, setLike, dislike, setDisLike, state } =
@@ -13,6 +14,7 @@ function Product() {
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;
+  const [scroll, setScroll] = useState(false);
   const handelLike = () => {
     if (!like) {
       setLike(like + 1);
@@ -42,9 +44,29 @@ function Product() {
     };
     fetchData();
   }, [slug]);
-
+ useEffect(() => {
+   window.addEventListener('scroll', () => {
+     if (window.scrollY > 100) {
+       setScroll(true);
+     } else {
+       setScroll(false);
+     }
+   });
+ }, []);
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   return (
     <>
+      {scroll && (
+        <CgScrollV
+          onClick={scrollUp}
+          className=" fixed bottom-10 text-red-500 right-10 text-5xl"
+        />
+      )}
       {userinfo.length > 0 ? (
         <div className="flex container m-auto gap-20 flex-col">
           <div className="flex  justify-around  ">
@@ -59,12 +81,18 @@ function Product() {
                 <p>توضیحات : {product.description}</p>
                 <p>
                   وضعیت :
-                  {product.countInStock > cart.cartItem.length ? 'موجود' : 'ناموجود'}
+                  {product.countInStock > cart.cartItem.length
+                    ? 'موجود'
+                    : 'ناموجود'}
                 </p>
                 <button
                   onClick={() => handelAddItem(product)}
                   className={`bg-blue-500 p-4 text-white rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
-                     ${product.countInStock > cart.cartItem.length ? 'block' : 'hidden'}
+                     ${
+                       product.countInStock > cart.cartItem.length
+                         ? 'block'
+                         : 'hidden'
+                     }
                     `}
                 >
                   خرید

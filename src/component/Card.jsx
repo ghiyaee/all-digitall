@@ -33,7 +33,7 @@ function Card() {
                 key={item.name}
                 className="flex items-center gap-10 border p-8 h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
               >
-                <div className="w-[150px] ">
+                <div className="w-[120px] ">
                   <img src={item.img} alt="img" />
                 </div>
                 <div className="flex gap-5 items-center justify-between w-[400px] ">
