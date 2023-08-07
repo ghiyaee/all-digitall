@@ -2,41 +2,35 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Store } from '../context/Store';
-import { AiOutlineLike } from 'react-icons/ai';
-import { AiOutlineDislike } from 'react-icons/ai';
+
 import ViewPoint from './ViewPoint';
 import {CgScrollV} from 'react-icons/cg'
+import { logDOM } from '@testing-library/react';
+import Like from './Like';
 function Product() {
   const navigation = useNavigate();
-  const { dispatch, setCart, like, setLike, dislike, setDisLike, state } =
+  const { dispatch, setCart, state } =
     useContext(Store);
   const { userinfo ,cart} = state;
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;
   const [scroll, setScroll] = useState(false);
-  const handelLike = () => {
-    if (!like) {
-      setLike(like + 1);
-    }
-    if (like) {
-      setLike(like - 1);
-    }
-  };
-  const handeDislLike = () => {
-    if (!dislike) {
-      setDisLike(dislike + 1);
-    }
-    if (dislike) {
-      setDisLike(dislike - 1);
-    }
-  };
+ 
+  // const handeDislLike = () => {
+  //   if (!dislike) {
+  //     setDisLike(dislike + 1);
+  //   }
+  //   if (dislike) {
+  //     setDisLike(dislike - 1);
+  //   }
+  // };
 
   const handelAddItem = (item) => {
-   
     dispatch({ type: 'ADD_ITEM', payload: {...item ,conter:1}});
     navigation('/Card');
   };
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(`/api/products/slug/${slug}`);
@@ -59,6 +53,7 @@ function Product() {
       behavior: 'smooth',
     });
   };
+  
   return (
     <>
       {scroll && (
@@ -97,22 +92,7 @@ function Product() {
                 >
                   خرید
                 </button>
-                <div className="flex justify-around mt-5">
-                  <div className="flex items-center gap-1 ">
-                    <span>{dislike}</span>
-                    <AiOutlineDislike
-                      className="cursor-pointer text-red-500"
-                      onClick={() => handeDislLike()}
-                    />
-                  </div>
-                  <div className="flex gap-1">
-                    <span>{like}</span>
-                    <AiOutlineLike
-                      className="cursor-pointer text-green-500"
-                      onClick={() => handelLike()}
-                    />
-                  </div>
-                </div>
+                <Like product={product}/>
               </div>
             </div>
           </div>

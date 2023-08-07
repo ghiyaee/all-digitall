@@ -28,6 +28,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 2,
@@ -41,6 +43,8 @@ const data = {
       rating: 4.0,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 3,
@@ -54,6 +58,8 @@ const data = {
       rating: 5.0,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 4,
@@ -67,6 +73,8 @@ const data = {
       rating: 3.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 5,
@@ -80,6 +88,8 @@ const data = {
       rating: 3.0,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 6,
@@ -93,6 +103,8 @@ const data = {
       rating: 5.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 7,
@@ -106,6 +118,8 @@ const data = {
       rating: 2.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 8,
@@ -119,6 +133,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 9,
@@ -132,6 +148,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 10,
@@ -145,6 +163,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 11,
@@ -158,6 +178,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 12,
@@ -171,6 +193,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 13,
@@ -184,6 +208,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 14,
@@ -197,6 +223,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 15,
@@ -210,6 +238,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 16,
@@ -223,6 +253,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 17,
@@ -236,6 +268,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 18,
@@ -249,6 +283,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -262,6 +298,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -275,6 +313,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -288,6 +328,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -301,6 +343,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -314,6 +358,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
     {
       // _id: 19,
@@ -327,6 +373,8 @@ const data = {
       rating: 4.5,
       numReviews: 5,
       description: 'hight quality',
+      like: 0,
+      disLike: 0,
     },
   ],
 };

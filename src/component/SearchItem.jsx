@@ -6,25 +6,29 @@ import { toast } from 'react-toastify';
 function SearchItem() {
   const { state } = useLocation('');
   const [products, setProducts] = useState([]);
-   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [pro, setPro] = useState();
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await axios.post('/api/products/searchProduct', { state });
         setProducts(res.data);
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (error) {
         toast.error(['ارتباط با سرور قطع شده است']);
       }
     };
     fetchData();
   }, [state]);
-  
-  console.log(products)
+
+  console.log(products);
   return (
     <>
-      {isLoading && <p className='flex justify-center items-center text-2xl font-[yekan]'>لطفا صبرکنید...</p>}
+      {isLoading && (
+        <p className="flex justify-center items-center text-2xl font-[yekan]">
+          لطفا صبرکنید...
+        </p>
+      )}
       <div className="container m-auto flex justify-center">
         {products.msg ? (
           <p
@@ -52,6 +56,7 @@ function SearchItem() {
                 </Link>
 
                 <div className="text-xl font-bold mt-6 flex flex-col gap-4 ">
+                  <p>برند :{product.brand}</p>
                   <p> قیمت : {product.price} تومان</p>
                   <p className="absolute top-0 left-0 bg-[#ffea00] p-1 rounded-tl-lg rounded-br-lg">
                     امتیاز :{product.rating}
@@ -59,7 +64,7 @@ function SearchItem() {
                   <Link to={`/product/${product.slug}`}>
                     <button
                       className="text-black bg-blue-300 border rounded-lg p-2 hover:bg-blue-500 
-                 hover:text-white hover:rounded-3xl duration-500 w-full "
+                    hover:text-white hover:rounded-3xl duration-500 w-full "
                     >
                       مشاهده
                     </button>

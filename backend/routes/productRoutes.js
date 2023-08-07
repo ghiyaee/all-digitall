@@ -10,12 +10,26 @@ productRouter.post('/category', async (req, res) => {
   const product = await Product.find({ category: req.body.state })
   res.send(product)
 })
+productRouter.post('/like', async (req, res) => {
+  const product = await Product.findOne({ _id: req.body.product._id });
+  product.like = req.body.product.like
+  await product.save();
+  const newProduct = await Product.findOne({ _id: req.body.product._id });
+  res.send(newProduct);
+})
+productRouter.post('/dislike', async (req, res) => {
+  const product = await Product.findOne({ _id: req.body.product._id });
+  product.disLike = req.body.product.disLike;
+  await product.save();
+  const newProduct = await Product.findOne({ _id: req.body.product._id });
+  res.send(newProduct);
+});
 productRouter.post('/Edit', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.id })
   product.price = req.body.price;
   product.countInStock = req.body.countInStock;
   await product.save();
-  const newProduct = await Product.find();
+  const newProduct = await Product.findOne({ _id: req.body.id });
   res.send(newProduct)
 })
 productRouter.post('/comment', async (req, res) => {
@@ -41,11 +55,6 @@ productRouter.get('/slug/:slug', async (req, res) => {
 
 productRouter.post('/searchProduct', async (req, res) => {
   const product = await Product.find({ brand: req.body.state });
-  // if (product) {
-  //  return res.send(product);
-  // } else {
-  //  return res.status(401).send({ msg: 'محصولی یافت نشد' });
-  // }
   product.length > 0
     ? res.send(product)
     : res.send({ msg: 'محصولی یافت نشد' });

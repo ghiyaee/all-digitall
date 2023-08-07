@@ -7,6 +7,7 @@ import seedRouter from "./routes/seedRoutes.js";
 import productRouter from './routes/productRoutes.js'
 import userRoutes from "./routes/userRoutes.js";
 import commentRouter from './routes/commentRoutes.js'
+import likeRouter from "./routes/likeRoutes.js"
 dotenv.config();
 mongoose
 .connect(process.env.MONGOURL)
@@ -22,6 +23,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter)
 app.use('/api/user', userRoutes);
 app.use('/api/comment', commentRouter);
+app.use('/api/like', likeRouter);
 
 app.get('/api/slider', (req, res) => {
     res.send(slider.products)   
