@@ -5,34 +5,31 @@ import { useNavigate } from 'react-router-dom';
 import Moment from 'react-moment';
 import { AiOutlineLike } from 'react-icons/ai';
 import { AiOutlineDislike } from 'react-icons/ai';
+import LikeComment from "./LikeComment"
 function ViewPoint({ product }) {
   const navigate = useNavigate();
   const {
     state,
-    likeComment,
-    setLikeComment,
-    dislikeComment,
-    setDisLikeComment,
   } = useContext(Store);
   const {userinfo}=state
   const [newComment, setNewComment] = useState('');
   const [comment, setComment] = useState();
   const [user, setUser] = useState(userinfo[0]._id);
   const handelLike = () => {
-    if (!likeComment) {
-      setLikeComment(likeComment + 1);
-    }
-    if (likeComment) {
-      setLikeComment(likeComment - 1);
-    }
+    // if (!likeComment) {
+    //   setLikeComment(likeComment + 1);
+    // }
+    // if (likeComment) {
+    //   setLikeComment(likeComment - 1);
+    // }
   };
   const handeDislLike = () => {
-    if (!dislikeComment) {
-      setDisLikeComment(dislikeComment + 1);
-    }
-    if (dislikeComment) {
-      setDisLikeComment(dislikeComment - 1);
-    }
+    // if (!dislikeComment) {
+    //   setDisLikeComment(dislikeComment + 1);
+    // }
+    // if (dislikeComment) {
+    //   setDisLikeComment(dislikeComment - 1);
+    // }
   };
   const handelViewPoint = async (e) => {
     e.preventDefault();
@@ -59,6 +56,7 @@ function ViewPoint({ product }) {
     };
     fetchComment();
   }, [product]);
+  console.log(comment);
   return (
     <div className="font-[yekan]">
       <div className="flex flex-col gap-5 ">
@@ -101,18 +99,19 @@ function ViewPoint({ product }) {
               <Moment format='HH:D YYYY/DD/MM'>
                 {new Date(comment.date)}
               </Moment>
-              <div className="flex gap-5 items-center">
-                <span>{dislikeComment}</span>
+              <LikeComment product={comment.product_id}/>
+              {/* <div className="flex gap-5 items-center">
+                <span>{comment.disLike}</span>
                 <AiOutlineDislike
                   className="cursor-pointer text-red-500"
                   onClick={() => handeDislLike()}
                 />
-                <span>{likeComment}</span>
+                <span>{comment.like}</span>
                 <AiOutlineLike
                   className="cursor-pointer text-green-500"
                   onClick={() => handelLike()}
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

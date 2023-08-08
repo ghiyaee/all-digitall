@@ -13,6 +13,8 @@ const productsSchema = new mongoose.Schema(
     numReviews: { type: Number, required: true },
     like: { type: Number, required: true },
     disLike: { type: Number, required: true },
+    likeComment: { type: Number, required: true },
+    disLikeComment: { type: Number, required: true },
   },
   {
     timestamps: true,

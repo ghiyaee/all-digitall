@@ -30,6 +30,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 2,
@@ -45,6 +47,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 3,
@@ -60,6 +64,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 4,
@@ -75,6 +81,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 5,
@@ -90,6 +98,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 6,
@@ -105,6 +115,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 7,
@@ -120,6 +132,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 8,
@@ -135,6 +149,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 9,
@@ -150,6 +166,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 10,
@@ -165,6 +183,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 11,
@@ -180,6 +200,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 12,
@@ -195,6 +217,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 13,
@@ -210,6 +234,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 14,
@@ -225,6 +251,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 15,
@@ -240,6 +268,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 16,
@@ -255,6 +285,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 17,
@@ -270,6 +302,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 18,
@@ -285,6 +319,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -300,6 +336,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -315,6 +353,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -330,6 +370,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -345,6 +387,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -360,6 +404,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
     {
       // _id: 19,
@@ -375,6 +421,8 @@ const data = {
       description: 'hight quality',
       like: 0,
       disLike: 0,
+      likeComment: 0,
+      disLikeComment: 0,
     },
   ],
 };

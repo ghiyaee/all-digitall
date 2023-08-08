@@ -6,6 +6,7 @@ commentRouter.get('/allComments', async (req, res) => {
   res.send(comments);
 });
 commentRouter.post('/search', async (req, res) => {
+  console.log(req.body);
   const com = await Comment.find({ product_id: req.body.product._id }).populate(
     ['user_id', 'product_id']
   );
