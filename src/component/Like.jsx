@@ -25,7 +25,7 @@ function Like({ product }) {
           onClick={() => handelDisLike(product)}
         />
       </div>
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         <span>{product.like}</span>
         <AiOutlineLike
           className="cursor-pointer text-green-500"

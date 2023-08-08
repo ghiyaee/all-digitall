@@ -18,7 +18,8 @@ function LikeComment({ product }) {
     setDisLike(fetchData.data.disLikeComment);
   };
   return (
-    <div className="flex justify-around mt-5 gap-5">
+    <div className="flex justify-around items-center  gap-5">
+      <p>نظردیگران در مورد دیدگاه شما</p>
       <div className="flex items-center gap-1 ">
         <span>{product.likeComment}</span>
         <AiOutlineDislike
@@ -26,7 +27,7 @@ function LikeComment({ product }) {
           onClick={() => handelLike(product)}
         />
       </div>
-      <div className="flex gap-1">
+      <div className="flex items-center gap-1">
         <span>{product.disLikeComment}</span>
         <AiOutlineLike
           className="cursor-pointer text-green-500"

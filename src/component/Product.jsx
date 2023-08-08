@@ -16,15 +16,6 @@ function Product() {
   const params = useParams();
   const { slug } = params;
   const [scroll, setScroll] = useState(false);
- 
-  // const handeDislLike = () => {
-  //   if (!dislike) {
-  //     setDisLike(dislike + 1);
-  //   }
-  //   if (dislike) {
-  //     setDisLike(dislike - 1);
-  //   }
-  // };
 
   const handelAddItem = (item) => {
     dispatch({ type: 'ADD_ITEM', payload: {...item ,conter:1}});
