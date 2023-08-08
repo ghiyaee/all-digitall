@@ -2,31 +2,31 @@ import React, { useContext, useState } from 'react';
 import { Store } from '../context/Store';
 import { Link } from 'react-router-dom';
 function Card() {
-  const {  setCart, state ,dispatch} = useContext(Store);
+  const { setCart, state, dispatch } = useContext(Store);
   const { userinfo, cart } = state;
-  const [conter,setConter]=useState(cart.cartItem)
+  const [conter, setConter] = useState(cart.cartItem);
   const handelInc = (item) => {
     if (item.countInStock > item.conter) {
-      dispatch({ type: 'ADD_ITEM_CONTER' ,payload: {...item,conter}});
+      dispatch({ type: 'ADD_ITEM_CONTER', payload: { ...item, conter } });
     } else {
-      return
+      return;
     }
   };
   const handelDec = (item) => {
-    if (item.conter > 1 ) {
+    if (item.conter > 1) {
       dispatch({ type: 'DEC_ITEM_CONTER', payload: { ...item, conter } });
     } else {
-      return 
+      return;
     }
   };
   const handelDele = (item) => {
-    dispatch({ type: 'DELE_ITEM',payload:{...item} });
+    dispatch({ type: 'DELE_ITEM', payload: { ...item } });
   };
-  console.log(cart)
+  console.log(cart);
   return (
-    <>
+    <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
-        <div className="flex gap-[100px] items-center justify-center font-[yekan] ">
+        <div className="flex gap-[100px] items-center justify-center  ">
           <div className="flex flex-col gap-10 ">
             {cart.cartItem.map((item) => (
               <div
@@ -51,7 +51,7 @@ function Card() {
                     <span className="text-black"> {item.conter}</span>
                     <span
                       className="border bg-yellow-50   cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
-                      onClick={() => handelInc( item)}
+                      onClick={() => handelInc(item)}
                     >
                       +
                     </span>
@@ -66,16 +66,20 @@ function Card() {
               </div>
             ))}
           </div>
-          <div className=" border p-8 h-3/4 font-[yekan] text-2xl flex flex-col gap-8 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
+          <div className=" border p-8 h-4/4 font-[yekan] text-2xl flex flex-col gap-8 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
             <h2>فاکتور خرید</h2>
             <div className="flex flex-col gap-5">
               <p>تعداد :{cart.cartItem.reduce((a, c) => a + c.conter, 0)} </p>
               <p>
-                جمع اقلام:{cart.cartItem.reduce((a, c) => a + c.conter * c.price, 0)}
+                جمع اقلام:
+                {cart.cartItem.reduce((a, c) => a + c.conter * c.price, 0)}
               </p>
               <p>
                 %9 مالیات ارزش برافزوده به تومان :
-                {cart.cartItem.reduce((a, c) => a + (c.conter * c.price * 9) / 100, 0)}
+                {cart.cartItem.reduce(
+                  (a, c) => a + (c.conter * c.price * 9) / 100,
+                  0
+                )}
               </p>
               <p>
                 جمع کالا با احتساب مالیات بر ارزش افزوده به تومان :
@@ -85,37 +89,26 @@ function Card() {
                   0
                 )}
               </p>
-              {userinfo.length > 0 ? (
-                <Link to={'/CheckOut'}>
-                  <button
-                    className="bg-blue-500 p-4 text-white w-full
+              <Link to={'/CheckOut'}>
+                <button
+                  className="bg-blue-500 p-4 text-white w-full
                   hover:scale-105 hover:rounded-3xl duration-500 "
-                  >
-                    تایید نهایی
-                  </button>
-                </Link>
-              ) : (
-                <Link to={'/SignIn'}>
-                  <button
-                    className="bg-blue-500 p-4 text-white w-full
-                  hover:scale-105 hover:rounded-3xl duration-500 "
-                  >
-                    تایید نهایی
-                  </button>
-                </Link>
-              )}
+                >
+                  تایید نهایی
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       ) : (
-        <div className="flex  justify-center p-10  text-5xl text-red-500 shadow-xl shadow-orange-200 ">
+        <div className="flex  justify-center p-10 w-[450px] text-2xl text-red-500 shadow-lg shadow-orange-200 ">
           سبد خرید شما خالی است .
           <Link to={'/'} className="text-blue-500">
             برگشت
           </Link>
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default Card;

@@ -14,7 +14,6 @@ function SearchProduct() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.post('/api/products/category',{state});
-      console.log(res.data);
       setProduct(res.data);
     }
   fetchData()

@@ -24,7 +24,6 @@ productRouter.post('/dislike', async (req, res) => {
   const newProduct = await Product.findOne({ _id: req.body.product._id });
   res.send(newProduct);
 });
-
 productRouter.post('/likeComment', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.product._id });
   product.likeComment = req.body.product.likeComment;
@@ -39,9 +38,6 @@ productRouter.post('/dislikeComment', async (req, res) => {
   const newProduct = await Product.findOne({ _id: req.body.product._id });
   res.send(newProduct);
 });
-
-
-
 productRouter.post('/Edit', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.id })
   product.price = req.body.price;

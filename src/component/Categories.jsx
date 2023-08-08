@@ -11,7 +11,6 @@ const link = [
 function Categories() {
   const navigate=useNavigate()
   const handelCatgory = (name) => {
-    console.log(name);
     navigate('/searchProduct',{state:name})
   };
   return (

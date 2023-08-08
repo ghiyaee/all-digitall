@@ -58,3 +58,6 @@ text-7xl font-bold cursor-pointer
 .pageDeActive{
 @apply bg-red-300 text-yellow-100 duration-500 
 }
+.style_navbar{
+@apply cursor-pointer hover:scale-125 duration-700
+}

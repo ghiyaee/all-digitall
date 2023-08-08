@@ -5,6 +5,7 @@ import Categories from './Categories';
 import SpecialOffers from './SpecialOffers';
 import { CgScrollV } from 'react-icons/cg';
 import { useState ,useEffect} from 'react';
+import Navbar from './Navbar';
 function Main() {
   const [scroll, setScroll] = useState(false);
   const scrollUp = () => {
@@ -31,6 +32,7 @@ function Main() {
         />
       )}
       <div className="  flex flex-col  gap-28 container m-auto ">
+        <Navbar/>
         <Slider />
         <ListProducts />
         <Categories />
