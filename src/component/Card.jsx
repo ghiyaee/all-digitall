@@ -101,9 +101,13 @@ function Card() {
           </div>
         </div>
       ) : (
-        <div className="flex  justify-center p-10 w-[450px] text-2xl text-red-500 shadow-lg shadow-orange-200 ">
+        <div
+          className="flex  justify-center p-10 w-[450px] text-2xl
+         text-yellow-50 bg-gradient-to-b from-zinc-800 to-zinc-600
+           shadow-lg shadow-orange-200 rounded-lg "
+        >
           سبد خرید شما خالی است .
-          <Link to={'/'} className="text-blue-500">
+          <Link to={'/'} className="text-yellow-400">
             برگشت
           </Link>
         </div>

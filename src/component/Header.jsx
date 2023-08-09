@@ -9,13 +9,13 @@ function Header() {
   const { state } = useContext(Store);
   const { userinfo, cart } = state;
   return (
-    <div className="h-24 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-white  ">
-      <Link to={'/'} className="text-3xl  text-red-500">
+    <div className=" h-24 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
+      <Link to={'/'} className="text-3xl  text-yellow-300">
         دیجیتال مارکت
       </Link>
-      <div className="flex gap-3 ">
+      <div className="flex gap-3  ">
         <SearchBar />
-        <div className="flex  text-zinc-800 border p-3 rounded-lg text-2xl shadow-lg shadow-orange-200">
+        <div className="flex bg-yellow-50 text-zinc-800  p-3 rounded-lg text-2xl shadow-md shadow-orange-200">
           <ul className="flex gap-5 ">
             <Link to={'/Card'}>
               <li>سبدخرید</li>
@@ -28,7 +28,7 @@ function Header() {
               ''
             )}
             {userinfo.length > 0 ? (
-              <li className="flex gap-3">
+              <li className="flex gap-3 ">
                 <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
                 {userinfo[0].isAdmin ? (
                   <Link to={'/Dashboard'} className="text-blue-600">

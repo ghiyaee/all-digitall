@@ -45,9 +45,9 @@ function SignIn() {
     <div className="contianer m-auto ">
       <form
         className="flex flex-col gap-8 items-center shadow-2xl rounded-lg
-       shadow-orange-400 p-10 text-2xl font-[yekan] "
+          bg-gradient-to-b from-zinc-800 to-zinc-600   shadow-orange-400 p-10 text-2xl font-[yekan] "
       >
-        <h2>فرم ورود</h2>
+        <h2 className="text-yellow-50">فرم ورود</h2>
         <input
           value={email}
           type="email"
@@ -62,9 +62,7 @@ function SignIn() {
           required
           placeholder="رمزعبور"
           className="py-5 px-8 rounded-lg outline-none border-b relative z-50"
-          onChange={(e) =>
-            setPassword(e.target.value.toLowerCase())
-          }
+          onChange={(e) => setPassword(e.target.value.toLowerCase())}
         />
         {message ? (
           <p
@@ -75,16 +73,13 @@ function SignIn() {
         ) : (
           ''
         )}
-        <button
-          className="bg-blue-500 py-5 w-full  hover:rounded-3xl hover:text-white duration-700"
-          onClick={handelSignin}
-        >
-          ورود
-        </button>
+        <button className="style-button">ورود</button>
         <div className="flex gap-2">
-          <p>ثبت نام نکردید؟</p>
+          <p className="text-yellow-50">ثبت نام نکردید؟</p>
           <Link to={'/SignUp'}>
-            <span className="text-blue-500">اینجا کلیک کنید</span>
+            <span className="text-blue-500 text-yellow-300">
+              اینجا کلیک کنید
+            </span>
           </Link>
         </div>
       </form>

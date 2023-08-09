@@ -5,6 +5,7 @@ function SearchProduct() {
   const { state } = useLocation('');
   const [product, setProduct] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+    const [loading, setLoading] = useState(true);
   const recordPage = 4;
   const lastIndex = currentPage * recordPage; ;
   const fristIndex = lastIndex - recordPage;
@@ -15,11 +16,13 @@ function SearchProduct() {
     const fetchData = async () => {
       const res = await axios.post('/api/products/category',{state});
       setProduct(res.data);
+      setLoading(false)
     }
   fetchData()
   },[])
   return (
     <>
+      {loading && <p className="text-3xl flex justify-center ">لطفا صبرکنید ...</p>}
       <div className="text-white flex flex-wrap gap-8 justify-center duration-700 font-[yekan]">
         {records?.map((product) => (
           <div

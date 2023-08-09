@@ -14,32 +14,31 @@ const link = [
 ];
 function Footer() {
   return (
-    <div className="flex justify-around h-32 items-center border-t mt-5">
-      <div className="text-zinc-800 text-3xl flex gap-10">
-        {link.map((link) => (
-          <Link key={link.id} to={'/'}>
-            {link.title}
-          </Link>
-        ))}
-        &copy;2023
+    <div className="flex justify-around h-32 items-center border-t mt-5 bg-gradient-to-b from-zinc-800 to-zinc-600 ">
+      <div className="flex items-center gap-10">
+        <ul className="flex gap-[30px] text-2xl ">
+          {link.map((product) => (
+            <li className="style_navbar  font-[yekan] duration-700 ">
+              {product.title}
+            </li>
+          ))}
+        </ul>
+        <p className='text-yellow-100 text-2xl'>&copy;1402</p>
       </div>
       <div className="flex gap-6 w-10">
         <img
           src={'/img/face.png'}
           alt={'facebook'}
-       
           className="cursor-pointer opacity-75"
         />
         <img
           src={'/img/insta.svg'}
           alt={'facebook'}
-      
           className="cursor-pointer opacity-75"
         />
         <img
           src={'/img/Tele.webp'}
           alt={'facebook'}
-        
           className="cursor-pointer opacity-75"
         />
         <img

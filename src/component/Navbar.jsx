@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 const link = [
-  { name: 'MOBILE', catgory: 'mobile' },
-  { name: 'FLASH', catgory: 'flash' },
-  { name: 'LABTAB', catgory: 'labtab' },
-  { name: 'AIRPAD', catgory: 'headbi' },
-  { name: 'HEADPHONE', catgory: 'headba' },
+  { name: 'موبایل', catgory: 'mobile' },
+  { name: 'فلش مموری', catgory: 'flash' },
+  { name: 'لب تاب', catgory: 'labtab' },
+  { name: 'هدفون بیسم', catgory: 'headbi' },
+  { name: 'هدفون باسیم', catgory: 'headba' },
 ];
 
 function Navbar() {
@@ -15,13 +15,13 @@ function Navbar() {
   };
   return (
     <div
-      className="h-[100px] border flex items-center justify-center
-     rounded-full bg-gradient-to-b from-green-700 to-yellow-200"
+      className="h-[100px]  flex items-center justify-center
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600"
     >
-      <ul className="flex gap-[180px] text-2xl text-red-500 font-bold  ">
+      <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
           <button onClick={() => handelProduct(product.catgory)}>
-            <li className="style_navbar animate-ping duration-700 ">
+            <li className="style_navbar  font-[yekan] duration-700 ">
               {product.name}
             </li>
           </button>

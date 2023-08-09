@@ -50,10 +50,14 @@ function SignUp() {
   return (
     <div className="contianer m-auto ">
       <form
-        className="flex flex-col gap-8 items-center shadow-2xl rounded-lg
+        className="flex flex-col gap-8 items-center shadow-2xl rounded-lg  bg-gradient-to-b from-zinc-800 to-zinc-600 
        shadow-orange-400 p-10 text-2xl font-[yekan] w-[600px]"
       >
-        {state ? <h2>فرم ویرایش کاربران</h2> : <h2>فرم ثبت نام</h2>}
+        {state ? (
+          <h2 className="text-yellow-100">فرم ویرایش کاربران</h2>
+        ) : (
+          <h2 className="text-yellow-100">فرم ثبت نام</h2>
+        )}
 
         <input
           value={name}
@@ -91,10 +95,7 @@ function SignUp() {
             <Link to={'/Dashboard'}>ویرایش</Link>
           </button>
         ) : (
-          <button
-            onClick={handelSignUp}
-            className="bg-blue-500 py-5 w-full hover:rounded-3xl duration-500 hover:text-white"
-          >
+          <button onClick={handelSignUp} className="style-button">
             <Link to={'/SignIn'}>تاییدو ادامه</Link>
           </button>
         )}
