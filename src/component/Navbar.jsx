@@ -15,8 +15,8 @@ function Navbar() {
   };
   return (
     <navbar
-      className="h-[100px] relative flex items-center justify-center
-     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3   scale-105  "
+      className=" h-[100px] relative flex items-center justify-center 
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3 scale-105  "
     >
       <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
@@ -27,8 +27,8 @@ function Navbar() {
           </button>
         ))}
       </ul>
-      <div className="absolute  -left-6 w-6 h-20 border-b-4  border-l-4 border-red-600 transform -translate-y-[50%]  "></div>
-      <div className="absolute  -right-6 w-6 h-20 border-b-4 border-r-4 border-red-600 transform -translate-y-[50%] "></div>
+      <div className="absolute  -left-6 w-6 h-16 border-b-4  border-l-4 border-red-600 transform -translate-y-[50%] rounded-bl-lg "></div>
+      <div className="absolute  -right-6 w-6 h-16 border-b-4 border-r-4 border-red-600 transform -translate-y-[50%] rounded-br-lg "></div>
     </navbar>
   );
 }

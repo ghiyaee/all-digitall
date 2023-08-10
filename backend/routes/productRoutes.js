@@ -66,7 +66,6 @@ productRouter.post('/del', async (req, res) => {
 })
 
 productRouter.get('/slug/:slug', async (req, res) => {
-   console.log(req.body);
   const product = await Product.findOne({slug:req.params.slug});
   res.send(product);
 });

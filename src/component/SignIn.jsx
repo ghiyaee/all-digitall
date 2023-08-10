@@ -73,13 +73,13 @@ function SignIn() {
         ) : (
           ''
         )}
-        <button className="style-button">ورود</button>
+        <button className="style-button " onClick={(e) => handelSignin(e)}>
+          ورود
+        </button>
         <div className="flex gap-2">
           <p className="text-yellow-50">ثبت نام نکردید؟</p>
           <Link to={'/SignUp'}>
-            <span className="text-blue-500 text-yellow-300">
-              اینجا کلیک کنید
-            </span>
+            <span className=" text-yellow-300">اینجا کلیک کنید</span>
           </Link>
         </div>
       </form>

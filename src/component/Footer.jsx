@@ -18,7 +18,7 @@ function Footer() {
       <div className="flex items-center gap-10">
         <ul className="flex gap-[30px] text-2xl ">
           {link.map((product) => (
-            <li className="style_navbar  font-[yekan] duration-700 ">
+            <li className="style_navbar  font-[yekan] duration-700 " key={product.title}>
               {product.title}
             </li>
           ))}

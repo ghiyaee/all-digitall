@@ -4,6 +4,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing:border-box
 }
 body {
   direction: rtl;
@@ -61,6 +62,6 @@ text-7xl font-bold cursor-pointer
  rounded-lg text-center shadow shadow-yellow-200;
 }
 .style-button{
-@apply bg-gradient-to-b from-zinc-800 to-zinc-600 text-yellow-300 border-r-2 border-l-2
-          hover:shadow-md hover:shadow-yellow-200 hover:border-none py-5 w-full hover:scale-105 rounded-lg duration-700
+@apply bg-zinc-900 text-yellow-300 border-r-2 border-l-2
+ hover:shadow-md hover:shadow-yellow-200 hover:border-none py-5 w-full hover:scale-105 rounded-lg duration-700
 }
