@@ -14,9 +14,9 @@ function Navbar() {
     navigate('/searchProduct', { state: name });
   };
   return (
-    <div
-      className="h-[100px]  flex items-center justify-center
-     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600"
+    <navbar
+      className="h-[100px] relative flex items-center justify-center
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 "
     >
       <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
@@ -27,7 +27,9 @@ function Navbar() {
           </button>
         ))}
       </ul>
-    </div>
+      <div className="absolute  -left-6 w-6 h-14 border-b-4  border-l-4 border-red-600 transform -translate-y-[50%] shadow-md shadow-red-400"></div>
+      <div className="absolute  -right-6 w-6 h-14 border-b-4 border-r-4 border-red-600 transform -translate-y-[50%] shadow-md shadow-red-400"></div>
+    </navbar>
   );
 }
 

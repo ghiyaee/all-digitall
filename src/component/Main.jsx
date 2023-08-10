@@ -31,13 +31,13 @@ function Main() {
           className=" fixed bottom-10 right-10 text-red-500  text-5xl"
         />
       )}
-      <div className="  flex flex-col  gap-28 container m-auto ">
+      <main className="flex flex-col  gap-28 container m-auto ">
         <Navbar/>
         <Slider />
         <ListProducts />
         <Categories />
         <SpecialOffers />
-      </div>
+      </main>
     </>
   );
 }

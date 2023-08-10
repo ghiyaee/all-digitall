@@ -14,7 +14,7 @@ const link = [
 ];
 function Footer() {
   return (
-    <div className="flex justify-around h-32 items-center border-t mt-5 bg-gradient-to-b from-zinc-800 to-zinc-600 ">
+    <footer className="flex justify-around h-32 items-center border-t mt-5 bg-gradient-to-b from-zinc-800 to-zinc-600 ">
       <div className="flex items-center gap-10">
         <ul className="flex gap-[30px] text-2xl ">
           {link.map((product) => (
@@ -47,7 +47,7 @@ function Footer() {
           className="cursor-pointer opacity-75"
         />
       </div>
-    </div>
+    </footer>
   );
 }
 

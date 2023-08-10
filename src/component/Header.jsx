@@ -9,8 +9,8 @@ function Header() {
   const { state } = useContext(Store);
   const { userinfo, cart } = state;
   return (
-    <div className=" h-24 flex p-10 justify-between items-center  font-[yekan] border-b mb-5 sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
-      <Link to={'/'} className="text-3xl  text-yellow-300">
+    <header className=" h-24 flex p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
+      <Link to={'/'} className="text-3xl text-yellow-300">
         دیجیتال مارکت
       </Link>
       <div className="flex gap-3  ">
@@ -55,7 +55,8 @@ function Header() {
           </ul>
         </div>
       </div>
-    </div>
+    </header>
+
   );
 }
 

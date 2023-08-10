@@ -19,7 +19,7 @@ function SpecialOffers() {
               className="w-[300px] h-[300px] bg-gradient-to-b 
              from-green-700 to-yellow-200  flex-col
                     flex items-center justify-center text-black text-2xl
-                    font-[yekan]   rounded-xl
+                    font-[yekan] rounded-xl
                    "
             >
               <img src={link.img} alt="img" className="imgw" />
