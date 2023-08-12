@@ -27,7 +27,7 @@ function App() {
           <Header />
           <ToastContainer
             position="top-center"
-            theme="dark"
+            theme="light"
             className={'text-xl font-bold font-[yekan]'}
             limit={1}
           />

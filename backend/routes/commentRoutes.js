@@ -5,6 +5,24 @@ commentRouter.get('/allComments', async (req, res) => {
   const comments = await Comment.find().populate(['user_id', 'product_id']);
   res.send(comments);
 });
+commentRouter.post('/like', async (req, res) => {
+  const product = await Comment.findOne({ product_id: req.body.comment.product_id })
+  product.like = req.body.comment.like
+  await product.save()
+  const comment = await Comment.findOne({ product_id: req.body.comment.product_id })
+  res.send(comment)
+})
+commentRouter.post('/dislike', async (req, res) => {
+  const product = await Comment.findOne({
+    product_id: req.body.comment.product_id,
+  });
+  product.disLike = req.body.comment.disLike;
+  await product.save();
+  const comment = await Comment.findOne({
+    product_id: req.body.comment.product_id,
+  });
+  res.send(comment);
+});
 commentRouter.post('/search', async (req, res) => {
   console.log(req.body);
   const com = await Comment.find({ product_id: req.body.product._id }).populate(

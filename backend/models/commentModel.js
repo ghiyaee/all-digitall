@@ -13,6 +13,8 @@ const commentSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Product',
     },
+    like: { type: Number ,default:0},
+    disLike: { type: Number ,default:0},
   },
   { timestamps: true }
 );

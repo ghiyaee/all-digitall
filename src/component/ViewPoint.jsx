@@ -15,22 +15,7 @@ function ViewPoint({ product }) {
   const [newComment, setNewComment] = useState('');
   const [comment, setComment] = useState();
   const [user, setUser] = useState(userinfo[0]._id);
-  const handelLike = () => {
-    // if (!likeComment) {
-    //   setLikeComment(likeComment + 1);
-    // }
-    // if (likeComment) {
-    //   setLikeComment(likeComment - 1);
-    // }
-  };
-  const handeDislLike = () => {
-    // if (!dislikeComment) {
-    //   setDisLikeComment(dislikeComment + 1);
-    // }
-    // if (dislikeComment) {
-    //   setDisLikeComment(dislikeComment - 1);
-    // }
-  };
+
   const handelViewPoint = async (e) => {
     e.preventDefault();
     if (userinfo.length > 0) {
@@ -99,19 +84,7 @@ function ViewPoint({ product }) {
               <Moment format='HH:D YYYY/DD/MM'>
                 {new Date(comment.date)}
               </Moment>
-              <LikeComment product={comment.product_id}/>
-              {/* <div className="flex gap-5 items-center">
-                <span>{comment.disLike}</span>
-                <AiOutlineDislike
-                  className="cursor-pointer text-red-500"
-                  onClick={() => handeDislLike()}
-                />
-                <span>{comment.like}</span>
-                <AiOutlineLike
-                  className="cursor-pointer text-green-500"
-                  onClick={() => handelLike()}
-                />
-              </div> */}
+              <LikeComment comment={comment}/>
             </div>
           </div>
         ))}
