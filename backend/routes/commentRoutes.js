@@ -24,7 +24,6 @@ commentRouter.post('/dislike', async (req, res) => {
   res.send(comment);
 });
 commentRouter.post('/search', async (req, res) => {
-  console.log(req.body);
   const com = await Comment.find({ product_id: req.body.product._id }).populate(
     ['user_id', 'product_id']
   );

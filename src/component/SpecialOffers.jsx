@@ -8,23 +8,27 @@ const link = [
 ];
 function SpecialOffers() {
   return (
-    <div className="container m-auto flex flex-col gap-[60px] items-center">
+    <div className="container m-auto flex flex-col gap-[80px] items-center">
       <h1 className="text-zinc-800  text-3xl font-semibold">
-        پیشنهادات ویژه دیجیتال مارکت
+        پیشنهاد ویژه دیجیتال مارکت
       </h1>
-      <div className="flex gap-[60px] ">
+      <div className="flex gap-[50px] ">
         {link.map((link) => (
-          <div key={link.name}>
+          <div key={link.name} className="relative ">
             <p
-              className="w-[300px] h-[300px] bg-gradient-to-b 
-             from-green-700 to-yellow-200  flex-col
+              className="w-[250px] h-[230px] bg-gradient-to-b 
+             from-yellow-200 to-green-300  flex-col
                     flex items-center justify-center text-black text-2xl
-                    font-[yekan] rounded-xl
+                    font-[yekan] rounded-xl z-10 relative
                    "
             >
               <img src={link.img} alt="img" className="imgw" />
               {link.name}
             </p>
+            <div className="absolute -top-[38px] left-[50%]  transform -translate-x-[50%]
+             text-red-500 border-t-4 border-l-4 border-red-500 rounded-full w-24 h-24 z-0 rotate-[45deg] ">
+            
+            </div>
           </div>
         ))}
       </div>
