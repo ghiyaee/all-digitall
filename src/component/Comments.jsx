@@ -28,7 +28,11 @@ function Comments() {
     }, [comment]);
   return (
     <>
-      {loading && <p className="text-3xl ">loading...</p> }
+      {loading && (
+        <p className="flex justify-center items-center text-2xl font-[yekan] ">
+          لطفا صبر کنید...
+        </p>
+      )}
 
       <div className=" flex flex-col gap-6 font-[yekan] p-10">
         <h2 className="text-black text-center text-3xl font-bold mt-5">
@@ -60,10 +64,10 @@ function Comments() {
               </div>
             ))}
           </div>
-        ) :  (
+        ) : (
           <div className="flex items-center justify-center mt-[100px] text-2xl text-red-500">
             هیچ دیدگاهی ثبت نشده است
-          </div> 
+          </div>
         )}
       </div>
     </>

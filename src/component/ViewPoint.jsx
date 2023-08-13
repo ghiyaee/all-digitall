@@ -46,24 +46,23 @@ function ViewPoint({ product }) {
     <div className="font-[yekan]">
       <div className="flex flex-col gap-5 ">
         <p className="text-xl">
-          خوشحال میشویم نظر خود را در مورد این محصول با دیگران در باکس زیر به
-          اشتراک بگذارید
+          خوشحال میشویم نظر خود را در مورد این محصول با دیگران 
+          به اشتراک بگذارید
         </p>
         <form className="flex flex-col gap-5">
           <textarea
-            name=""
-            id=""
             cols="30"
             rows="10"
             value={newComment}
-            className="border w-[600px] rounded-lg outline-none text-xl"
+            className="border  w-[600px] rounded-lg outline-none text-xl resize-none"
             onChange={(e) => setNewComment(e.target.value)}
+            placeholder='نظرخودرااینجابنویسید'
           />
           <button
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg text-xl w-24"
+            className="bg-blue-500 text-white py-2 rounded-lg text-xl w-[110px]"
             onClick={handelViewPoint}
           >
-            ارسال
+          ارسال نظر
           </button>
         </form>
       </div>

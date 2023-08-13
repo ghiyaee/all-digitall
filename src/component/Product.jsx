@@ -54,7 +54,7 @@ function Product() {
         />
       )}
       {userinfo.length > 0 ? (
-        <div className="flex container m-auto gap-20 flex-col">
+        <div className="flex container m-auto gap-20 mt-4 flex-col">
           <div className="flex  justify-around  ">
             <div className="flex  border p-10 items-center gap-[100px] shadow-2xl shadow-orange-400 text-black rounded-lg">
               <div className="w-96 p-6 rounded-lg ">

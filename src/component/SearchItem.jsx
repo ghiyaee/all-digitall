@@ -29,7 +29,7 @@ function SearchItem() {
           لطفا صبرکنید...
         </p>
       )}
-      <div className="container m-auto flex justify-center">
+      <div className="container m-auto flex justify-center mt-4">
         {products.msg ? (
           <p
             className="flex justify-center p-10 shadow-xl text-2xl font-[yekan] rounded-lg w-[384px]

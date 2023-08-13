@@ -4,7 +4,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 body {
   direction: rtl;
@@ -35,12 +35,12 @@ body {
 .style_slider_handelRight {
   @apply text-yellow-400 
  text-7xl font-bold cursor-pointer opacity-75 
- absolute top-[50%] right-0 transform -translate-y-[50%];
+ absolute top-[48%] right-0 transform -translate-y-[50%];
 }
 .style_slider_handelLeft {
   @apply text-yellow-400
 text-7xl font-bold cursor-pointer 
- opacity-75 absolute top-[50%] left-0 transform -translate-y-[50%];
+ opacity-75 absolute top-[48%] left-0 transform -translate-y-[50%];
 }
 
 .style_conter_slider {
