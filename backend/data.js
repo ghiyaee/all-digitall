@@ -17,7 +17,6 @@ const data = {
   ],
   products: [
     {
-      // _id: 1,
       name: 'apple14',
       slug: 'apple14',
       category: 'mobile',
@@ -34,7 +33,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 2,
       name: 'apple14Pro',
       slug: 'apple14Pro',
       category: 'mobile',
@@ -51,7 +49,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 3,
       name: 'motorolaz',
       slug: 'motorolaz',
       category: 'mobile',
@@ -68,7 +65,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 4,
       name: 'motorola1',
       slug: 'motorolaz1',
       category: 'mobile',
@@ -85,7 +81,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 5,
       name: 'pixel',
       slug: 'pixel',
       category: 'mobile',
@@ -102,7 +97,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 6,
       name: 'pixelp',
       slug: 'pixelp',
       category: 'mobile',
@@ -119,7 +113,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 7,
       name: 'samsungf',
       slug: 'samsungf',
       category: 'mobile',
@@ -136,7 +129,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 8,
       name: 'samsungp',
       slug: 'samsungp',
       category: 'mobile',
@@ -153,7 +145,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 9,
       name: 'headbi1',
       slug: 'headbi1',
       category: 'headbi',
@@ -170,7 +161,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 10,
       name: 'headbi3',
       slug: 'headbi3',
       category: 'headbi',
@@ -187,7 +177,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 11,
       name: 'headbi4',
       slug: 'headbi4',
       category: 'headbi',
@@ -204,7 +193,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 12,
       name: 'headbi5',
       slug: 'headbi5',
       category: 'headbi',
@@ -221,7 +209,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 13,
       name: 'headbi6',
       slug: 'headbi6',
       category: 'headbi',
@@ -238,7 +225,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 14,
       name: 'headbi2',
       slug: 'headbi2',
       category: 'headba',
@@ -255,7 +241,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 15,
       name: 'headbi7',
       slug: 'headbi7',
       category: 'headba',
@@ -272,7 +257,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 16,
       name: 'headbi8',
       slug: 'headbi8',
       category: 'headba',
@@ -289,7 +273,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 17,
       name: 'headbi9',
       slug: 'headbi9',
       category: 'headba',
@@ -306,7 +289,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 18,
       name: 'labtab1',
       slug: 'labtab1',
       category: 'labtab',
@@ -323,7 +305,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'labtab2',
       slug: 'labtab2',
       category: 'labtab',
@@ -340,7 +321,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'labtab3',
       slug: 'labtab3',
       category: 'labtab',
@@ -357,7 +337,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'flash1',
       slug: 'flash1',
       category: 'flash',
@@ -374,7 +353,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'flash2',
       slug: 'flash2',
       category: 'flash',
@@ -391,7 +369,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'flash3',
       slug: 'flash3',
       category: 'flash',
@@ -408,7 +385,6 @@ const data = {
       disLikeComment: 0,
     },
     {
-      // _id: 19,
       name: 'flash4',
       slug: 'flash4',
       category: 'flash',

@@ -11,7 +11,8 @@ function Header() {
   return (
     <header className=" h-24 flex p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
       <Link to={'/'} className="text-3xl text-yellow-300">
-        دیجیتال مارکت
+        <p> دیجیتال مارکت</p>
+        <p className="font-[sogand] text-red-400">Digital Market</p>
       </Link>
       <div className="flex gap-3  ">
         <SearchBar />
@@ -56,7 +57,6 @@ function Header() {
         </div>
       </div>
     </header>
-
   );
 }
 

@@ -33,12 +33,12 @@ body {
  items-center p-10  overflow-hidden rounded-lg relative;
 }
 .style_slider_handelRight {
-  @apply text-zinc-400 
+  @apply text-yellow-400 
  text-7xl font-bold cursor-pointer opacity-75 
  absolute top-[50%] right-0 transform -translate-y-[50%];
 }
 .style_slider_handelLeft {
-  @apply text-zinc-500
+  @apply text-yellow-400
 text-7xl font-bold cursor-pointer 
  opacity-75 absolute top-[50%] left-0 transform -translate-y-[50%];
 }
@@ -62,12 +62,11 @@ text-7xl font-bold cursor-pointer
  rounded-lg text-center shadow shadow-yellow-200;
 }
 .style-button{
-@apply bg-zinc-900 text-yellow-300 border-r-2 border-l-2
+@apply bg-zinc-900 text-yellow-400 border-r-[3px] border-l-[3px]
  hover:shadow-md hover:shadow-yellow-200 hover:border-none py-5 w-full hover:scale-105 rounded-lg duration-700
 }
 .style_navbar_cur{
-@apply border-red-600 transform -translate-y-[50%]
-border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
+@apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
 w-6 h-16 border-b-4 absolute
 absolute
 }

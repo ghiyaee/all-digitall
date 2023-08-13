@@ -6,6 +6,15 @@ productRouter.get('/', async (req, res) => {
     const products = await Product.find();
     res.send(products)
 })
+productRouter.post('/categorys', async (req, res) => {
+  try {
+    const product = await Product.find({ category: req.body.category });
+    res.send(product);
+  } catch (error) {
+    res.status(500).send({mgs:"مشکلی در سرور ایجاد شده"})
+  }
+  
+})
 productRouter.post('/category', async (req, res) => {
   try {
     const product = await Product.find({ category: req.body.state });

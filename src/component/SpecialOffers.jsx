@@ -18,16 +18,16 @@ function SpecialOffers() {
             key={link.name}
             className="relative  hover:scale-110  duration-700 cursor-pointer"
           >
-            <p
-              className="w-[250px] h-[230px] border-2 bg-gradient-to-b 
-             from-yellow-200 to-green-300  flex-col
-                    flex items-center justify-center text-black text-2xl
-                    font-[yekan] rounded-xl z-10 relative
-                   "
+            <div
+              className="w-[250px] h-[230px] border-2 bg-gradient-to-r
+               from-yellow-200 to-zinc-500  flex-col
+                    flex items-center justify-around text-black text-2xl
+                    font-[yekan] rounded-b-2xl rounded-t-md z-10 relative"
             >
+              <p className="text-red-500 text-3xl font-[sogand] absolute -left-[53px] -rotate-90">Digital Market</p>
               <img src={link.img} alt="img" className="imgw" />
               {link.name}
-            </p>
+            </div>
             <div
               className="absolute -top-[38px] left-[50%]  transform -translate-x-[50%]
              text-red-500 border-t-4 border-l-4 border-red-500 rounded-full w-24 h-24 z-0 rotate-[45deg] "

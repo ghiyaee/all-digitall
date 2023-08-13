@@ -35,10 +35,10 @@ function ListProducts() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('/api/products');
+        const res = await axios.post('/api/products/categorys', {category: 'mobile' });
         setProducts(res.data);
       } catch (error) {
-        toast.error('ارتباط با اینترنت قطع شده است')
+        toast.error('ارتباط با اینترنت قطع شده است');
       }
     };
     fetchData();
@@ -51,9 +51,9 @@ function ListProducts() {
           className={`h-64 w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-90 duration-700">
+          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-110 duration-700">
             <Link to={`/product/${product.slug}`}>
-              <img alt="imag" src={product.img} />
+              <img alt="img" src={product.img} className='max-h-[290px]' />
             </Link>
           </div>
         </div>
