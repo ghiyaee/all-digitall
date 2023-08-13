@@ -65,3 +65,9 @@ text-7xl font-bold cursor-pointer
 @apply bg-zinc-900 text-yellow-300 border-r-2 border-l-2
  hover:shadow-md hover:shadow-yellow-200 hover:border-none py-5 w-full hover:scale-105 rounded-lg duration-700
 }
+.style_navbar_cur{
+@apply border-red-600 transform -translate-y-[50%]
+border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
+w-6 h-16 border-b-4 absolute
+absolute
+}

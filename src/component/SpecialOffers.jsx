@@ -14,9 +14,12 @@ function SpecialOffers() {
       </h1>
       <div className="flex gap-[50px] ">
         {link.map((link) => (
-          <div key={link.name} className="relative ">
+          <div
+            key={link.name}
+            className="relative  hover:scale-110  duration-700 cursor-pointer"
+          >
             <p
-              className="w-[250px] h-[230px] bg-gradient-to-b 
+              className="w-[250px] h-[230px] border-2 bg-gradient-to-b 
              from-yellow-200 to-green-300  flex-col
                     flex items-center justify-center text-black text-2xl
                     font-[yekan] rounded-xl z-10 relative
@@ -25,10 +28,10 @@ function SpecialOffers() {
               <img src={link.img} alt="img" className="imgw" />
               {link.name}
             </p>
-            <div className="absolute -top-[38px] left-[50%]  transform -translate-x-[50%]
-             text-red-500 border-t-4 border-l-4 border-red-500 rounded-full w-24 h-24 z-0 rotate-[45deg] ">
-            
-            </div>
+            <div
+              className="absolute -top-[38px] left-[50%]  transform -translate-x-[50%]
+             text-red-500 border-t-4 border-l-4 border-red-500 rounded-full w-24 h-24 z-0 rotate-[45deg] "
+            ></div>
           </div>
         ))}
       </div>

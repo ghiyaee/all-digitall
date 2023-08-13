@@ -27,8 +27,8 @@ function Navbar() {
           </button>
         ))}
       </ul>
-      <div className="absolute  -left-6 w-6 h-16 border-b-4  border-l-4 border-red-600 transform -translate-y-[50%] rounded-bl-lg "></div>
-      <div className="absolute  -right-6 w-6 h-16 border-b-4 border-r-4 border-red-600 transform -translate-y-[50%] rounded-br-lg "></div>
+      <div className="style_navbar_cur  -left-6   border-l-4  rounded-bl-lg "></div>
+      <div className="style_navbar_cur  -right-6  border-r-4  rounded-br-lg "></div>
     </navbar>
   );
 }
