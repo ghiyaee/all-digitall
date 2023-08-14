@@ -45,13 +45,16 @@ function ListProducts() {
   }, []);
   return (
     <div className="style_slider ">
+      <div>
+
+      </div>
       {records.map((product) => (
         <div
           key={product._id}
-          className={`h-64 w-96 flex justify-center  items-center  rounded-lg 
+          className={` w-[160px] md:w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-110 duration-700">
+          <div className="w-[280px] h-[200px] md:h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-110 duration-700">
             <Link to={`/product/${product.slug}`}>
               <img alt="img" src={product.img} className='max-h-[290px]' />
             </Link>
@@ -72,6 +75,7 @@ function ListProducts() {
           move.move === `transform -translate-x-[26rem]` ? 'hidden' : 'block'
         } `}
       >
+        {'>'}
         <p
           className={`text-xl p-2 text-red-500 bg-white hover:bg-red-500
            hover:text-white hover:border  duration-1000 w-24 h-24 flex 
@@ -81,7 +85,6 @@ function ListProducts() {
         >
           <Link to={'/Products'}> مشاهده همه</Link>
         </p>
-        {'>'}
       </div>
     </div>
   );

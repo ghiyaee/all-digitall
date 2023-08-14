@@ -29,7 +29,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .style_slider {
-  @apply max-h-96 min-w-full gap-1 flex justify-center bg-red-500
+  @apply max-h-96 min-w-full gap-1 flex  justify-center bg-red-500
  items-center p-10  overflow-hidden rounded-lg relative;
 }
 .style_slider_handelRight {

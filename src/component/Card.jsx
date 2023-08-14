@@ -26,7 +26,7 @@ function Card() {
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
-        <div className="flex gap-[100px]  items-center justify-center  ">
+        <div className="flex flex-wrap gap-[100px]  items-center justify-center  ">
           <div className="flex flex-col gap-10 ">
             {cart.cartItem.map((item) => (
               <div

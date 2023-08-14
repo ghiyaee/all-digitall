@@ -56,7 +56,7 @@ function Product() {
       {userinfo.length > 0 ? (
         <div className="flex container m-auto gap-20 mt-4 flex-col">
           <div className="flex  justify-around  ">
-            <div className="flex  border p-10 items-center gap-[100px] shadow-2xl shadow-orange-400 text-black rounded-lg">
+            <div className="flex flex-wrap justify-center border p-10 items-center gap-[100px] shadow-2xl shadow-orange-400 text-black rounded-lg">
               <div className="w-96 p-6 rounded-lg ">
                 <img src={product.img} alt="img" />
               </div>
@@ -97,12 +97,3 @@ function Product() {
 }
 
 export default Product;
-
- // setCart(cart.concat({ ...product, conter: 1 }));
-    // const exits = cart.find((f) => f._id === item._id);
-    // if (!exits) {
-    //   setCart([...cart, { ...product, conter: 1 }]);
-    //   navigation('/Card');
-    // } else {
-    //   return;
-    // }

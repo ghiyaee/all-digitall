@@ -14,7 +14,7 @@ function Header() {
         <p> دیجیتال مارکت</p>
         <p className="font-[sogand] text-red-400">Digital Market</p>
       </Link>
-      <div className="flex gap-3  ">
+      <div className=" gap-3 hidden md:inline-flex ">
         <SearchBar />
         <div className="flex bg-yellow-50 text-zinc-800  p-3 rounded-lg text-2xl shadow-md shadow-orange-200">
           <ul className="flex gap-5 ">

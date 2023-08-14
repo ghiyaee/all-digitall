@@ -37,7 +37,7 @@ function Slider() {
        };
      }, [moveSlider.move]);
   return (
-    <div className=" flex flex-wrap items-center gap-[100px] text-center">
+    <div className="hidden md:inline-flex  flex-wrap items-center gap-[100px] text-center">
       <div className="flex flex-1 overflow-hidden gap-[65px]">
         {slider.map((product) => (
           <div key={product.id}

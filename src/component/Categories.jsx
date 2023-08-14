@@ -18,7 +18,7 @@ function Categories() {
       <h1 className="text-zinc-800  text-3xl font-semibold">
         دسته بندی های دیجیتال مارکت
       </h1>
-      <div className="flex gap-[100px] ">
+      <div className="flex flex-wrap justify-center gap-[100px] ">
         {link.map((link) => (
           <div key={link.name}>
             <button

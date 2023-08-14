@@ -14,18 +14,18 @@ const link = [
 ];
 function Footer() {
   return (
-    <footer className="flex justify-around h-32 items-center border-t mt-5 bg-gradient-to-b from-zinc-800 to-zinc-600 ">
-      <div className="flex items-center gap-10">
-        <ul className="flex gap-[30px] text-2xl ">
+    <footer className="flex flex-col md:flex-row  justify-around  h-40 items-center border-t mt-5 bg-gradient-to-b from-zinc-800 to-zinc-600 ">
+      <div className="flex flex-wrap items-center gap-10">
+        <ul className="flex flex-wrap justify-center gap-[30px] text-2xl ">
           {link.map((product) => (
             <li className="style_navbar  font-[yekan] duration-700 " key={product.title}>
               {product.title}
             </li>
           ))}
         </ul>
-        <p className='text-yellow-100 text-2xl'>&copy;1402</p>
       </div>
-      <div className="flex gap-6 w-10">
+      <div className="flex justify-center items-center gap-3 w-10">
+        <p className='text-yellow-400 text-2xl'>&copy;1402</p>
         <img
           src={'/img/face.png'}
           alt={'facebook'}

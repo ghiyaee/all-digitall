@@ -12,7 +12,7 @@ function SpecialOffers() {
       <h1 className="text-zinc-800  text-3xl font-semibold">
         پیشنهاد ویژه دیجیتال مارکت
       </h1>
-      <div className="flex gap-[50px] ">
+      <div className="flex flex-wrap justify-center gap-[50px] ">
         {link.map((link) => (
           <div
             key={link.name}

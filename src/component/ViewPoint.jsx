@@ -75,11 +75,11 @@ function ViewPoint({ product }) {
             key={ind}
           >
             <p className="text-red-500">
-              کاربر :{' '}
+              کاربر :
               <span className="text-blue-500">{comment.user_id.name}</span>
             </p>
             <p className="text-justify">{comment.text}</p>
-            <div className="flex justify-between items-center">
+            <div className="flex flex-wrap justify-between items-center">
               <Moment format='HH:D YYYY/DD/MM'>
                 {new Date(comment.date)}
               </Moment>

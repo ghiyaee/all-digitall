@@ -15,7 +15,7 @@ function Navbar() {
   };
   return (
     <navbar
-      className=" h-[100px] relative flex items-center justify-center 
+      className="hidden md:inline-flex h-[100px] relative  items-center justify-center 
      rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3 scale-105  "
     >
       <ul className="flex gap-[150px] text-2xl ">
