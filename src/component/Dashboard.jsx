@@ -30,33 +30,33 @@ function Dashboard() {
     <>
       {userinfo[0].isAdmin ? (
         <div className="flex container m-auto font-[yekan] ">
-          <div className="border  w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg bg-[#ffea00]">
+          <div className="border  w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg bg-zinc-700">
             <div className="mt-4  p-6 rounded-full shadow shadow-blue-400 bg-white">
               <FaUserAlt className="text-red-500" />
             </div>
-            <h2 className="text-2xl ">داشبورد مدیر</h2>
+            <h2 className="text-2xl text-yellow-100 ">داشبورد مدیر</h2>
             <div className="flex flex-col gap-10 text-2xl  ">
               <button
                 onClick={() => handelProducts()}
-                className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500"
+                className="style-button duration-500"
               >
                 محصولات
               </button>
               <button
                 onClick={() => handelUsers()}
-                className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer  "
+                className="style-button duration-500 cursor-pointer  "
               >
                 کاربران
               </button>
               <p
                 onClick={() => handelComments()}
-                className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer"
+                className="style-button p-4 duration-500 cursor-pointer"
               >
                 نظرات کاربران
               </p>
             </div>
           </div>
-          <div className="border w-full rounded-lg text-black">
+          <div className="flex justify-center border w-full rounded-lg text-black">
             {users === true ? (
               <Users />
             ) : comments === true ? (

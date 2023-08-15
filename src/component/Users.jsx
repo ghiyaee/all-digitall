@@ -3,32 +3,37 @@ import axios from 'axios';
 import { Store } from '../context/Store';
 import { Link, useNavigate } from 'react-router-dom';
 
-
 function Users() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const { state } = useContext(Store);
+  const [loading, setLoading] = useState(true);
   const { userinfo } = state;
   const handelUserDel = async (user) => {
     const fetchUser = await axios.post('/api/user/del', { user });
     setUsers([...users, ...fetchUser]);
   };
   const handelUserEdi = (user) => {
-    navigate('/SignUp', {state:user});
+    navigate('/SignUp', { state: user });
   };
   useEffect(() => {
     const users = async () => {
       const res = await axios.get('/api/user/users');
       setUsers(res.data);
+      setLoading(false)
     };
     users();
   }, [users]);
   return (
     <>
-      {userinfo[0].isAdmin ? (
+      {loading ? (
+        <p className="flex justify-center items-center text-5xl font-[yekan] ">
+          لطفا صبر کنید...
+        </p>
+      ) :  <div>  {userinfo[0].isAdmin ? (
         <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
           <h2 className="text-3xl mt-5"> کاربران</h2>
-          <div className="border py-3 px-10 text-lg w-[700px] shadow-2xl shadow-orange-400 ">
+          <div className="border py-3 px-10 text-lg w-[700px] bg-zinc-700 text-yellow-100 shadow-2xl shadow-orange-400 ">
             {users?.map((user) => (
               <div
                 key={user._id}
@@ -72,6 +77,9 @@ function Users() {
           </div>
         </>
       )}
+
+          </div>
+      }
     </>
   );
 }
