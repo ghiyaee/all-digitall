@@ -18,14 +18,20 @@ function Footer() {
       <div className="flex flex-wrap items-center gap-10">
         <ul className="flex flex-wrap justify-center gap-[30px] text-2xl ">
           {link.map((product) => (
-            <li className="style_navbar  font-[yekan] duration-700 " key={product.title}>
+            <li
+              className="style_navbar  font-[yekan] duration-700 "
+              key={product.title}
+            >
               {product.title}
             </li>
           ))}
         </ul>
       </div>
       <div className="flex justify-center items-center gap-3 w-10">
-        <p className='text-yellow-400 text-2xl'>&copy;1402</p>
+        <div className="flex items-center">
+          <p className="text-yellow-400 text-2xl">&copy;</p>
+          <p className="text-yellow-400 text-2xl font-[yekan]"> 1402</p>
+        </div>
         <img
           src={'/img/face.png'}
           alt={'facebook'}

@@ -28,7 +28,7 @@ function Main() {
       {scroll && (
         <CgScrollV
           onClick={scrollUp}
-          className=" fixed bottom-10 right-10 text-red-500  text-5xl"
+          className=" fixed bottom-10  right-2 text-red-500  text-5xl"
         />
       )}
       <main className="flex flex-col  gap-28 container m-auto ">

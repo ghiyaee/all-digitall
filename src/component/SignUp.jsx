@@ -50,7 +50,8 @@ function SignUp() {
   return (
     <div className="container m-auto flex justify-center ">
       <form
-        className="flex flex-col gap-8 items-center shadow-2xl rounded-lg  bg-gradient-to-b from-zinc-800 to-zinc-600 
+        className="flex flex-col gap-8 items-center shadow-2xl rounded-lg 
+         bg-gradient-to-b from-zinc-800 to-zinc-600 
        shadow-orange-400 p-10 text-2xl font-[yekan] w-[600px]"
       >
         {state ? (

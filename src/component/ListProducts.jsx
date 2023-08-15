@@ -54,7 +54,7 @@ function ListProducts() {
           className={` w-[160px] md:w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[200px] md:h-[300px] bg-white p-6 rounded-lg flex justify-center hover:scale-110 duration-700">
+          <div className="w-[280px] h-[200px] md:h-[300px] bg-white p-6 rounded-lg flex justify-center items-center hover:scale-110 duration-700">
             <Link to={`/product/${product.slug}`}>
               <img alt="img" src={product.img} className='max-h-[290px]' />
             </Link>
@@ -77,9 +77,9 @@ function ListProducts() {
       >
         {'>'}
         <p
-          className={`text-xl p-2 text-red-500 bg-white hover:bg-red-500
-           hover:text-white hover:border  duration-1000 w-24 h-24 flex 
-           items-center text-center rounded-full  ${
+          className={` text-xl  text-yellow-500 bg-zinc-800 hover:bg-red-500
+           hover:text-white hover:border  duration-500 w-24 h-16 ml-5 flex 
+           items-center text-center rounded-lg   ${
              counter === 1 ? 'black' : 'hidden'
            }`}
         >

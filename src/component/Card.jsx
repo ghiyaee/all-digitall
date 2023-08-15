@@ -26,18 +26,18 @@ function Card() {
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
-        <div className="flex flex-wrap gap-[100px]  items-center justify-center  ">
+        <div className="flex flex-wrap gap-[50px]  items-center justify-center  ">
           <div className="flex flex-col gap-10 ">
             {cart.cartItem.map((item) => (
               <div
                 key={item.name}
-                className="flex items-center gap-10 border p-8 h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
+                className="flex items-center gap-0 mg-gap-10 border p:0 md:p-8 h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
               >
                 <div className="w-[120px] ">
                   <img src={item.img} alt="img" />
                 </div>
-                <div className="flex gap-5 items-center justify-between w-[400px] ">
-                  <div className="absolute left-[20%] -transform translate-x-[50%] top-[-35px]  text-blue-500 text-2xl">
+                <div className="flex flex-col md:flex-row gap-2 md:gap-5 items-center justify-between w-[200px] md:w-[400px] ">
+                  <div className="hidden absolute left-[20%] -transform translate-x-[50%] top-[-35px]  text-blue-500 text-2xl">
                     موجودی{item.countInStock}
                   </div>
                   <p className="w-40 text-zinc-600">قیمت : {item.price}</p>
@@ -66,7 +66,7 @@ function Card() {
               </div>
             ))}
           </div>
-          <div className=" border p-8 h-4/4 font-[yekan] text-2xl flex flex-col gap-8 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
+          <div className=" border p-8 h-4/4 font-[yekan] text-2xl flex flex-col gap-4 md:gap-10 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
             <h2>فاکتور خرید</h2>
             <div className="flex flex-col gap-5">
               <p>تعداد :{cart.cartItem.reduce((a, c) => a + c.conter, 0)} </p>

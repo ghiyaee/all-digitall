@@ -50,7 +50,8 @@ function Prodcuts() {
       {scroll && (
         <CgScrollV
           onClick={scrollUp}
-          className=" fixed bottom-10 text-red-500 right-10 text-5xl"
+          className=" fixed bottom-10 text-red-500 right-2
+           text-5xl"
         />
       )}
       {userinfo.length > 0 ? (
