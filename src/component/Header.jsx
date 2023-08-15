@@ -10,7 +10,7 @@ function Header() {
   const { state } = useContext(Store);
   const { userinfo, cart } = state;
   return (
-    <header className="">
+    <header className=" min-w-full">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
         <Link to={'/'} className="text-3xl text-yellow-300">
           <div className="flex gap-5 items-center">
