@@ -8,10 +8,13 @@ import axios from 'axios';
 import { Store } from '../context/Store';
 import Comments from './Comments';
 import DashboardUser from './Dashboarduser';
+import NewProduct from './NewProduct';
 
 function Dashboard() {
   const [users, setUsers] = useState(false);
   const [comments, setComments] = useState(false);
+  const [product, setProduct] = useState(false);
+  // const [productEdit, setProductEdit] = useState(true);
   const { state } = useContext(Store);
   const [isLoading, setIsLoading] = useState(true);
   const { userinfo } = state;
@@ -21,10 +24,16 @@ function Dashboard() {
   const handelProducts = () => {
     setUsers(false);
     setComments(false);
+    setProduct(false);
   };
   const handelComments = () => {
     setComments(true);
     setUsers(false);
+  };
+  const handelNewProduct = () => {
+    setComments(false);
+    setUsers(false);
+    setProduct(true);
   };
   return (
     <>
@@ -48,12 +57,18 @@ function Dashboard() {
               >
                 کاربران
               </button>
-              <p
+              <button
                 onClick={() => handelComments()}
                 className="style-button p-4 duration-500 cursor-pointer"
               >
                 نظرات کاربران
-              </p>
+              </button>
+              <button
+                onClick={() => handelNewProduct()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+                ثبت محصول
+              </button>
             </div>
           </div>
           <div className="flex justify-center border w-full rounded-lg text-black">
@@ -61,6 +76,8 @@ function Dashboard() {
               <Users />
             ) : comments === true ? (
               <Comments />
+            ) : product === true ? (
+              <NewProduct />
             ) : (
               <ProdcutsEdit />
             )}
