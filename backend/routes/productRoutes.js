@@ -4,10 +4,28 @@ const productRouter = express.Router();
 
 productRouter.get('/', async (req, res) => {
     const products = await Product.find();
-    res.send(products)
+  res.send(products)
 })
 productRouter.post('/newProduct', async (req, res) => {
-  console.log(req.body);
+  try {
+    const product = new Product({
+      name: req.body.name,
+      slug: req.body.slug,
+      img: req.body.img,
+      brand: req.body.brand,
+      category: req.body.category,
+      description: req.body.descritp,
+      price: req.body.price,
+      countInStock: req.body.countInStock,
+      rating: req.body.rating,
+      numReviews: req.body.numReviews,
+    });
+    await product.save();
+    res.status(201).send({msg:'ثبت محصول با موفقیت انجام شد'})
+  } catch (error) {
+    res.status(500).send({msg:"مشکلی در سرور ایجاد شده"})
+  }
+
 })
 productRouter.post('/categorys', async (req, res) => {
   try {
