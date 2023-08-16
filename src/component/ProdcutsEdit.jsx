@@ -40,7 +40,7 @@ function ProdcutsEdit() {
         <>
           <p className="flex justify-center items-center text-5xl font-[yekan] ">
             لطفاصبرکنید...
-            <FadeLoader color={'#f41d3e'} loading={isLoading} size={80} />
+            <FadeLoader color={'#f41d3e'} loading={isLoading} size={100} />
           </p>
         </>
       ) : (
