@@ -13,7 +13,7 @@ function NewProduct() {
   const [countInStock, setCountInStock] = useState();
   const [rating, setRating] = useState();
   const [numReviews, setNumReviews] = useState();
-  const [resl,setResl]=useState()
+  const [result, setResult] = useState();
   const handelProduct = async (e) => {
     e.preventDefault();
     const fetchData = await axios.post('/api/products/newProduct', {
@@ -28,7 +28,7 @@ function NewProduct() {
       rating,
       numReviews,
     });
-    setResl(fetchData.data.msg);
+    setResult(fetchData.data.msg);
     setName('');
     setSlug('');
     setImg('');
@@ -52,19 +52,23 @@ function NewProduct() {
   };
   useEffect(() => {
     setTimeout(() => {
-      setResl(false)
+      setResult (false);
     }, 3000);
-  },[resl])
+  },[result])
   return (
     <>
-      {resl ? (
-        <div className='flex items-center rounded-lg text-xl p-4
-          bg-green-500 w-62 h-24 text-yellow-200 justify-center '>{resl}</div>
+      {result ? (
+        <div
+          className="flex items-center rounded-lg text-xl p-4
+          bg-green-500 w-62 h-24 text-yellow-200 justify-center "
+        >
+          {result}
+        </div>
       ) : (
         <div className="contianer m-auto flex flex-col gap-5  items-center">
-          <h2 className="text-black">فرم ثبت محصول</h2>
+          <h2 className="text-black text-2xl text-yellow-400">فرم ثبت محصول</h2>
           <form
-            className="flex gap-8 items-center shadow-2xl rounded-lg
+            className="flex gap-8 items-center shadow rounded-lg
           bg-gradient-to-b from-zinc-800 to-zinc-600   shadow-orange-400 p-10 text-2xl font-[yekan] "
           >
             <div className="flex flex-col gap-5">
@@ -89,13 +93,7 @@ function NewProduct() {
                 value={brand}
                 onChange={(e) => setBrand(e.target.value.toLocaleLowerCase())}
               />
-              <input
-                type="text"
-                placeholder="امیتازگرفته شده"
-                className="py-3 px-8 rounded-lg outline-none border-b"
-                value={rating}
-                onChange={(e) => setRating(e.target.value.toLocaleLowerCase())}
-              />
+
               <input
                 type="text"
                 placeholder="نام دسته بندی"
@@ -125,21 +123,19 @@ function NewProduct() {
               />
               <input
                 type="text"
-                placeholder="تعدادمشاهده شده"
-                className="py-3 px-8 rounded-lg outline-none border-b"
-                value={numReviews}
-                onChange={(e) =>
-                  setNumReviews(e.target.value.toLocaleLowerCase())
-                }
-              />
-              <input
-                type="text"
                 placeholder="توضیحات"
                 className="py-3 px-8 rounded-lg outline-none border-b"
                 value={descritp}
                 onChange={(e) =>
                   setDescritp(e.target.value.toLocaleLowerCase())
                 }
+              />
+              <input
+                type="text"
+                placeholder="امیتازگرفته شده"
+                className="py-3 px-8 rounded-lg outline-none border-b"
+                value={rating}
+                onChange={(e) => setRating(e.target.value.toLocaleLowerCase())}
               />
               <div className="flex items-center border bg-yellow-100  rounded-lg">
                 انتخاب تصویر

@@ -7,6 +7,7 @@ function ProductEdit() {
   const [id, setId] = useState();
   const [price, setPrice] = useState();
   const [countInStock, setCountInStock] = useState();
+  const [name,setName]=useState()
   const [img, setImg] = useState();
   console.log(price, countInStock);
   useEffect(() => {
@@ -14,6 +15,7 @@ function ProductEdit() {
       setPrice(state.price);
       setCountInStock(state.countInStock);
       setId(state._id)
+      setName(state.name)
     }
   }, [state]);
   const handelProductEdit = async (e) => {
@@ -22,26 +24,37 @@ function ProductEdit() {
       const {fetchData} = await axios.post('/api/products/Edit', {
         price,
         countInStock,
-        id
+        id,
+        name
       });
       navigate('/Dashboard');
     } catch (error) {}
   };
   return (
     <div
-      className="flex flex-col items-center container m-auto shadow-2xl rounded-lg
-       shadow-orange-400 p-10 text-2xl font-[yekan]  gap-10"
+      className="flex flex-col bg-zinc-700 items-center container m-auto shadow-2xl rounded-lg
+       shadow-orange-400 p-10 text-2xl font-[yekan] text-yellow-200 gap-10"
     >
       <h2>ویرایش محصول</h2>
-      <img src={state.img} alt="img" className='w-24'/>
-      <form className="flex flex-col gap-5">
+      <img src={state.img} alt="img" className="w-24" />
+      <form className="flex gap-5">
+        <div>
+          <label htmlFor="">نام کالا:</label>
+          <input
+            value={name}
+            type="text"
+            required
+            className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
         <div>
           <label htmlFor="">قیمت :</label>
           <input
             value={price}
             type="text"
             required
-            className="py-5 px-8 rounded-lg outline-none border-b text-center"
+            className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
             onChange={(e) => setPrice(e.target.value)}
           />
         </div>
@@ -51,7 +64,7 @@ function ProductEdit() {
             value={countInStock}
             type="text"
             required
-            className="py-5 px-8 rounded-lg outline-none border-b text-center"
+            className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
             onChange={(e) => setCountInStock(e.target.value)}
           />
         </div>

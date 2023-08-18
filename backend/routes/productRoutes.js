@@ -18,7 +18,6 @@ productRouter.post('/newProduct', async (req, res) => {
       price: req.body.price,
       countInStock: req.body.countInStock,
       rating: req.body.rating,
-      numReviews: req.body.numReviews,
     });
     await product.save();
     res.status(201).send({msg:'ثبت محصول با موفقیت انجام شد'})
@@ -76,9 +75,11 @@ productRouter.post('/Edit', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.id })
   product.price = req.body.price;
   product.countInStock = req.body.countInStock;
+  product.name=req.body.name
   await product.save();
-  const newProduct = await Product.findOne({ _id: req.body.id });
-  res.send(newProduct)
+  console.log(product);
+   const newProduct = await Product.findOne({ _id: req.body.id });
+  res.status(201).send(newProduct)
 })
 productRouter.post('/comment', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.product })

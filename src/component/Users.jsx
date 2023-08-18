@@ -27,59 +27,61 @@ function Users() {
   return (
     <>
       {loading ? (
-        <p className="flex justify-center items-center text-5xl font-[yekan] ">
+        <p className="flex justify-center items-center text-5xl font-[yekan] text-yellow-400">
           لطفا صبر کنید...
         </p>
-      ) :  <div>  {userinfo[0].isAdmin ? (
-        <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
-          <h2 className="text-3xl mt-5"> کاربران</h2>
-          <div className="border py-3 px-10 text-lg w-[700px] bg-zinc-700 text-yellow-100 shadow-2xl shadow-orange-400 ">
-            {users?.map((user) => (
-              <div
-                key={user._id}
-                className="flex justify-between items-center mt-5 gap-[50px] "
-              >
-                {user.isAdmin ? (
-                  ''
-                ) : (
-                  <>
-                    <div>
-                      <p className="text-2xl">{user.name}</p>
-                      <p className="text-2xl">{user.email}</p>
-                    </div>
-                    <div className="flex gap-5">
-                      <button
-                        className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
-                        onClick={() => handelUserEdi(user)}
-                      >
-                        ویرایش
-                      </button>
-                      <button
-                        className="bg-red-500 text-white p-2 rounded-lg w-[100px]"
-                        onClick={() => handelUserDel(user._id)}
-                      >
-                        حذف
-                      </button>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       ) : (
-        <>
-          <div className="flex justify-center text-red-500 text-4xl">
-            شما اجازه دسترسی به این بخش را ندارید...
-            <Link to={'/'}>
-              <p className="text-blue-500">اینجاکلیک کنید</p>
-            </Link>
-          </div>
-        </>
+        <div>
+          {' '}
+          {userinfo[0].isAdmin ? (
+            <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
+              <h2 className="text-3xl mt-5 text-yellow-400"> کاربران</h2>
+              <div className=" py-3 px-10 text-lg w-[700px] bg-zinc-700 text-yellow-100 shadow shadow-orange-400 ">
+                {users?.map((user) => (
+                  <div
+                    key={user._id}
+                    className="flex justify-between items-center mt-5 gap-[50px] "
+                  >
+                    {user.isAdmin ? (
+                      ''
+                    ) : (
+                      <>
+                        <div>
+                          <p className="text-2xl">{user.name}</p>
+                          <p className="text-2xl">{user.email}</p>
+                        </div>
+                        <div className="flex gap-5">
+                          <button
+                            className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
+                            onClick={() => handelUserEdi(user)}
+                          >
+                            ویرایش
+                          </button>
+                          <button
+                            className="bg-red-500 text-white p-2 rounded-lg w-[100px]"
+                            onClick={() => handelUserDel(user._id)}
+                          >
+                            حذف
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="flex justify-center text-red-500 text-4xl">
+                شما اجازه دسترسی به این بخش را ندارید...
+                <Link to={'/'}>
+                  <p className="text-blue-500">اینجاکلیک کنید</p>
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
       )}
-
-          </div>
-      }
     </>
   );
 }

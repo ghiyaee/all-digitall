@@ -1,10 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 * {
   margin: 0;
   padding: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 body {
   direction: rtl;
@@ -61,12 +75,12 @@ text-7xl font-bold cursor-pointer
   @apply cursor-pointer w-36 hover:scale-105 duration-500 text-yellow-400 p-2
  rounded-lg text-center shadow shadow-yellow-200;
 }
-.style-button{
-@apply bg-zinc-900 text-yellow-400 border-r-[3px] border-l-[3px]
- hover:shadow-md hover:shadow-yellow-200 hover:border-none py-5 w-full hover:scale-105 rounded-lg duration-700
+.style-button {
+  @apply bg-zinc-900 text-yellow-400 border-r-[3px] border-l-[3px]
+ hover:border-red-500 py-5 w-full hover:scale-95 rounded-lg duration-700;
 }
-.style_navbar_cur{
-@apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
+.style_navbar_cur {
+  @apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
 w-6 h-16 border-b-4 absolute
-absolute
+absolute;
 }

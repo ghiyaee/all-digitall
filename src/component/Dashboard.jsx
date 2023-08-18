@@ -38,9 +38,9 @@ function Dashboard() {
   return (
     <>
       {userinfo[0].isAdmin ? (
-        <div className="flex container m-auto font-[yekan] ">
+        <div className="flex container m-auto font-[yekan] mt-5 ">
           <div className="border  w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg bg-zinc-700">
-            <div className="mt-4  p-6 rounded-full shadow shadow-blue-400 bg-white">
+            <div className="mt-4  p-6 rounded-full shadow shadow-red-400 bg-white">
               <FaUserAlt className="text-red-500" />
             </div>
             <h2 className="text-2xl text-yellow-100 ">داشبورد مدیر</h2>
@@ -71,7 +71,10 @@ function Dashboard() {
               </button>
             </div>
           </div>
-          <div className="flex justify-center border w-full rounded-lg text-black">
+          <div
+            className={`flex justify-center  border w-full rounded-lg
+           text-black items-center bg-zinc-700`}
+          >
             {users === true ? (
               <Users />
             ) : comments === true ? (

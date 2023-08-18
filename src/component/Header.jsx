@@ -18,7 +18,7 @@ function Header() {
               <p> دیجیتال مارکت</p>
               <p className="font-[sogand] text-red-400">Digital Market</p>
             </div>
-            <div className="w-8 h-10 border-yellow-300 border-4 rounded-tr-2xl rounded-br-2xl relative -translate-x-6"></div>
+            <div className="w-8 h-8 border-yellow-300 border-4 rounded-tr-2xl rounded-br-2xl relative -translate-x-12"></div>
 
             <div className=" h-5 border-red-500 border-r-4 relative  flex items-center justify-center translate-x-4">
               <div className=" h-4 border-red-500  border-r-4 absolute top-0 transform -translate-x-1 rotate-45 "></div>

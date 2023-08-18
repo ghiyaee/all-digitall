@@ -45,9 +45,6 @@ function ListProducts() {
   }, []);
   return (
     <div className="style_slider ">
-      <div>
-
-      </div>
       {records.map((product) => (
         <div
           key={product._id}
