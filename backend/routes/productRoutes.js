@@ -57,20 +57,7 @@ productRouter.post('/dislike', async (req, res) => {
   const newProduct = await Product.findOne({ _id: req.body.product._id });
   res.send(newProduct);
 });
-// productRouter.post('/likeComment', async (req, res) => {
-//   const product = await Product.findOne({ _id: req.body.product._id });
-//   product.likeComment = req.body.product.likeComment;
-//   await product.save();
-//   const newProduct = await Product.findOne({ _id: req.body.product._id });
-//   res.send(newProduct);
-// });
-// productRouter.post('/dislikeComment', async (req, res) => {
-//   const product = await Product.findOne({ _id: req.body.product._id });
-//   product.disLikeComment = req.body.product.disLikeComment;
-//   await product.save();
-//   const newProduct = await Product.findOne({ _id: req.body.product._id });
-//   res.send(newProduct);
-// });
+
 productRouter.post('/Edit', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.id })
   product.price = req.body.price;
@@ -89,7 +76,6 @@ productRouter.post('/comment', async (req, res) => {
   res.send(newPro);
 })
 productRouter.post('/del', async (req, res) => {
- 
   const products = await Product.findOne({ _id: req.body.product });
   await products.deleteOne();
   const newProducts = await Product.find();

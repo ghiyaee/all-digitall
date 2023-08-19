@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import Users from './Users';
 import ProdcutsEdit from './ProdcutsEdit';
-import axios from 'axios';
 import { Store } from '../context/Store';
 import Comments from './Comments';
 import DashboardUser from './Dashboarduser';
@@ -14,7 +12,6 @@ function Dashboard() {
   const [users, setUsers] = useState(false);
   const [comments, setComments] = useState(false);
   const [product, setProduct] = useState(false);
-  // const [productEdit, setProductEdit] = useState(true);
   const { state } = useContext(Store);
   const [isLoading, setIsLoading] = useState(true);
   const { userinfo } = state;
