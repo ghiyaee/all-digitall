@@ -10,6 +10,7 @@ function ProductEdit() {
   const [name, setName] = useState();
   const [img, setImg] = useState();
   const [result, setResult] = useState();
+  const [hidden,setHidden]=useState('')
   useEffect(() => {
     if (state) {
       setPrice(state.price);
@@ -27,12 +28,20 @@ function ProductEdit() {
         id,
         name,
       });
+      setPrice('')
+      setCountInStock('')
+      setName('')
       setResult(true);
-      // navigate('/Dashboard');
+      setHidden('hidden')
+     
     } catch (error) {}
   };
+  const handelRedirect = () => {
+    navigate('/Dashboard');
+  }
   useEffect(() => {
     setTimeout(() => {
+      // navigate('/Dashboard');
       setResult(false);
     }, 3000);
   }, [result]);
@@ -41,7 +50,7 @@ function ProductEdit() {
       {' '}
       {result ? (
         <div
-          className={`flex items-center rounded-lg text-xl p-4
+          className={`flex items-center rounded-lg text-2xl p-4
          bg-green-500 w-62 h-24 text-yellow-200 justify-center : ''`}
         >
           محصول ویرایش گردید
@@ -55,14 +64,14 @@ function ProductEdit() {
       >
         <h2>ویرایش محصول</h2>
         <img src={state.img} alt="img" className="w-24" />
-        <form className="flex gap-5">
+        <form className="flex items-center gap-5">
           <div>
             <label htmlFor="">نام کالا:</label>
             <input
               value={name}
               type="text"
               required
-              className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 py-5 px-4 rounded-lg outline-none border-b text-center"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -72,7 +81,7 @@ function ProductEdit() {
               value={price}
               type="text"
               required
-              className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 py-5 px-4 rounded-lg outline-none border-b text-center"
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -82,15 +91,21 @@ function ProductEdit() {
               value={countInStock}
               type="text"
               required
-              className="text-zinc-700 py-5 px-8 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 py-5 px-2 rounded-lg outline-none border-b text-center"
               onChange={(e) => setCountInStock(e.target.value)}
             />
           </div>
           <button
-            className="text-blue-700  bg-[#ffea00] p-2 rounded-lg"
+            className={`text-blue-700  bg-[#ffea00] ${hidden} py-5 px-2 rounded-lg`}
             onClick={handelProductEdit}
           >
             تایید ویرایش
+          </button>
+          <button
+            className="text-blue-700  bg-[#ffea00] py-5 px-2 rounded-lg"
+            onClick={handelRedirect}
+          >
+            بازگشت به صفحه محصولات
           </button>
         </form>
       </div>
