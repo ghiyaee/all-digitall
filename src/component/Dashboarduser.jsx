@@ -17,7 +17,7 @@ function DashboardUser() {
   return (
     <>
       <div className="flex container m-auto font-[yekan] ">
-        <div className="border p-5 w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg bg-[#ffea00]">
+        <div className="border p-5 w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg text-yellow-200 bg-zinc-700">
           <div className="mt-4  p-6 rounded-full shadow shadow-blue-400 bg-white">
             <FaUserAlt className="text-red-500" />
           </div>

@@ -24,7 +24,7 @@ function Header() {
               <div className=" h-4 border-red-500  border-r-4 absolute top-0 transform -translate-x-1 rotate-45 "></div>
             </div>
 
-            <div className=" h-5 border-red-500   border-l-4 relative flex items-center justify-center translate-x-2">
+            <div className=" h-3 border-red-500   border-l-4 relative flex items-center justify-center translate-x-2">
               <div className=" h-3 border-red-500  text-red-400  border-l-4 absolute top-0 transform translate-x-1 -rotate-45"></div>
             </div>
           </div>

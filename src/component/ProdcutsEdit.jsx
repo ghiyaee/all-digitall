@@ -9,9 +9,6 @@ function ProdcutsEdit() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [move, setMove] = useState({
-    move: `transform translate-y-[0rem]`,
-  });
   const handelDeleteProduct = async (product) => {
     const fetchproducts = await axios.post('/api/products/del', { product });
     setProducts([...products, ...fetchproducts]);

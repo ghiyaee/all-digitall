@@ -7,7 +7,7 @@ productRouter.get('/', async (req, res) => {
   res.send(products)
 })
 productRouter.post('/newProduct', async (req, res) => {
-  try {
+    try {
     const product = new Product({
       name: req.body.name,
       slug: req.body.slug,
@@ -22,7 +22,7 @@ productRouter.post('/newProduct', async (req, res) => {
     await product.save();
     res.status(201).send({msg:'ثبت محصول با موفقیت انجام شد'})
   } catch (error) {
-    res.status(500).send({msg:"مشکلی در سرور ایجاد شده"})
+    res.status(500).send({msg:"تمامی مقادیر باید وارد شده باشند"})
   }
 
 })

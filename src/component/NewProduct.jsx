@@ -16,29 +16,34 @@ function NewProduct() {
   const [result, setResult] = useState();
   const handelProduct = async (e) => {
     e.preventDefault();
-    const fetchData = await axios.post('/api/products/newProduct', {
-      name,
-      slug,
-      img,
-      brand,
-      category,
-      descritp,
-      price,
-      countInStock,
-      rating,
-      numReviews,
-    });
-    setResult(fetchData.data.msg);
-    setName('');
-    setSlug('');
-    setImg('');
-    setBrand('');
-    setCategory('');
-    setDescritp('');
-    setPrice('');
-    setCountInStock();
-    setRating('');
-    setNumReviews('');
+       try {
+      const fetchData = await axios.post('/api/products/newProduct', {
+        name,
+        slug,
+        img,
+        brand,
+        category,
+        descritp,
+        price,
+        countInStock,
+        rating,
+        numReviews,
+      });
+      setResult(fetchData.data.msg);
+      setName('');
+      setSlug('');
+      setImg('');
+      setBrand('');
+      setCategory('');
+      setDescritp('');
+      setPrice('');
+      setCountInStock();
+      setRating('');
+      setNumReviews('');
+    } catch (error) {
+         setResult(error.response.data.msg);
+    }
+      
   };
   const convertToBase64 = (e) => {
     let reader = new FileReader();
@@ -52,15 +57,17 @@ function NewProduct() {
   };
   useEffect(() => {
     setTimeout(() => {
-      setResult (false);
-    }, 3000);
-  },[result])
+      setResult(false);
+    }, 4000);
+  }, [result]);
   return (
     <>
       {result ? (
         <div
-          className="flex items-center rounded-lg text-xl p-4
-          bg-green-500 w-62 h-24 text-yellow-200 justify-center "
+          className={`flex items-center rounded-lg text-xl p-4
+          ${result == 'ثبت محصول با موفقیت انجام شد' ? 'bg-green-500 w-62 h-24 text-yellow-200 justify-center' :
+         'bg-red-500 text-yellow-200 justify-center' }
+           `}
         >
           {result}
         </div>
