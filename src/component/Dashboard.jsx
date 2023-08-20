@@ -49,6 +49,12 @@ function Dashboard() {
                 محصولات
               </button>
               <button
+                onClick={() => handelNewProduct()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+                ثبت محصول
+              </button>
+              <button
                 onClick={() => handelUsers()}
                 className="style-button duration-500 cursor-pointer  "
               >
@@ -59,12 +65,6 @@ function Dashboard() {
                 className="style-button p-4 duration-500 cursor-pointer"
               >
                 نظرات کاربران
-              </button>
-              <button
-                onClick={() => handelNewProduct()}
-                className="style-button p-4 duration-500 cursor-pointer"
-              >
-                ثبت محصول
               </button>
             </div>
           </div>
