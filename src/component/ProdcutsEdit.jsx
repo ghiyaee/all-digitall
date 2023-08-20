@@ -12,16 +12,16 @@ function ProdcutsEdit() {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState();
   const [warning, setWarning] = useState();
-  const [product,setProduct]=useState()
+  const [product, setProduct] = useState();
   const handelWarning = (product) => {
-    setWarning(true)
-    setProduct(product)
+    setWarning(true);
+    setProduct(product);
   };
   const handelCancelProduct = () => {
-    setProduct('')
+    setProduct('');
     setWarning(false);
     return;
-}
+  };
   const handelDeleteProduct = async (product) => {
     const fetchproducts = await axios.post('/api/products/del', { product });
     setWarning(false);
@@ -52,13 +52,15 @@ function ProdcutsEdit() {
   useEffect(() => {
     setTimeout(() => {
       setResult(false);
-    }, 4000);
+    }, 3000);
   }, [result]);
   return (
     <>
       {warning ? (
         <div className="flex flex-col justify-center p-10 gap-5 rounded-lg border font-[yekan]">
-          <p className="text-yellow-200 text-2xl">هشدار!! آیااز حذف محصول اطمینان دارید؟ چون غیرقابل بازگشت است.</p>
+          <p className="text-yellow-200 text-2xl">
+            هشدار!! آیااز حذف محصول اطمینان دارید؟ چون غیرقابل بازگشت است.
+          </p>
           <div className="flex justify-between">
             <button
               className="p-2 w-[80px] text-2xl rounded-lg bg-red-500"
@@ -79,16 +81,18 @@ function ProdcutsEdit() {
           {result ? (
             <div
               className={`flex items-center rounded-lg text-2xl p-4
-         bg-green-500 w-[300px] h-24 text-yellow-200 justify-center : ''`}
+                   after: bg-green-500 w-[300px] h-24 text-yellow-200 justify-center : ''`}
             >
               محصول حذف گردید
             </div>
           ) : (
             <>
-              {' '}
               {isLoading ? (
                 <>
-                  <p className="flex justify-center items-center text-3xl font-[yekan] text-yellow-400 ">
+                  <p
+                    className="flex justify-center items-center text-3xl 
+                                  font-[yekan] text-yellow-400 "
+                  >
                     لطفاصبرکنید...
                     <FadeLoader
                       color={'#f41d3e'}
@@ -136,31 +140,6 @@ function ProdcutsEdit() {
                         >
                           حذف
                         </button>
-                        {/* <div>
-                        {warning ? (
-                          <div className="flex flex-col justify-center p-10 gap-5 rounded-lg border ">
-                            <p className="text-yellow-200">
-                              ؟آیااز حذف محصول اطمینان دارید
-                            </p>
-                            <div className="flex justify-between">
-                              <button
-                                className="p-2 w-[60px] rounded-lg bg-red-500"
-                                onClick={() => handelDeleteProduct(product._id)}
-                              >
-                                بله
-                              </button>
-                              <button
-                                className="p-2 w-[60px] rounded-lg bg-green-500"
-                                onClick={''}
-                              >
-                                انصراف
-                              </button>
-                            </div>
-                          </div>
-                        ) : (
-                          ''
-                        )}
-                      </div> */}
                       </div>
                     </div>
                   ))}
