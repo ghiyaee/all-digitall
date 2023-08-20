@@ -14,7 +14,7 @@ function Users() {
     setUsers([...users, ...fetchUser]);
   };
   const handelUserEdi = (user) => {
-    navigate('/SignUp', { state: user });
+    navigate('/Message', { state: user });
   };
   useEffect(() => {
     const users = async () => {
@@ -34,13 +34,13 @@ function Users() {
         <div>
           {' '}
           {userinfo[0].isAdmin ? (
-            <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">
+            <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] max-h-screen  overflow-y-auto ">
               <h2 className="text-3xl mt-5 text-yellow-400"> کاربران</h2>
-              <div className=" py-3 px-10 text-lg w-[700px] bg-zinc-700 text-yellow-100 shadow shadow-orange-400 ">
+              <div className=" py-3 px-10 text-lg w-[900px] bg-zinc-700 text-yellow-100 shadow shadow-orange-400 overflow-x-hidden ">
                 {users?.map((user) => (
                   <div
                     key={user._id}
-                    className="flex justify-between items-center mt-5 gap-[50px] "
+                    className="flex justify-between items-center mt-5 gap-[0px] "
                   >
                     {user.isAdmin ? (
                       ''
@@ -53,9 +53,9 @@ function Users() {
                         <div className="flex gap-5">
                           <button
                             className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
-                            onClick={() => handelUserEdi(user)}
+                            onClick={() => handelUserEdi(user._id)}
                           >
-                            ویرایش
+                           ارسال پیام
                           </button>
                           <button
                             className="bg-red-500 text-white p-2 rounded-lg w-[100px]"

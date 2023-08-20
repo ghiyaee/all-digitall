@@ -1,52 +1,46 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLocation ,useNavigate} from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 function SignUp() {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const { state } = useLocation('');
-  const [name, setName] = useState('')
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   useEffect(() => {
     if (state) {
       setName(state.name);
       setEmail(state.email);
       setPassword(state.password);
     }
-  },[state])
+  }, [state]);
   const handelSignupEdi = async (e) => {
-      e.preventDefault();
-   try {
-     const { user } = await axios.post('/api/user/edit', {
-       name,
-       email,
-       password,
-     });
-     navigate('/Dashboard')
-   } catch (error) {
-    
-   }
-  }
-  const handelSignUp = async (e) => {
-   e.preventDefault()
-   if (name === '' ) {
-     return;
-   } else { 
-     try {
-      const { user } = await axios.post('/api/user/signUp', {
+    e.preventDefault();
+    try {
+      const { user } = await axios.post('/api/user/edit', {
         name,
         email,
         password,
       });
-      navigate('/SignIn')
-    } catch (error) {
-     
+      navigate('/Dashboard');
+    } catch (error) {}
+  };
+  const handelSignUp = async (e) => {
+    e.preventDefault();
+    if (name === '') {
+      return;
+    } else {
+      try {
+        const { user } = await axios.post('/api/user/signUp', {
+          name,
+          email,
+          password,
+        });
+        navigate('/SignIn');
+      } catch (error) {}
     }
-  }
-  }
+  };
   return (
     <div className="container m-auto flex justify-center ">
       <form

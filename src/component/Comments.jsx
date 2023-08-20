@@ -34,8 +34,8 @@ function Comments() {
       ) : (
         <>
           {comment.length > 0 ? (
-            <div className=" flex flex-col gap-6 font-[yekan] p-10">
-              <h2 className="text-black text-center text-3xl font-bold mt-5 text-yellow-400">
+            <div className=" flex flex-col gap-6 font-[yekan] p-10 max-h-screen  overflow-y-auto">
+              <h2 className="text-center text-3xl font-bold mt-5 text-yellow-400">
                 ویرایش دیدگاه ها
               </h2>
               {comment?.map((comment) => (
