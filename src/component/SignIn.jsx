@@ -24,10 +24,14 @@ function SignIn() {
         email,
         password,
       });
+     
+      const message = await axios.get('/api/message/all')
       // setUserInFo(userinfo.concat({ ...data }))
       // setUserInFo([...userinfo, { ...data }])
-      dispatch({type:'LOGIN',payload:{...data}})
-     navigate('/') 
+      dispatch({ type: 'LOGIN', payload: { ...data } })
+      dispatch({ type: 'MESSAGE', payload: message.data })
+      navigate('/') 
+  
      
     } catch (error) {
      toast.error('نام کاربری یا رمز عبور اشتباه است')

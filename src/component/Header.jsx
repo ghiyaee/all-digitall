@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
 import { FaUserAlt } from 'react-icons/fa';
 import { HiMenuAlt1 } from 'react-icons/hi';
+import { MdOutlineLocalPostOffice } from 'react-icons/md';
 import SearchBar from './SearchBar';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 function Header() {
   const { state } = useContext(Store);
-  const { userinfo, cart } = state;
+  const { userinfo, cart, message } = state;
+  console.log(userinfo);
+  console.log(message);
+  const result = message.map((i) => i.user_id._id === userinfo[0]._id);
+  // const fil = userinfo.filter(v => v._id === message.user_id(v.id))
+  console.log(result);
   return (
     <header className=" min-w-full">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -51,7 +57,10 @@ function Header() {
                       {userinfo[0].name}
                     </Link>
                   ) : (
-                    <Link to={'/DashboardUser'} className="text-blue-600">
+                    <Link
+                      to={'/DashboardUser'}
+                      className="text-blue-600 flex gap-3 items-center"
+                    >
                       {userinfo[0].name}
                     </Link>
                   )}
@@ -99,6 +108,7 @@ function Header() {
                 ) : (
                   <Link to={'/DashboardUser'} className="text-blue-600">
                     {userinfo[0].name}
+                    {result ? <div>پیام دارید</div> : ''}
                   </Link>
                 )}
                 <Link

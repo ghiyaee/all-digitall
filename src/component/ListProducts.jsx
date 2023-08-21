@@ -51,9 +51,13 @@ function ListProducts() {
           className={` w-[160px] md:w-96 flex justify-center  items-center  rounded-lg 
                 ${move.move} duration-1000 `}
         >
-          <div className="w-[280px] h-[200px] md:h-[300px] bg-white p-6 rounded-lg flex justify-center items-center hover:scale-110 duration-700">
+          <div className="w-[280px] h-[200px] md:h-[300px] bg-white p-6 rounded-lg flex justify-center items-center ">
             <Link to={`/product/${product.slug}`}>
-              <img alt="img" src={product.img} className='max-h-[290px]' />
+              <img
+                alt="img"
+                src={product.img}
+                className="max-h-[290px] hover:scale-110 duration-700"
+              />
             </Link>
           </div>
         </div>

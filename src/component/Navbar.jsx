@@ -21,7 +21,7 @@ function Navbar() {
       <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
           <button onClick={() => handelProduct(product.catgory)}>
-            <li className="style_navbar  font-[yekan] duration-700 ">
+            <li className="style_navbar  font-[yekan]  hover:scale-110 duration-700" key={product._id}>
               {product.name}
             </li>
           </button>

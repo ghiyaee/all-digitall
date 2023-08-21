@@ -53,7 +53,7 @@ function Users() {
                         <div className="flex gap-5">
                           <button
                             className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
-                            onClick={() => handelUserEdi(user._id)}
+                            onClick={() => handelUserEdi(user)}
                           >
                            ارسال پیام
                           </button>

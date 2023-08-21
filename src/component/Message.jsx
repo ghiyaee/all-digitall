@@ -2,16 +2,21 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 function Message() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
+  console.log(state);
   const handelMessage = async (e) => {
     e.preventDefault();
-    const message = await axios.post('/api/message', { msg,state });
+    const message = await axios.post('/api/message', { msg, state });
+    navigate('/Dashboard');
   };
   return (
     <div className="flex flex-col justify-center items-center gap-5">
       <h2>فرم ارسال پیام</h2>
+      <p>کاربر{state.name}</p>
       <form className="flex flex-col gap-4">
         <textarea
           type="text"

@@ -5,6 +5,7 @@ const initail = {
     cartItem: [],
   },
   userinfo: [],
+  message:[],
 };
 
 const reducer = (state, action) => {
@@ -44,6 +45,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         userinfo: [...state.userinfo, action.payload],
+      };
+    case 'MESSAGE':
+      return {
+        ...state,
+        message: [...state.message, ...action.payload],
       };
     default:
       return state;
