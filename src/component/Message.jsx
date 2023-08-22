@@ -7,11 +7,12 @@ function Message() {
   const navigate = useNavigate();
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
-  console.log(state);
   const handelMessage = async (e) => {
     e.preventDefault();
-    const message = await axios.post('/api/message', { msg, state });
-    navigate('/Dashboard');
+    try {
+     await axios.post('/api/message', { msg, state });
+      navigate('/Dashboard');
+    } catch (error) {}
   };
   return (
     <div className="flex flex-col justify-center items-center gap-5">
