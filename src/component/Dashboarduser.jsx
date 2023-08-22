@@ -1,20 +1,15 @@
 import React from 'react';
-import { useState, useEffect, useContext } from 'react';
+import { useState, } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import User from './User';
-import axios from 'axios';
-import { Store } from '../context/Store';
 import Comments from './Comments';
-import { useNavigate } from 'react-router-dom';
 import MessageUser from './MessageUser';
 function DashboardUser() {
   const [user, setUser] = useState(false);
   const [comments, setComments] = useState(false);
-  const { userinfo, message } = useContext(Store);
-  const navigate=useNavigate()
+  const [msg,setMessage]=useState(false)
   const handelMessage = () => {
-  //  navigate('/MeaasgeUser')
+   setMessage(true)
   };
   const handelProducts = () => {};
   const handelComments = () => {};
@@ -31,7 +26,7 @@ function DashboardUser() {
               onClick={() => handelMessage()}
               className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer  "
             >
-             پیامها
+              پیامها
             </button>
             <button
               onClick={() => handelComments()}
@@ -48,8 +43,19 @@ function DashboardUser() {
             </button>
           </div>
         </div>
-        <div className="border w-full rounded-lg text-black">
-          {user === true ? <User /> : comments === true ? <Comments /> : <MessageUser/>}
+        <div
+          className="flex justify-center  border w-full rounded-lg
+           text-black items-center bg-zinc-700"
+        >
+          {user === true ? (
+            <User />
+          ) : comments === true ? (
+            <Comments />
+          ) : msg === true ? (
+            <MessageUser />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </>

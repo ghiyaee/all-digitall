@@ -36,7 +36,8 @@ function Users() {
           {userinfo[0].isAdmin ? (
             <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] max-h-screen  overflow-y-auto ">
               <h2 className="text-3xl mt-5 text-yellow-400"> کاربران</h2>
-              <div className=" py-3 px-10 text-lg w-[900px] bg-zinc-700 text-yellow-100 shadow shadow-orange-400 overflow-x-hidden ">
+                <div className=" py-3 px-10 text-lg w-[900px] bg-zinc-700 text-yellow-100 shadow
+               shadow-orange-400 overflow-x-hidden ">
                 {users?.map((user) => (
                   <div
                     key={user._id}

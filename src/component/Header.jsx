@@ -59,9 +59,14 @@ function Header() {
                     >
                       {userinfo[0].name}
                       {result.length > 0 ? (
-                        <span className=" text-yellow-50 animate-bounce relative text-3xl flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full">
+                        <span
+                          className=" text-yellow-50 animate-bounce relative text-3xl 
+                        flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full"
+                        >
                           <MdOutlineLocalPostOffice />
-                          <span className='absolute -right-[16px] -top-[0px] text-3xl text-red-500 '> {result.length}</span>
+                          <span className="absolute -right-[16px] -top-[0px] text-3xl text-red-500 ">
+                            {result.length}
+                          </span>
                         </span>
                       ) : (
                         ''

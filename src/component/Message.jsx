@@ -13,7 +13,8 @@ function Message() {
       return
     } else{
       try {
-       await axios.post('/api/message', { msg, state });
+        const res = await axios.post('/api/message', { msg, state });
+        setMsg(res.data)
         navigate('/Dashboard');
       } catch (error) {}
 
@@ -23,7 +24,6 @@ function Message() {
     <div className="flex items-center flex-col justify-center container m-auto  mt-5 ">
       <div className="py-5 px-16 rounded-lg flex items-center flex-col gap-5 bg-zinc-700 text-yellow-200 w-full text-2xl">
         <h2>فرم ارسال پیام</h2>
-        <p>کاربر{state.name}</p>
         <form className="flex flex-col gap-4 font-[yekan]">
           <textarea
             cols="30"
