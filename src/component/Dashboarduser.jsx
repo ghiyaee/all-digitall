@@ -6,12 +6,16 @@ import User from './User';
 import axios from 'axios';
 import { Store } from '../context/Store';
 import Comments from './Comments';
-
+import { useNavigate } from 'react-router-dom';
+import MessageUser from './MessageUser';
 function DashboardUser() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   const [comments, setComments] = useState(false);
-  const { userinfo } = useContext(Store);
-  const handelUsers = () => {};
+  const { userinfo, message } = useContext(Store);
+  const navigate=useNavigate()
+  const handelMessage = () => {
+  //  navigate('/MeaasgeUser')
+  };
   const handelProducts = () => {};
   const handelComments = () => {};
   return (
@@ -24,18 +28,18 @@ function DashboardUser() {
           <h2 className="text-2xl ">داشبورد کاربر</h2>
           <div className="flex flex-col gap-10 text-2xl  ">
             <button
+              onClick={() => handelMessage()}
+              className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer  "
+            >
+             پیامها
+            </button>
+            <button
               onClick={() => handelComments()}
               className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer"
             >
               دیدگاه
             </button>
 
-            <button
-              onClick={() => handelUsers()}
-              className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer  "
-            >
-             مشخصات
-            </button>
             <button
               onClick={() => handelProducts()}
               className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500"
@@ -45,7 +49,7 @@ function DashboardUser() {
           </div>
         </div>
         <div className="border w-full rounded-lg text-black">
-          {user === true ? <User /> : comments === true ? <Comments /> : ''}
+          {user === true ? <User /> : comments === true ? <Comments /> : <MessageUser/>}
         </div>
       </div>
     </>

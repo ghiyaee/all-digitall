@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 function Header() {
   const { state } = useContext(Store);
   const { userinfo, cart, message } = state;
-  const result = message?.map((i) => i.user_id?._id === userinfo[0]?._id);
+  const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
   return (
     <header className=" min-w-full">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -46,7 +46,7 @@ function Header() {
                 ''
               )}
               {userinfo.length > 0 ? (
-                <li className="flex gap-3 ">
+                <li className="flex gap-3  ">
                   <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
                   {userinfo[0].isAdmin ? (
                     <Link to={'/Dashboard'} className="text-blue-600">
@@ -55,10 +55,17 @@ function Header() {
                   ) : (
                     <Link
                       to={'/DashboardUser'}
-                      className="text-blue-600 flex gap-3 items-center"
+                      className="text-blue-600 flex gap-6 items-center"
                     >
                       {userinfo[0].name}
-                      {result.every(v=> v === true) ? <MdOutlineLocalPostOffice /> : '' }
+                      {result.length > 0 ? (
+                        <span className=" text-yellow-50 animate-ping  relative text-xl flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full">
+                          <MdOutlineLocalPostOffice />
+                          <span className='absolute -right-[10px]  -top-[5px] text-red-500 '> {result.length}</span>
+                        </span>
+                      ) : (
+                        ''
+                      )}
                     </Link>
                   )}
                   <Link
