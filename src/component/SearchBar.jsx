@@ -17,7 +17,7 @@ function SearchBar() {
           <div className="relative">
             <input
               type="text"
-              className=" p-3 w-[400px] md:w-[400px] rounded-lg  outline-none text-2xl shadow-md shadow-red-200"
+              className=" p-4 w-[400px] md:w-[400px] rounded-lg  outline-none text-2xl shadow-md shadow-red-200"
               onChange={(e) => setProduct(e.target.value.toLowerCase())}
               value={product}
               placeholder=" جستجوکنید"

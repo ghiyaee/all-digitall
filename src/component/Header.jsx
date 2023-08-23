@@ -34,7 +34,7 @@ function Header() {
         <div className=" gap-3 hidden md:inline-flex ">
           <SearchBar />
           <div className="flex bg-yellow-50 text-zinc-800  p-3 rounded-lg text-2xl shadow-md shadow-orange-200">
-            <ul className="flex gap-5 ">
+            <ul className="flex gap-5 items-center">
               <Link to={'/Card'}>
                 <li>سبدخرید</li>
               </Link>
@@ -46,7 +46,7 @@ function Header() {
                 ''
               )}
               {userinfo.length > 0 ? (
-                <li className="flex gap-3  ">
+                <li className="flex gap-3  items-center">
                   <FaUserAlt className="text-red-500" />:<h2>داشبورد</h2>
                   {userinfo[0].isAdmin ? (
                     <Link to={'/Dashboard'} className="text-blue-600">
