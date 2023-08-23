@@ -103,7 +103,7 @@ function ProdcutsEdit() {
                 </>
               ) : (
                 <div
-                  className={`flex flex-col gap-6 font-[yekan] p-10  max-h-screen  overflow-y-auto`}
+                  className={`flex items-center flex-col gap-6 font-[yekan] p-10  max-h-screen  overflow-y-auto`}
                 >
                   <h2 className="text-yellow-400 text-center text-3xl font-bold mt-0 border p-10 rounded-lg">
                     ویرایش محصولات
@@ -114,7 +114,7 @@ function ProdcutsEdit() {
                           flex  gap-[0px]  items-center shadow shadow-orange-100 justify-between `}
                       key={product._id}
                     >
-                      <img alt="img" src={product.img} className="h-[70px]" />
+                      <img alt="img" src={product.img} className="w-28 h-[70px]" />
 
                       <div className="text-xl font-bold flex items-center gap-3 ">
                         <p className="w-[200px]">{product.name}</p>

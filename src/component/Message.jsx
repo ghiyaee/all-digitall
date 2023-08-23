@@ -8,8 +8,9 @@ function Message() {
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
   const handelMessage = async (e) => {
+     e.preventDefault();
     if (msg === '') {
-      e.preventDefault();
+     
       return
     } else{
       try {

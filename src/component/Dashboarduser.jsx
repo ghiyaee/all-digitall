@@ -22,22 +22,19 @@ function DashboardUser() {
           </div>
           <h2 className="text-2xl ">داشبورد کاربر</h2>
           <div className="flex flex-col gap-10 text-2xl  ">
-            <button
-              onClick={() => handelMessage()}
-              className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer  "
-            >
+            <button onClick={() => handelMessage()} className="style-button p-4 ">
               پیامها
             </button>
             <button
               onClick={() => handelComments()}
-              className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500 cursor-pointer"
+              className="style-button p-4"
             >
               دیدگاه
             </button>
 
             <button
               onClick={() => handelProducts()}
-              className="bg-blue-400 py-3 px-6 hover:rounded-3xl hover:text-white duration-500"
+              className="style-button p-4"
             >
               سفارشات
             </button>
