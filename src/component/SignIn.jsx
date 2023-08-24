@@ -31,8 +31,6 @@ function SignIn() {
       dispatch({ type: 'LOGIN', payload: { ...data } })
       dispatch({ type: 'MESSAGE', payload: message.data })
       navigate('/') 
-  
-     
     } catch (error) {
      toast.error('نام کاربری یا رمز عبور اشتباه است')
     }

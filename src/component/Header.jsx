@@ -11,6 +11,7 @@ function Header() {
   const { state } = useContext(Store);
   const { userinfo, cart, message } = state;
   const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
+  const resf = result.filter(f => f.isSync === false)
   return (
     <header className=" min-w-full">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -58,14 +59,14 @@ function Header() {
                       className="text-blue-600 flex gap-6 items-center"
                     >
                       {userinfo[0].name}
-                      {result.length > 0 ? (
+                      {resf.length > 0? (
                         <span
                           className=" text-yellow-50 animate-bounce relative text-3xl 
                         flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full"
                         >
                           <MdOutlineLocalPostOffice />
                           <span className="absolute -right-[16px] -top-[0px] text-3xl text-red-500 ">
-                            {result.length}
+                            {resf.length}
                           </span>
                         </span>
                       ) : (
