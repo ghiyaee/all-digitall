@@ -7,14 +7,16 @@ import { Store } from '../context/Store';
 import Comments from './Comments';
 import DashboardUser from './Dashboarduser';
 import NewProduct from './NewProduct';
+import Messages from './Messages';
 
 function Dashboard() {
+  const { state } = useContext(Store);
+  const { userinfo } = state;
   const [users, setUsers] = useState(false);
   const [comments, setComments] = useState(false);
   const [product, setProduct] = useState(false);
-  const { state } = useContext(Store);
   const [isLoading, setIsLoading] = useState(true);
-  const { userinfo } = state;
+  const [messages, setMessages] = useState(false);
   const handelUsers = () => {
     setUsers(true);
   };
@@ -22,16 +24,26 @@ function Dashboard() {
     setUsers(false);
     setComments(false);
     setProduct(false);
+    setMessages(false)
   };
   const handelComments = () => {
     setComments(true);
     setUsers(false);
+    setProduct(false);
+    setMessages(false);
   };
   const handelNewProduct = () => {
+    setProduct(true);
     setComments(false);
     setUsers(false);
-    setProduct(true);
+     setMessages(false);
   };
+  const handelMessages = () => {
+    setMessages(true)
+     setUsers(false);
+     setComments(false);
+     setProduct(false); 
+  }
   return (
     <>
       {userinfo[0].isAdmin ? (
@@ -66,6 +78,12 @@ function Dashboard() {
               >
                 نظرات کاربران
               </button>
+              <button
+                onClick={() => handelMessages()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+              پیامهای ارسالی
+              </button>
             </div>
           </div>
           <div
@@ -78,6 +96,8 @@ function Dashboard() {
               <Comments />
             ) : product === true ? (
               <NewProduct />
+            ) : messages === true ? (
+              <Messages />
             ) : (
               <ProdcutsEdit />
             )}

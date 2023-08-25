@@ -20,7 +20,7 @@ import SearchProduct from './component/SearchProduct';
 import SearchItem from './component/SearchItem';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import Message from './component/Message';
-// import MessageUser from './component/MessageUser';
+import Messages from './component/Messages';
 function App() {
   return (
     <div className="flex flex-col justify-between min-h-screen ">
@@ -49,7 +49,7 @@ function App() {
             <Route path="/SearchProduct" element={<SearchProduct />} />
             <Route path="/SearchItem" element={<SearchItem />} />
             <Route path='/Message' element={<Message />} />
-            {/* <Route path='/MessageUser' element={<MessageUser />} /> */}
+            <Route path='/Messages' element={<Messages />} />
           </Routes>
           <Footer />
         </BrowserRouter>
