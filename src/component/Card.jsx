@@ -89,7 +89,7 @@ function Card() {
                   0
                 )}
               </p>
-              <Link to={'/CheckOut'}>
+              <Link to={'/AddressUsers'}>
                 <button
                   className="bg-blue-500 p-4 text-white w-full
                   hover:scale-105 hover:rounded-3xl duration-500 "
