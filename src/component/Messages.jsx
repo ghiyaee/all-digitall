@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-
+import Moment from 'react-moment';
 function Messages() {
     const [message,setMessage]=useState([])
     useEffect(() => {
@@ -16,10 +16,16 @@ function Messages() {
     <div className="text-xl p-10 text-yellow-200 font-[yekan] flex flex-col    gap-3 max-h-screen overflow-y-auto">
       <h2 className="text-center">پیامهای ارسال شده</h2>
       {message.map((i) => (
-          <div key={i._id} className="border p-8 text-2xl rounded-lg">
-              <p>ارسال شده به کاربر  : <span className='text-blue-300'>{i.user_id.name} </span></p>
-              <br />
+        <div key={i._id} className="border p-8 text-2xl rounded-lg">
+          <p>
+            ارسال شده به کاربر :{' '}
+            <span className="text-blue-300">{i.user_id.name} </span>
+          </p>
+          <br />
           <p>{i.message}</p>
+          <Moment className="mt-4" format="HH:DD YYYY/DD/MM">
+            <p>{i.date}</p>
+          </Moment>
         </div>
       ))}
     </div>

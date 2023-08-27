@@ -1,7 +1,7 @@
 import { useContext, useEffect ,useState} from 'react';
 import { Store } from '../context/Store';
 import { TiTickOutline } from 'react-icons/ti'
-
+import Moment from 'react-moment';
 function MessageUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
@@ -31,7 +31,16 @@ function MessageUser() {
           >
             <div className="flex flex-col gap-5 ">
               <p className=" ">{m.message}</p>
-              <TiTickOutline className={`text-green-500 ${sync ? 'block':"hidden"} duration-[2000ms] `} />
+              <div className='flex items-center gap-2'>
+                <TiTickOutline
+                  className={`text-green-500 text-3xl ${
+                    sync ? 'block' : 'hidden'
+                  } duration-[2000ms] `}
+                />
+                <Moment className="" format="HH:DD YYYY/DD/MM">
+                  <p>{m.date}</p>
+                </Moment>
+              </div>
             </div>
           </div>
         ))}
