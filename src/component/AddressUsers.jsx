@@ -16,31 +16,43 @@ function AddressUsers() {
       </h2>
       <form className="flex  flex-col text-2xl gap-5 w-96 font-[yekan]">
         <input
+        onChange={(e)=>setProvince(e.target.value.toLowerCase())}
+        value={province}
           type="text"
           className="py-3 px-1 rounded-lg w-[190px] outline-none"
           placeholder="استان"
         />
         <input
+        onChange={(e)=>setCity(e.target.value.toLowerCase())}
+        value={city}
           type="text"
           className="py-3 px-1 rounded-lg w-[190px] outline-none"
           placeholder="شهر"
         />
         <input
+        onChange={(e)=>setStreet(e.target.value.toLowerCase())}
+        value={street}
           type="text"
           className="py-3 px-1 rounded-lg w-[1200px] outline-none"
           placeholder="خیابان"
         />
         <input
+        onChange={(e)=>setPostCode(e.target.value.toLowerCase())}
+        value={postCode}
           type="text"
           className="py-3 px-1 rounded-lg w-[190px] outline-none"
           placeholder="کدپستی"
         />
         <input
+        onChange={(e)=>setMobile(e.target.value.toLowerCase())}
+        value={mobile}
           type="text"
           className="py-3 px-1 rounded-lg w-[190px] outline-none"
           placeholder="موبایل"
         />
         <input
+        onChange={(e)=>setTell(e.target.value.toLowerCase())}
+        value={tell}
           type="text"
           className="py-3 px-1 rounded-lg w-[190px] outline-none"
           placeholder="تلفن ثابت"
