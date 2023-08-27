@@ -8,6 +8,7 @@ const addressSchema = mongoose.Schema({
   mobile: { type: Number, required: true },
   tell: { type: Number, required: true },
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  isAddress:{type:Boolean,default:false}
 });
 
 const Address = mongoose.model('ADDRESS', addressSchema);

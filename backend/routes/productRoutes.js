@@ -64,7 +64,6 @@ productRouter.post('/Edit', async (req, res) => {
   product.countInStock = req.body.countInStock;
   product.name=req.body.name
   await product.save();
-  console.log(product);
    const newProduct = await Product.findOne({ _id: req.body.id });
   res.status(201).send(newProduct)
 })

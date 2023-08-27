@@ -22,7 +22,6 @@ function Card() {
   const handelDele = (item) => {
     dispatch({ type: 'DELE_ITEM', payload: { ...item } });
   };
-  console.log(cart);
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
