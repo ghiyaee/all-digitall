@@ -22,6 +22,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 import Message from './component/Message';
 import Messages from './component/Messages';
 import AddressUsers from './component/AddressUsers';
+import AddressEdit from './component/AddresseEdit';
 function App() {
   return (
     <div className="flex flex-col justify-between min-h-screen ">
@@ -49,9 +50,10 @@ function App() {
             <Route path="/Comments" element={<Comments />} />
             <Route path="/SearchProduct" element={<SearchProduct />} />
             <Route path="/SearchItem" element={<SearchItem />} />
-            <Route path='/Message' element={<Message />} />
-            <Route path='/Messages' element={<Messages />} />
-            <Route path='/AddressUsers' element={<AddressUsers/>} />
+            <Route path="/Message" element={<Message />} />
+            <Route path="/Messages" element={<Messages />} />
+            <Route path="/AddressUsers" element={<AddressUsers />} />
+            <Route path="/AddressEdit" element={<AddressEdit />} />
           </Routes>
           <Footer />
         </BrowserRouter>

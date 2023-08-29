@@ -2,24 +2,32 @@ import React from 'react';
 import { useState } from 'react';
 import { FaUserAlt } from 'react-icons/fa';
 import User from './User';
-import Comments from './Comments';
 import MessageUser from './MessageUser';
 import { Store } from '../context/Store';
 import { useContext } from 'react';
 import axios from 'axios';
+import MessageEdit from './AddresseEdit';
+import AddressEdit from './AddresseEdit';
 function DashboardUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
   const [user, setUser] = useState(false);
-  const [comments, setComments] = useState(false);
+  const [address, setAddress] = useState(false);
   const [msg, setMessage] = useState(false);
   const handelMessage = async () => {
     setMessage(true);
     await axios.post('/api/message/edit', { userinfo });
   };
- 
+
   const handelProducts = () => {};
-  const handelComments = () => {};
+  const handelAddress = () => {
+    setUser(false);
+    setMessage(false);
+    setAddress(true);
+    const fetchData = async () => {
+      const msg = await axios.post('/api/address/edit');
+    };
+  };
   return (
     <>
       <div className="flex container m-auto font-[yekan] ">
@@ -36,10 +44,10 @@ function DashboardUser() {
               پیامها
             </button>
             <button
-              onClick={() => handelComments()}
+              onClick={() => handelAddress()}
               className="style-button p-4"
             >
-              دیدگاه
+              آدرس
             </button>
 
             <button
@@ -56,8 +64,8 @@ function DashboardUser() {
         >
           {user === true ? (
             <User />
-          ) : comments === true ? (
-            <Comments />
+          ) : address === true ? (
+            <AddressEdit />
           ) : msg === true ? (
             <MessageUser />
           ) : (
