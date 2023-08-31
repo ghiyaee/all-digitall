@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Store } from '../context/Store';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import axios from 'axios';
 function Card() {
+  const navigate=useNavigate()
   const { setCart, state, dispatch } = useContext(Store);
   const { userinfo, cart } = state;
   const [conter, setConter] = useState(cart.cartItem);
@@ -22,6 +24,16 @@ function Card() {
   const handelDele = (item) => {
     dispatch({ type: 'DELE_ITEM', payload: { ...item } });
   };
+  const handelAddress =async () => {
+    const fetchData = await axios.post('/api/address/checkAddress', {
+      userinfo,
+    });
+    if (fetchData.data) {
+     navigate('/CheckOut')
+    } else {
+      navigate('/AddressUsers')
+   }
+  }
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
@@ -66,7 +78,7 @@ function Card() {
             ))}
           </div>
           <div className=" border p-8 h-4/4 font-[yekan] text-2xl flex flex-col gap-4 md:gap-10 items-center rounded-lg text-black shadow-2xl shadow-orange-400">
-            <h2>فاکتور خرید</h2>
+            <h2>پیش فاکتور خرید</h2>
             <div className="flex flex-col gap-5">
               <p>تعداد :{cart.cartItem.reduce((a, c) => a + c.conter, 0)} </p>
               <p>
@@ -88,14 +100,12 @@ function Card() {
                   0
                 )}
               </p>
-              <Link to={'/AddressUsers'}>
                 <button
                   className="bg-blue-500 p-4 text-white w-full
                   hover:scale-105 hover:rounded-3xl duration-500 "
-                >
-                  تایید نهایی
+                onClick={handelAddress} >
+                  ادامه
                 </button>
-              </Link>
             </div>
           </div>
         </div>

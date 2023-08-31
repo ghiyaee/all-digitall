@@ -6,8 +6,7 @@ import MessageUser from './MessageUser';
 import { Store } from '../context/Store';
 import { useContext } from 'react';
 import axios from 'axios';
-import MessageEdit from './AddresseEdit';
-import AddressEdit from './AddresseEdit';
+import AddressEdit from './AddressEdit';
 function DashboardUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
@@ -15,6 +14,8 @@ function DashboardUser() {
   const [address, setAddress] = useState(false);
   const [msg, setMessage] = useState(false);
   const handelMessage = async () => {
+    setAddress(false)
+    setMessage(false)
     setMessage(true);
     await axios.post('/api/message/edit', { userinfo });
   };

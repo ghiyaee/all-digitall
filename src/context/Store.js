@@ -5,7 +5,8 @@ const initail = {
     cartItem: [],
   },
   userinfo: [],
-  message:[],
+  message: [],
+  address:[]
 };
 
 const reducer = (state, action) => {
@@ -51,6 +52,10 @@ const reducer = (state, action) => {
         ...state,
         message: [...state.message, ...action.payload],
       };
+    case 'ADDRESS':
+      return {
+        ...state,address:[...state.address,action.payload]
+      }
     default:
       return state;
   }
@@ -58,24 +63,10 @@ const reducer = (state, action) => {
 
 export const StoreProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initail);
-  const [like, setLike] = useState(0);
-  const [dislike, setDisLike] = useState(0);
-  const [likeComment, setLikeComment] = useState(0);
-  const [dislikeComment, setDisLikeComment] = useState(0);
 
   return (
     <Store.Provider
       value={{
-        // cart,
-        // setCart,
-        like,
-        setLike,
-        dislike,
-        setDisLike,
-        dislikeComment,
-        setDisLikeComment,
-        likeComment,
-        setLikeComment,
         state,
         dispatch,
       }}
@@ -85,5 +76,3 @@ export const StoreProvider = ({ children }) => {
   );
 };
 
-// ...state,
-// cart: { ...state.cart, cartItem: [...state.cart.cartItem, item] },
