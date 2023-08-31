@@ -6,7 +6,7 @@ import MessageUser from './MessageUser';
 import { Store } from '../context/Store';
 import { useContext } from 'react';
 import axios from 'axios';
-import AddressEdit from './AddressEdit';
+import AddressEdit from './AddresseEdit';
 function DashboardUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
@@ -25,9 +25,6 @@ function DashboardUser() {
     setUser(false);
     setMessage(false);
     setAddress(true);
-    const fetchData = async () => {
-      const msg = await axios.post('/api/address/edit');
-    };
   };
   return (
     <>

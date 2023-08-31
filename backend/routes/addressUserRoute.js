@@ -28,7 +28,7 @@ addressRouter.post('/addressNew', async (req, res) => {
 export default addressRouter;
 
 addressRouter.post('/edit', async (req, res) => {
-  const address = await Address.findOneAndUpdate({
+  const address = await Address.findOne({
     user_id: new ObjectId(req.body.userinfo[0]._id),
   });
   address.province = req.body.province;
@@ -38,6 +38,7 @@ addressRouter.post('/edit', async (req, res) => {
   address.mobile = req.body.mobile;
   address.tell = req.body.tell;
   await address.save();
+  res.send(address)
 });
 
 addressRouter.post('/checkAddress', async (req, res) => {

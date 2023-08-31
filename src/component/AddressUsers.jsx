@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { Store } from '../context/Store';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 function AddressUsers() {
+  const navigate=useNavigate()
   const { state } = useContext(Store);
-  const { userinfo, address, dispatch } = state;
+  const { userinfo } = state;
   const [province, setProvince] = useState('');
   const [city, setCity] = useState('');
   const [street, setStreet] = useState('');
@@ -23,7 +25,7 @@ function AddressUsers() {
       mobile,
       tell,
     });
-    dispatch({ type: 'ADDRESS', payload: fetchData.data });
+    navigate('/CheckOut')
   };
   return (
     <>
