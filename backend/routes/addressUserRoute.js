@@ -3,11 +3,9 @@ import Address from '../models/addressUsersModel.js';
 import { ObjectId } from 'mongodb';
 const addressRouter = express.Router();
 addressRouter.post('/', async (req, res) => {
-  console.log(req.body);
   const address = await Address.findOne({
     user_id: new ObjectId(req.body.userinfo[0]._id),
   });
-  // const address = await Address.findOneAndUpdate({ user_id:new ObjectId( req.body.userinfo[0]._id), isAddress: false }, { isAddress: true });
   res.send(address);
   console.log(address);
 });
@@ -43,6 +41,5 @@ addressRouter.post('/edit', async (req, res) => {
 
 addressRouter.post('/checkAddress', async (req, res) => {
   const address = await Address.findOne({ user_id: req.body.userinfo[0]._id })
-  console.log(address);
   res.send(address)
 });

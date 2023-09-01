@@ -1,4 +1,4 @@
-import mongoose, { Model } from 'mongoose';
+import mongoose from 'mongoose';
 import User from './userModel.js';
 const addressSchema = mongoose.Schema({
   province: { type: String, required: true },
@@ -9,7 +9,5 @@ const addressSchema = mongoose.Schema({
   tell: { type: Number, required: true },
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
-
-const Address = mongoose.model('ADDRESS', addressSchema);
-
+const Address = mongoose.model('Address', addressSchema);
 export default Address;

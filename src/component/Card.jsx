@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../context/Store';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 function Card() {
-  const navigate = useNavigate()
-  const {states}=useLocation()
-  const { setCart, state, dispatch } = useContext(Store);
+  const navigate = useNavigate();
+  const { state, dispatch } = useContext(Store);
   const { userinfo, cart } = state;
   const [conter, setConter] = useState(cart.cartItem);
+  const [number, setNumber] = useState(0);
   const handelInc = (item) => {
     if (item.countInStock > item.conter) {
       dispatch({ type: 'ADD_ITEM_CONTER', payload: { ...item, conter } });
@@ -27,16 +27,27 @@ function Card() {
     dispatch({ type: 'DELE_ITEM', payload: { ...item } });
   };
   const handelAddress = async () => {
-  
     const fetchData = await axios.post('/api/address/checkAddress', {
       userinfo,
     });
+    const num = cart.cartItem.reduce((a, c) => a + c.conter, 0);
+    const tot = cart.cartItem.reduce(
+      (a, c) => a + c.conter * c.price + (c.conter * c.price * 9) / 100,
+      0
+    );
+    const id = userinfo[0]._id;
+    const prod = cart.cartItem[0]._id;
+    const addrs = fetchData.data._id;
+    console.log(addrs);
     if (fetchData.data) {
-     navigate('/CheckOut')
+      navigate('/CheckOut', {
+        state: [num, tot, id, prod, addrs],
+      });
     } else {
-      navigate('/AddressUsers')
-   }
-  }
+      navigate('/AddressUsers');
+    }
+  };
+
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
@@ -103,12 +114,13 @@ function Card() {
                   0
                 )}
               </p>
-                <button
-                  className="bg-blue-500 p-4 text-white w-full
+              <button
+                className="bg-blue-500 p-4 text-white w-full
                   hover:scale-105 hover:rounded-3xl duration-500 "
-                onClick={handelAddress} >
-                  ادامه
-                </button>
+                onClick={handelAddress}
+              >
+                ادامه
+              </button>
             </div>
           </div>
         </div>
