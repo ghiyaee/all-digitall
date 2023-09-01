@@ -34,7 +34,7 @@ function DashboardUser() {
             <FaUserAlt className="text-red-500" />
           </div>
           <h2 className="text-2xl ">داشبورد کاربر</h2>
-          <div className="flex flex-col gap-10 text-2xl  ">
+          <div className="flex flex-col gap-5 text-2xl  ">
             <button
               onClick={() => handelMessage()}
               className="style-button p-4 "

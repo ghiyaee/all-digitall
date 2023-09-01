@@ -4,22 +4,22 @@ import axios from 'axios';
 import { Store } from '../context/Store';
 
 import ViewPoint from './ViewPoint';
-import {CgScrollV} from 'react-icons/cg'
-import { logDOM } from '@testing-library/react';
+import { CgScrollV } from 'react-icons/cg';
 import Like from './Like';
 function Product() {
   const navigation = useNavigate();
-  const { dispatch, setCart, state } =
-    useContext(Store);
-  const { userinfo ,cart} = state;
+  const { dispatch, setCart, state } = useContext(Store);
+  const { userinfo, cart } = state;
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;
   const [scroll, setScroll] = useState(false);
 
-  const handelAddItem = (item) => {
-    dispatch({ type: 'ADD_ITEM', payload: {...item ,conter:1}});
-    navigation('/Card');
+  const handelAddItem = async (item) => {
+    
+    dispatch({ type: 'ADD_ITEM', payload: { ...item, conter: 1 } });
+
+    navigation('/Card',);
   };
 
   useEffect(() => {
@@ -29,22 +29,22 @@ function Product() {
     };
     fetchData();
   }, [slug]);
- useEffect(() => {
-   window.addEventListener('scroll', () => {
-     if (window.scrollY > 100) {
-       setScroll(true);
-     } else {
-       setScroll(false);
-     }
-   });
- }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    });
+  }, []);
   const scrollUp = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
   };
-  
+
   return (
     <>
       {scroll && (
@@ -83,7 +83,7 @@ function Product() {
                 >
                   خرید
                 </button>
-                <Like product={product}/>
+                <Like product={product} />
               </div>
             </div>
           </div>

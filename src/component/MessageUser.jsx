@@ -23,27 +23,33 @@ function MessageUser() {
   return (
     <div className="flex items-center flex-col max-h-screen overflow-y-auto">
       <div className=" p-10 flex flex-col gap-5 bg-zinc-700 text-yellow-200  text-2xl ">
-        <h2 className="text-center">پیامهای ارسالی از طرف مدیریت</h2>
-        {filterMessage.map((m) => (
-          <div
-            key={m._id}
-            className={`flex justify-between items-center ${moveSlider.move} duration-1000 rounded-lg mt-5 gap-[0px] shadow shadow-yellow-100 p-5 `}
-          >
-            <div className="flex flex-col gap-5 ">
-              <p className=" ">{m.message}</p>
-              <div className='flex items-center gap-2'>
-                <TiTickOutline
-                  className={`text-green-500 text-3xl ${
-                    sync ? 'block' : 'hidden'
-                  } duration-[2000ms] `}
-                />
-                <Moment className="" format="HH:DD YYYY/DD/MM">
-                  <p>{m.date}</p>
-                </Moment>
+        {filterMessage.length === 0 ? (
+          <h2 className="text-center">شما پیامی ندارید</h2>
+        ) : (
+          <>
+            <h2 className="text-center">پیامهای ارسالی از طرف مدیریت</h2>
+            {filterMessage.map((m) => (
+              <div
+                key={m._id}
+                className={`flex justify-between items-center ${moveSlider.move} duration-1000 rounded-lg mt-5 gap-[0px] shadow shadow-yellow-100 p-5 `}
+              >
+                <div className="flex flex-col gap-5 ">
+                  <p className=" ">{m.message}</p>
+                  <div className="flex items-center gap-2">
+                    <TiTickOutline
+                      className={`text-green-500 text-3xl ${
+                        sync ? 'block' : 'hidden'
+                      } duration-[2000ms] `}
+                    />
+                    <Moment className="" format="HH:DD YYYY/DD/MM">
+                      <p>{m.date}</p>
+                    </Moment>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        ))}
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

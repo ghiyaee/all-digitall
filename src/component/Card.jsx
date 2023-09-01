@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Store } from '../context/Store';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 function Card() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
+  const {states}=useLocation()
   const { setCart, state, dispatch } = useContext(Store);
   const { userinfo, cart } = state;
   const [conter, setConter] = useState(cart.cartItem);
@@ -24,7 +26,8 @@ function Card() {
   const handelDele = (item) => {
     dispatch({ type: 'DELE_ITEM', payload: { ...item } });
   };
-  const handelAddress =async () => {
+  const handelAddress = async () => {
+  
     const fetchData = await axios.post('/api/address/checkAddress', {
       userinfo,
     });

@@ -25,7 +25,7 @@ function AddressUsers() {
       mobile,
       tell,
     });
-    navigate('/CheckOut')
+    navigate('/Product')
   };
   return (
     <>

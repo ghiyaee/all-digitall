@@ -53,7 +53,7 @@ function Dashboard() {
               <FaUserAlt className="text-red-500" />
             </div>
             <h2 className="text-2xl text-yellow-100 ">داشبورد مدیر</h2>
-            <div className="flex flex-col gap-10 text-2xl  ">
+            <div className="flex flex-col gap-5 text-2xl  ">
               <button
                 onClick={() => handelProducts()}
                 className="style-button duration-500"
