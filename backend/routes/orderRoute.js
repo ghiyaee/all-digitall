@@ -17,7 +17,6 @@ orderRoute.post('/', async (req, res) => {
     product_id: req.body.state[3],
     address_id: req.body.state[4],
   }).populate(['user_id', 'product_id', 'address_id']);
-  console.log(orders);
   res.send(orders);
 });
 

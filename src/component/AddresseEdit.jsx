@@ -26,7 +26,7 @@ function AddressEdit() {
       tell,
     });
 
-    navigate('/CheckOut');
+    navigate('/');
   };
   useEffect(() => {
     const fetchData = async () => {

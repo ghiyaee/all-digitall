@@ -30,18 +30,17 @@ function Card() {
     const fetchData = await axios.post('/api/address/checkAddress', {
       userinfo,
     });
-    const num = cart.cartItem.reduce((a, c) => a + c.conter, 0);
-    const tot = cart.cartItem.reduce(
+    const numOrder = cart.cartItem.reduce((a, c) => a + c.conter, 0);
+    const total = cart.cartItem.reduce(
       (a, c) => a + c.conter * c.price + (c.conter * c.price * 9) / 100,
       0
     );
-    const id = userinfo[0]._id;
-    const prod = cart.cartItem[0]._id;
-    const addrs = fetchData.data._id;
-    console.log(addrs);
+    const idUser = userinfo[0]._id;
+    const product_id = cart.cartItem[0]._id;
+    const address_id = fetchData.data._id;
     if (fetchData.data) {
       navigate('/CheckOut', {
-        state: [num, tot, id, prod, addrs],
+        state: [numOrder, total, idUser, product_id, address_id],
       });
     } else {
       navigate('/AddressUsers');
