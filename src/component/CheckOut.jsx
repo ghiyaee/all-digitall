@@ -22,7 +22,7 @@ function CheckOut() {
     >
       <h2 className="text-center">
         فاکتور خرید
-        <hr className=" border-b border-yellow-200 mt-2 w-[500px]" />
+        <hr className=" border-b border-red-500 mt-2 w-[500px]" />
       </h2>
       <div className="flex gap-5 flex-col items-center">
         <div>کد شفارش :{order._id}</div>
