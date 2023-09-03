@@ -54,8 +54,14 @@ const reducer = (state, action) => {
       };
     case 'ADDRESS':
       return {
-        ...state,address:[...state.address,action.payload]
-      }
+        ...state,
+        address: [...state.address, action.payload],
+      };
+    case 'REST_CARTITEM':
+      return {
+        ...state,
+        cart: { ...state.cart, cartItem: [] },
+      };
     default:
       return state;
   }

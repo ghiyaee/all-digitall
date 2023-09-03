@@ -8,7 +8,6 @@ function Card() {
   const { state, dispatch } = useContext(Store);
   const { userinfo, cart } = state;
   const [conter, setConter] = useState(cart.cartItem);
-  const [number, setNumber] = useState(0);
   const handelInc = (item) => {
     if (item.countInStock > item.conter) {
       dispatch({ type: 'ADD_ITEM_CONTER', payload: { ...item, conter } });

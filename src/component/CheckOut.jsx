@@ -2,14 +2,19 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Moment from 'react-moment';
+import moment from 'jalali-moment';
+import { useContext } from 'react';
+import { Store} from '../context/Store'
 function CheckOut() {
-  const { state } = useLocation();
+  const { state ,dispatch} = useContext(Store)
+  console.log(state);
+  const { state: newState } = useLocation();
   const [order, setOrder] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.post('/api/order', { state });
+      const res = await axios.post('/api/order', { newState });
       setOrder(res.data);
+      dispatch({ type: 'REST_CARTITEM' });
     };
     fetchData();
   }, []);
@@ -28,7 +33,7 @@ function CheckOut() {
         <div>کد شفارش :{order._id}</div>
         <div>
           تاریخ سفارش &nbsp;
-          <Moment format="HH:D YYYY/DD/MM">{new Date(order.date)}</Moment>
+          {moment((order.date)).locale('fa').format('HH:D YYYY/MM/DD')}
         </div>
       </div>
       <div className="flex gap-5 flex-col items-center">

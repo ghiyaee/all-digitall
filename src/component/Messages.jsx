@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import Moment from 'react-moment';
+import moment from 'jalali-moment'
 function Messages() {
     const [message,setMessage]=useState([])
     useEffect(() => {
@@ -23,9 +23,8 @@ function Messages() {
           </p>
           <br />
           <p>{i.message}</p>
-          <Moment className="mt-4" format="HH:DD YYYY/DD/MM">
-            <p>{i.date}</p>
-          </Moment>
+         
+          {moment (i.data).locale('fa').format('HH:D YYYY/MM/DD')}
         </div>
       ))}
     </div>

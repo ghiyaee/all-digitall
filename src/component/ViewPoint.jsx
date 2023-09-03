@@ -2,9 +2,9 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Store } from '../context/Store';
 import { useNavigate } from 'react-router-dom';
-import Moment from 'react-moment';
 import { AiOutlineLike } from 'react-icons/ai';
 import { AiOutlineDislike } from 'react-icons/ai';
+import moment from 'jalali-moment';
 import LikeComment from "./LikeComment"
 function ViewPoint({ product }) {
   const navigate = useNavigate();
@@ -65,7 +65,7 @@ function ViewPoint({ product }) {
         </form>
       </div>
       {comment?.length == 0 ? (
-        <div className='text-xl mt-4'>هیچ دیدگاهی ثبت نشده</div>
+        <div className="text-xl mt-4">هیچ دیدگاهی ثبت نشده</div>
       ) : (
         <div className="flex flex-col gap-5 mt-5">
           <h2 className="text-2xl ">دیدگاه کاربران</h2>
@@ -80,9 +80,7 @@ function ViewPoint({ product }) {
               </p>
               <p className="text-justify">{comment.text}</p>
               <div className="flex flex-wrap justify-between items-center">
-                <Moment format="HH:D YYYY/DD/MM">
-                  {new Date(comment.date)}
-                </Moment>
+                {moment((comment.date)).locale('fa').format('HH:D YYYY/MM/DD')}
                 <LikeComment comment={comment} />
               </div>
             </div>

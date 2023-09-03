@@ -1,7 +1,7 @@
 import { useContext, useEffect ,useState} from 'react';
 import { Store } from '../context/Store';
 import { TiTickOutline } from 'react-icons/ti'
-import Moment from 'react-moment';
+import moment from 'jalali-moment';
 function MessageUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
@@ -41,9 +41,8 @@ function MessageUser() {
                         sync ? 'block' : 'hidden'
                       } duration-[2000ms] `}
                     />
-                    <Moment className="" format="HH:DD YYYY/DD/MM">
-                      <p>{m.date}</p>
-                    </Moment>
+                    
+                    {moment(m.data).locale('fa').format('HH:D YYYY/MM/DD')}
                   </div>
                 </div>
               </div>
