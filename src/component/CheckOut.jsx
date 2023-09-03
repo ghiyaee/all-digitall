@@ -12,7 +12,7 @@ function CheckOut() {
   const [order, setOrder] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.post('/api/order', { newState });
+      const res = await axios.post('/api/order/new', { newState });
       setOrder(res.data);
       dispatch({ type: 'REST_CARTITEM' });
     };
@@ -33,7 +33,7 @@ function CheckOut() {
         <div>کد شفارش :{order._id}</div>
         <div>
           تاریخ سفارش &nbsp;
-          {moment((order.date)).locale('fa').format('HH:D YYYY/MM/DD')}
+          {moment(order.date).locale('fa').format('HH:D YYYY/MM/DD')}
         </div>
       </div>
       <div className="flex gap-5 flex-col items-center">
@@ -45,7 +45,8 @@ function CheckOut() {
         <div>
           آدرس :<span>{order.address_id?.province}&nbsp;</span>
           <span>{order.address_id?.city}&nbsp;</span>
-          <span>{order.address_id?.street}&nbsp;</span>
+          <span>{order.address_id?.street}&nbsp;&nbsp;</span>
+          <span> کدپستی: {order.address_id?.postCode}</span>
         </div>
       </div>
       <button className="bg-red-500 p-3 rounded-lg">درگاه پرداخت</button>

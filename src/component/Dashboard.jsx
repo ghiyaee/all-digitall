@@ -8,6 +8,7 @@ import Comments from './Comments';
 import DashboardUser from './Dashboarduser';
 import NewProduct from './NewProduct';
 import Messages from './Messages';
+import OrderUsers from './OrderUsers';
 
 function Dashboard() {
   const { state } = useContext(Store);
@@ -17,6 +18,7 @@ function Dashboard() {
   const [product, setProduct] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState(false);
+  const [order, setOrder] = useState(false);
   const handelUsers = () => {
     setUsers(true);
   };
@@ -24,26 +26,37 @@ function Dashboard() {
     setUsers(false);
     setComments(false);
     setProduct(false);
-    setMessages(false)
+    setMessages(false);
+    setOrder(false);
   };
   const handelComments = () => {
     setComments(true);
     setUsers(false);
     setProduct(false);
     setMessages(false);
+    setOrder(false);
   };
   const handelNewProduct = () => {
     setProduct(true);
     setComments(false);
     setUsers(false);
-     setMessages(false);
+    setMessages(false);
+    setOrder(false);
   };
   const handelMessages = () => {
-    setMessages(true)
-     setUsers(false);
-     setComments(false);
-     setProduct(false); 
-  }
+    setMessages(true);
+    setUsers(false);
+    setComments(false);
+    setProduct(false);
+    setOrder(false);
+  };
+  const handelOreder = () => {
+    setOrder(true);
+    setMessages(false);
+    setUsers(false);
+    setComments(false);
+    setProduct(false);
+  };
   return (
     <>
       {userinfo[0].isAdmin ? (
@@ -67,6 +80,12 @@ function Dashboard() {
                 ثبت محصول
               </button>
               <button
+                onClick={() => handelOreder()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+                سفارشات
+              </button>
+              <button
                 onClick={() => handelUsers()}
                 className="style-button duration-500 cursor-pointer  "
               >
@@ -82,7 +101,7 @@ function Dashboard() {
                 onClick={() => handelMessages()}
                 className="style-button p-4 duration-500 cursor-pointer"
               >
-              پیامهای ارسالی
+                پیامهای ارسالی
               </button>
             </div>
           </div>
@@ -98,6 +117,8 @@ function Dashboard() {
               <NewProduct />
             ) : messages === true ? (
               <Messages />
+            ) : order === true ? (
+              <OrderUsers />
             ) : (
               <ProdcutsEdit />
             )}

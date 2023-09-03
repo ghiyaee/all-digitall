@@ -2,7 +2,16 @@ import experss from 'express';
 import Order from '../models/orderModel.js';
 const orderRoute = experss.Router();
 
-orderRoute.post('/', async (req, res) => {
+orderRoute.get('/', async (req, res) => {
+  const order = await Order.find().populate([
+    'user_id',
+    'product_id',
+    'address_id',
+  ]);
+  res.send(order)
+  console.log(order);
+})
+orderRoute.post('/new', async (req, res) => {
   const order = new Order({
     numOrder: req.body.newState[0],
     total: req.body.newState[1],

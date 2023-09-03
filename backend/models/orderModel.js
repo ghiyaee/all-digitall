@@ -9,7 +9,9 @@ const orderSchema = mongoose.Schema(
     address_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
     numOrder: { type: Number, default: 0 },
     total: { type: Number, default: 0 },
-    date: { type: Date, default: Date.now },
+    dateOrder: { type: Date, default: Date.now },
+    dateSend: { type: Date, },
+    status: { type: Boolean, default: false },
   },
   {
     timestamps: true,

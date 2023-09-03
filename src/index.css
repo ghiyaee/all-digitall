@@ -84,3 +84,7 @@ text-7xl font-bold cursor-pointer
 w-6 h-16 border-b-4 absolute
 absolute;
 }
+
+.style_table{
+  @apply border text-center p-8
+}
