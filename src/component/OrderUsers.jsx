@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import moment from 'jalali-moment';
 function OrderUsers() {
-  const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const handelOrderSend = async (order) => {
+      const fetchData = await axios.post('/api/order/send', { order })
+      setOrders(fetchData.data)
+    };
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get('/api/order');
@@ -49,7 +53,7 @@ function OrderUsers() {
                     <td className="style_table">
                       {orders.status ? 'ارسال شد' : 'در حال ارسال'}
                     </td>
-                    <td className="style_table">
+                    <td className="style_table cursor-pointer" onClick={()=>handelOrderSend(orders)}>
                       {orders.dateSend ?  moment(orders.dateSend)
                         .locale('fa')
                         .format('HH:D YYYY/MM/DD'):0}

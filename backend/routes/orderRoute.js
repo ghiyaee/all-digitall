@@ -9,7 +9,6 @@ orderRoute.get('/', async (req, res) => {
     'address_id',
   ]);
   res.send(order)
-  console.log(order);
 })
 orderRoute.post('/new', async (req, res) => {
   const order = new Order({
@@ -28,4 +27,13 @@ orderRoute.post('/new', async (req, res) => {
   res.send(orders);
 });
 
+orderRoute.post('/send', async (req, res) => {
+  const order = await Order.findOne({ _id: req.body.order._id })
+  order.status = true
+  order.dateSend = Date.now()
+  await order.save()
+  const orders = await Order.find().populate(['user_id', 'product_id', 'address_id'])
+  res.send(orders)
+  
+})
 export default orderRoute;

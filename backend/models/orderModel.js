@@ -10,7 +10,7 @@ const orderSchema = mongoose.Schema(
     numOrder: { type: Number, default: 0 },
     total: { type: Number, default: 0 },
     dateOrder: { type: Date, default: Date.now },
-    dateSend: { type: Date, },
+    dateSend: { type: Date, required: false },
     status: { type: Boolean, default: false },
   },
   {
