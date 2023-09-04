@@ -30,11 +30,11 @@ function OrderUser() {
           <table className="border-collapse w-full">
             <thead>
               <tr className="text-red-500">
-                <th className="style_table">تاریخ سفارش</th>
-                <th className="style_table">شماره سفارش</th>
-                <th className="style_table">نام محصول</th>
-                <th className="style_table">وضعیت</th>
-                <th className="style_table">تاریخ ارسال</th>
+                <th className="style_table sticky top-0">تاریخ سفارش</th>
+                <th className="style_table sticky top-0">شماره سفارش</th>
+                <th className="style_table sticky top-0">نام محصول</th>
+                <th className="style_table sticky top-0">وضعیت</th>
+                <th className="style_table sticky top-0">تاریخ ارسال</th>
               </tr>
             </thead>
             <tbody>

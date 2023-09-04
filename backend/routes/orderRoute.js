@@ -42,7 +42,7 @@ orderRoute.post('/user', async (req, res) => {
     'product_id',
     'address_id',
   ]);
-  console.log(order);
+  console.log(order)
   res.send(order)
 })
 export default orderRoute;

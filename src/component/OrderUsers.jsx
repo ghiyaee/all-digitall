@@ -24,17 +24,17 @@ function OrderUsers() {
     >
       <h2 className="text-3xl">سفارشات کاربران</h2>
 
-      <div className=" ">
+      <div className="overflow-y-auto h-[300px] ">
         <>
           <table className="border-collapse w-full">
             <thead>
               <tr className="text-red-500">
-                <th className="style_table">تاریخ سفارش</th>
-                <th className="style_table">شماره سفارش</th>
-                <th className="style_table">نام محصول</th>
-                <th className="style_table">نام کاربر</th>
-                <th className="style_table">وضعیت</th>
-                <th className="style_table">تاریخ ارسال</th>
+                <th className="style_table sticky top-0">تاریخ سفارش</th>
+                <th className="style_table sticky top-0">شماره سفارش</th>
+                <th className="style_table sticky top-0">نام محصول</th>
+                <th className="style_table sticky top-0">نام کاربر</th>
+                <th className="style_table sticky top-0">وضعیت</th>
+                <th className="style_table sticky top-0">تاریخ ارسال</th>
               </tr>
             </thead>
             <tbody>
@@ -46,10 +46,10 @@ function OrderUsers() {
                         .locale('fa')
                         .format('HH:D YYYY/MM/DD')}
                     </td>
-                    <td className="style_table">{orders._id}</td>
-                    <td className="style_table">{orders.product_id?.name}</td>
-                    <td className="style_table">{orders.user_id?.name}</td>
-                    <td className="style_table">
+                    <td className="style_table ">{orders._id}</td>
+                    <td className="style_table ">{orders.product_id?.name}</td>
+                    <td className="style_table ">{orders.user_id?.name}</td>
+                    <td className="style_table ">
                       {orders.status ? 'ارسال شد' : 'در حال ارسال'}
                     </td>
                     <td className="style_table cursor-pointer" onClick={()=>handelOrderSend(orders)}>
