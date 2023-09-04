@@ -7,12 +7,14 @@ import { Store } from '../context/Store';
 import { useContext } from 'react';
 import axios from 'axios';
 import AddressEdit from './AddresseEdit';
+import OrderUser from './OrderUser';
 function DashboardUser() {
   const { state } = useContext(Store);
   const { message, userinfo } = state;
   const [user, setUser] = useState(false);
   const [address, setAddress] = useState(false);
   const [msg, setMessage] = useState(false);
+  const [order, setOrder] = useState(false);
   const handelMessage = async () => {
     setAddress(false)
     setMessage(false)
@@ -20,7 +22,11 @@ function DashboardUser() {
     await axios.post('/api/message/edit', { userinfo });
   };
 
-  const handelProducts = () => {};
+  const handelOrder = () => {
+      setAddress(false);
+    setMessage(false);
+    setOrder(true)
+  };
   const handelAddress = () => {
     setUser(false);
     setMessage(false);
@@ -48,10 +54,7 @@ function DashboardUser() {
               آدرس
             </button>
 
-            <button
-              onClick={() => handelProducts()}
-              className="style-button p-4"
-            >
+            <button onClick={() => handelOrder()} className="style-button p-4">
               سفارشات
             </button>
           </div>
@@ -66,6 +69,8 @@ function DashboardUser() {
             <AddressEdit />
           ) : msg === true ? (
             <MessageUser />
+          ) : order === true ? (
+            <OrderUser />
           ) : (
             ''
           )}

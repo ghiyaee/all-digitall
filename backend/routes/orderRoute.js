@@ -36,4 +36,13 @@ orderRoute.post('/send', async (req, res) => {
   res.send(orders)
   
 })
+orderRoute.post('/user', async (req, res) => {
+  const order = await Order.find({ user_id: req.body.userinfo[0] }).populate([
+    'user_id',
+    'product_id',
+    'address_id',
+  ]);
+  console.log(order);
+  res.send(order)
+})
 export default orderRoute;

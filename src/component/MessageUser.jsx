@@ -1,25 +1,25 @@
-import { useContext, useEffect ,useState} from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Store } from '../context/Store';
-import { TiTickOutline } from 'react-icons/ti'
+import { TiTickOutline } from 'react-icons/ti';
 import moment from 'jalali-moment';
 function MessageUser() {
-  const { state } = useContext(Store);
+  const { state, dispatch } = useContext(Store);
   const { message, userinfo } = state;
-  const [sync,setSync]=useState(false)
-   const [moveSlider, setMoveSlider] = useState({
-     move: 'transform translate-x-[1000px]',
-   });
+  const [sync, setSync] = useState(false);
+  const [moveSlider, setMoveSlider] = useState({
+    move: 'transform translate-x-[1000px]',
+  });
   const filterMessage = message.filter(
     (f) => f.user_id._id === userinfo[0]?._id
   );
   useEffect(() => {
-     setMoveSlider('transform translate-x-[0px]');
-  }, [])
+    setMoveSlider('transform translate-x-[0px]');
+  }, []);
   useEffect(() => {
     setTimeout(() => {
-      setSync(true)
-    },1800)
-  },[])
+      setSync(true);
+    }, 1800);
+  }, []);
   return (
     <div className="flex items-center flex-col max-h-screen overflow-y-auto">
       <div className=" p-10 flex flex-col gap-5 bg-zinc-700 text-yellow-200  text-2xl ">
@@ -41,7 +41,6 @@ function MessageUser() {
                         sync ? 'block' : 'hidden'
                       } duration-[2000ms] `}
                     />
-                    
                     {moment(m.data).locale('fa').format('HH:D YYYY/MM/DD')}
                   </div>
                 </div>
