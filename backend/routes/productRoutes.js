@@ -58,6 +58,13 @@ productRouter.post('/dislike', async (req, res) => {
   res.send(newProduct);
 });
 
+productRouter.post('/editCount', async (req, res) => {
+  const inStock = await Product.findOne({ product_id: req.body.product_id })
+  inStock.countInStock -= req.body.newState[0]
+  await inStock.save()
+  res.send(inStock)
+ 
+});
 productRouter.post('/Edit', async (req, res) => {
   const product = await Product.findOne({ _id: req.body.id })
   product.price = req.body.price;

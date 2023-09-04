@@ -59,7 +59,7 @@ function ProdcutsEdit() {
       {warning ? (
         <div className="flex flex-col justify-center p-10 gap-5 rounded-lg border font-[yekan]">
           <p className="text-yellow-200 text-2xl">
-            هشدار!! آیااز حذف محصول اطمینان دارید؟ چون غیرقابل بازگشت است.
+            <span className='text-3xl'>هشدار !!!</span> آیااز حذف محصول اطمینان دارید؟ چون غیرقابل بازگشت است.
           </p>
           <div className="flex justify-between">
             <button

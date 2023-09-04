@@ -39,13 +39,18 @@ function Card() {
     const address_id = fetchData.data._id;
     if (fetchData.data) {
       navigate('/CheckOut', {
-        state: [numOrder, total, idUser, product_id, address_id],
+        state: [
+          numOrder,
+          total,
+          idUser,
+          product_id,
+          address_id,
+        ],
       });
     } else {
       navigate('/AddressUsers');
     }
   };
-
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (
@@ -54,17 +59,17 @@ function Card() {
             {cart.cartItem.map((item) => (
               <div
                 key={item.name}
-                className="flex items-center gap-0 mg-gap-10 border p:0 md:p-8 h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
+                className="flex items-center gap-5 mg-gap-10 border p:0 md:p-8 w-[650px] h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
               >
-                <div className="w-[120px] ">
+                <div className="w-[100px] ">
                   <img src={item.img} alt="img" />
                 </div>
                 <div className="flex flex-col md:flex-row gap-2 md:gap-5 items-center justify-between w-[200px] md:w-[400px] ">
-                  <div className="hidden absolute left-[20%] -transform translate-x-[50%] top-[-35px]  text-blue-500 text-2xl">
-                    موجودی{item.countInStock}
-                  </div>
                   <p className="w-40 text-zinc-600">قیمت : {item.price}</p>
                   <div className="flex gap-4 items-center">
+                    <p className="  text-blue-500 text-2xl">
+                      موجودی{item.countInStock}
+                    </p>
                     <span
                       className="border bg-yellow-50  cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
                       onClick={() => handelDec(item)}
@@ -115,7 +120,7 @@ function Card() {
               <button
                 className="bg-blue-500 p-4 text-white w-full
                   hover:scale-105 hover:rounded-3xl duration-500 "
-                onClick={handelAddress}
+                onClick={ handelAddress}
               >
                 ادامه
               </button>

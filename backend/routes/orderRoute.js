@@ -24,6 +24,8 @@ orderRoute.post('/new', async (req, res) => {
     product_id: req.body.newState[3],
     address_id: req.body.newState[4],
   }).populate(['user_id', 'product_id', 'address_id']);
+  orders.product_id.countInStock -= req.body.newState[0]
+  await orders.save()
   res.send(orders);
 });
 
