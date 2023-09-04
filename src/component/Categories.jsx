@@ -22,15 +22,18 @@ function Categories() {
         {link.map((link) => (
           <div key={link.name}>
             <button
-              className="w-44 h-44 bg-red-500 rounded-full flex-col
+              className="w-44 h-44 bg-zinc-500 rounded-full flex-col
                     flex items-center justify-center text-black text-2xl
-                    font-[yekan] border-[5px] border-green-300  bg-gradient-to-b 
-                    from-blue-500  to-yellow-100 cursor-pointer"
+                    font-[yekan]   cursor-pointer relative"
               onClick={() => handelCatgory(link.catgory)}
             >
+              <span
+                className="border-[8px] border-y-yellow-300  absolute top-0
+               w-44 h-44 rounded-full animate-spin "
+              ></span>
               <img src={link.img} alt="img" className="imgw " />
             </button>
-            <p className='text-center text-lg font-[yekan] '> {link.name}</p>
+            <p className="text-center text-lg font-[yekan] "> {link.name}</p>
           </div>
         ))}
       </div>

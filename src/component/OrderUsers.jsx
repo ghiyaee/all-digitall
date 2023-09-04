@@ -24,7 +24,7 @@ function OrderUsers() {
     >
       <h2 className="text-3xl">سفارشات کاربران</h2>
 
-      <div className="overflow-y-auto h-[300px] ">
+      <div className="overflow-y-auto h-[450px] ">
         <>
           <table className="border-collapse w-full">
             <thead>
