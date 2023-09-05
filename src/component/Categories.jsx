@@ -24,11 +24,11 @@ function Categories() {
             <button
               className="w-44 h-44 bg-zinc-500 rounded-full flex-col
                     flex items-center justify-center text-black text-2xl
-                    font-[yekan]   cursor-pointer relative"
+                    font-[yekan] animate-bounce  cursor-pointer relative"
               onClick={() => handelCatgory(link.catgory)}
             >
               <span
-                className="border-[8px] border-y-yellow-300  absolute top-0
+                className="border-[6px] border-b-red-400  absolute top-0
                w-44 h-44 rounded-full animate-spin "
               ></span>
               <img src={link.img} alt="img" className="imgw " />

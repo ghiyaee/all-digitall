@@ -85,7 +85,6 @@ w-6 h-16 border-b-4 absolute
 absolute;
 }
 
-.style_table{
-  @apply border text-center py-[10px] px-[16px] bg-zinc-700
+.style_table {
+  @apply border text-center py-[10px] px-[16px] bg-zinc-700;
 }
-

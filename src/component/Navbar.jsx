@@ -16,15 +16,20 @@ function Navbar() {
   return (
     <navbar
       className="hidden md:inline-flex h-[100px] relative  items-center justify-center 
-     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3 scale-105  "
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3 scale-105 "
     >
       <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
-          <button onClick={() => handelProduct(product.catgory)}>
-            <li className="style_navbar  font-[yekan]  hover:scale-110 duration-700" key={product._id}>
-              {product.name}
-            </li>
-          </button>
+          <li
+            className="style_navbar  font-[yekan]  hover:scale-110 duration-700 relative"
+            key={product._id}
+            onClick={() => handelProduct(product.catgory)}
+          >
+            {product.name}
+            <span className='border-[3px] border-red-500 absolute top-0 right-0
+              h-12 w-36 rounded-md
+             animate-ping '></span>
+          </li>
         ))}
       </ul>
       <div className="style_navbar_cur  -left-6   border-l-4  rounded-bl-lg "></div>
