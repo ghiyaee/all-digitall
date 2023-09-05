@@ -9,6 +9,7 @@ import DashboardUser from './Dashboarduser';
 import NewProduct from './NewProduct';
 import Messages from './Messages';
 import OrderUsers from './OrderUsers';
+import Statistics from './Statistics ';
 
 function Dashboard() {
   const { state } = useContext(Store);
@@ -19,6 +20,7 @@ function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState(false);
   const [order, setOrder] = useState(false);
+  const [statistics,setsStatistics]=useState(false)
   const handelUsers = () => {
     setUsers(true);
   };
@@ -28,6 +30,7 @@ function Dashboard() {
     setProduct(false);
     setMessages(false);
     setOrder(false);
+    setsStatistics(false)
   };
   const handelComments = () => {
     setComments(true);
@@ -57,6 +60,14 @@ function Dashboard() {
     setComments(false);
     setProduct(false);
   };
+  const handelStatistics =() => {
+    setOrder(false);
+    setMessages(false);
+    setUsers(false);
+    setComments(false);
+    setProduct(false);
+    setsStatistics(true)
+  }
   return (
     <>
       {userinfo[0].isAdmin ? (
@@ -103,6 +114,12 @@ function Dashboard() {
               >
                 پیامهای ارسالی
               </button>
+              <button
+                onClick={() => handelStatistics()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+                آمار محصولات
+              </button>
             </div>
           </div>
           <div
@@ -119,6 +136,8 @@ function Dashboard() {
               <Messages />
             ) : order === true ? (
               <OrderUsers />
+            ) : statistics === true ? (
+              <Statistics />
             ) : (
               <ProdcutsEdit />
             )}
