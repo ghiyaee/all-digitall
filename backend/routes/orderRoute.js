@@ -45,4 +45,16 @@ orderRoute.post('/user', async (req, res) => {
   console.log(order)
   res.send(order)
 })
+orderRoute.get('/filter', async (req, res) => {
+  const order = await Order.find({
+    $or: [
+      { category: 'mobile' },
+      { category: 'headbi' },
+      { category: 'headba' },
+      { category: 'flash' },
+      { category: 'labtab' },
+    ],
+  })
+
+})
 export default orderRoute;

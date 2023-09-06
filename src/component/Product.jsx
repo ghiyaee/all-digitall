@@ -67,7 +67,7 @@ function Product() {
                 <p>توضیحات : {product.description}</p>
                 <p>
                   وضعیت :
-                  {product.countInStock > cart.cartItem.length
+                  {product.countInStock >= product.purchased
                     ? 'موجود'
                     : 'ناموجود'}
                 </p>

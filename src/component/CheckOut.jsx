@@ -11,18 +11,19 @@ function CheckOut() {
   const [order, setOrder] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-    const res= await axios.post('/api/products/editCount',{newState})
+      const res = await axios.post('/api/products/purchased', { newState })
+       console.log(res.data);
     }
     fetchData()
 },[])
 
   useEffect(() => {
-    const fetchData = async () => { 
+    const fetchData = async () => {
       const res = await axios.post('/api/order/new', { newState });
       setOrder(res.data);
       dispatch({ type: 'REST_CARTITEM' });
     };
-    fetchData();
+    fetchData()
   }, []);
   return (
     <div
