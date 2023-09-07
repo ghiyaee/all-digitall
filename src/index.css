@@ -86,5 +86,5 @@ absolute;
 }
 
 .style_table {
-  @apply border text-center py-[10px] px-[16px] bg-zinc-700;
+  @apply border text-center py-[10px] px-[16px] bg-zinc-800;
 }

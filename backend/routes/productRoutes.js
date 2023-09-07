@@ -106,5 +106,10 @@ productRouter.get('/filter', async (req, res) => {
   });
   res.send(products);
 });
+productRouter.get('/cb', async (req, res) => {
+  const cb = await Product.find({ category: 'mobile', brand: 'apple' })
+  res.send(cb)
+  console.log(cb);
+})
 export default productRouter;
 

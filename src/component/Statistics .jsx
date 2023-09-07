@@ -1,9 +1,20 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import FadeLoader from 'react-spinners/FadeLoader';
 function Statistics() {
   const [products, setProducts] = useState();
-
+  const [isLoading, setIsLoading] = useState(false);
+    const [moveSlider1, setMoveSlider] = useState({
+      move: 'transform translate-x-[1500px]',
+    });
+   const [isLoading2, setIsLoading2] = useState(false);
+   const [moveSlider2, setMoveSlider2] = useState({
+     move: 'transform translate-x-[1500px]',
+   });
+  const [isLoading3, setIsLoading3] = useState(false);
+  const [moveSlider3, setMoveSlider3] = useState({
+    move: 'transform translate-x-[1500px]',
+  });
   const productProducts = products?.map((f) => f.countInStock);
   const totalProducts = productProducts?.reduce((a, b) => a + b, 0);
 
@@ -49,6 +60,13 @@ function Statistics() {
   const outHeadbi = products?.filter((f) => f.category === 'headbi');
   const headbiOut = outHeadbi?.map((f) => f.purchased);
   const totalPurchasedHeadbi = headbiOut?.reduce((a, b) => a + b, 0);
+  useEffect(() => {
+    const fetachData = async () => {
+      const res = await axios.get('api/products/cb');
+      console.log(res.data);
+    };
+    fetachData();
+  });
 
   useEffect(() => {
     const fetachData = async () => {
@@ -57,92 +75,144 @@ function Statistics() {
     };
     fetachData();
   }, []);
-  console.log(products);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMoveSlider('transform translate-x-[0px] ');
+    },3900)
+  })
+   useEffect(() => {
+     setTimeout(() => {
+       setMoveSlider2('transform translate-x-[0px] ');
+     }, 4500);
+   });
+   useEffect(() => {
+     setTimeout(() => {
+       setMoveSlider3('transform translate-x-[0px] ');
+     }, 5000);
+   });
   return (
-    <div
-      className="flex flex-col gap-7 justify-center 
+    <>
+      {isLoading ? (
+        <>
+          <p
+            className="flex justify-center items-center text-3xl 
+                                  font-[yekan] text-yellow-400 "
+          >
+            لطفاصبرکنید...
+            <FadeLoader color={'#f41d3e'} loading={isLoading} size={100} />
+          </p>
+        </>
+      ) : (
+        <div
+          className="flex flex-col gap-5 justify-center 
     items-center text-2xl font-[yekan] container m-auto
-     bg-zinc-700 p-4 text-yellow-200 rounded-lg"
-    >
-      <h2 className="text-3xl">آمار محصولات در یک نگاه</h2>
-      <p>واردشده</p>
-      <table className="border-collapse w-full text-2xl">
-        <thead>
-          <tr className="text-yellow-200">
-            <th className="style_table">تعداد موبایل</th>
-            <th className="style_table">تعداد هدفون بیسم</th>
-            <th className="style_table">تعداد لب تاب</th>
-            <th className="style_table">تعداد فلش</th>
-            <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table w-[335px]">تعداد کل محصولات وارد شده</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="style_table">{totalMobile}</td>
-            <td className="style_table">{totalHeadbi}</td>
-            <td className="style_table">{totallabtab}</td>
-            <td className="style_table">{totalFlash}</td>
-            <td className="style_table">{totalHeadba}</td>
-            <td className="style_table">{totalProducts}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p className="mt-5">خارج شده</p>
-      <table className="border-collapse w-full text-2xl">
-        <thead>
-          <tr className="text-yellow-200">
-            <th className="style_table">تعداد موبایل</th>
-            <th className="style_table">تعداد هدفون بیسم</th>
-            <th className="style_table">تعداد لب تاب</th>
-            <th className="style_table">تعداد فلش</th>
-            <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table w-[335px]">تعداد کل محصولات خارج شده</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="style_table">{totalPurchasedMobile}</td>
-            <td className="style_table">{totalPurchasedHeadbi}</td>
-            <td className="style_table">{totalPurchasedlabtab}</td>
-            <td className="style_table">{totalPurchaseFlash}</td>
-            <td className="style_table">{totalPurchasedHeadba}</td>
-            <td className="style_table">{totalOutProducts}</td>
-          </tr>
-        </tbody>
-      </table>
-      <p className="mt-5">مانده </p>
-      <table className="border-collapse w-full text-2xl">
-        <thead>
-          <tr className="text-yellow-200">
-            <th className="style_table">تعداد موبایل</th>
-            <th className="style_table">تعداد هدفون بیسم</th>
-            <th className="style_table">تعداد لب تاب</th>
-            <th className="style_table">تعداد فلش</th>
-            <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table w-[335px]"> تعداد کل محصولات مانده</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="style_table">
-              {totalMobile - totalPurchasedMobile}
-            </td>
-            <td className="style_table">
-              {totalHeadbi - totalPurchasedHeadbi}
-            </td>
-            <td className="style_table">
-              {totallabtab - totalPurchasedlabtab}
-            </td>
-            <td className="style_table">{totalFlash - totalPurchaseFlash}</td>
-            <td className="style_table">
-              {totalHeadba - totalPurchasedHeadba}
-            </td>
-            <td className="style_table">{totalProducts - totalOutProducts}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+     bg-zinc-700 p-4 text-yellow-200 rounded-lg overflow-x-auto"
+        >
+          <h2 className="text-3xl">آمار محصولات در یک نگاه</h2>
+          <div className={`${moveSlider1.move} duration-1000`}>
+            <p className="text-red-500">واردشده</p>
+            <table className="border-collapse w-full text-2xl ">
+              <thead>
+                <tr className="text-yellow-400">
+                  <th className="style_table">تعداد موبایل</th>
+                  <th className="style_table">تعداد هدفون بیسم</th>
+                  <th className="style_table">تعداد لب تاب</th>
+                  <th className="style_table">تعداد فلش</th>
+                  <th className="style_table">تعداد هدفون باسیم</th>
+                  <th className="style_table w-[335px]">
+                    تعداد کل محصولات وارد شده
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="style_table">{totalMobile}</td>
+                  <td className="style_table">{totalHeadbi}</td>
+                  <td className="style_table">{totallabtab}</td>
+                  <td className="style_table">{totalFlash}</td>
+                  <td className="style_table">{totalHeadba}</td>
+                  <td className="style_table">{totalProducts}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={`${moveSlider2.move} duration-1000`}>
+            <p className=" text-red-500">خارج شده</p>
+            <table className="border-collapse w-full text-2xl">
+              <thead>
+                <tr className="text-yellow-400">
+                  <th className="style_table">تعداد موبایل</th>
+                  <th className="style_table">تعداد هدفون بیسم</th>
+                  <th className="style_table">تعداد لب تاب</th>
+                  <th className="style_table">تعداد فلش</th>
+                  <th className="style_table">تعداد هدفون باسیم</th>
+                  <th className="style_table w-[335px]">
+                    تعداد کل محصولات خارج شده
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="style_table">{totalPurchasedMobile}</td>
+                  <td className="style_table">{totalPurchasedHeadbi}</td>
+                  <td className="style_table">{totalPurchasedlabtab}</td>
+                  <td className="style_table">{totalPurchaseFlash}</td>
+                  <td className="style_table">{totalPurchasedHeadba}</td>
+                  <td className="style_table">{totalOutProducts}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className={`${moveSlider3.move} duration-1000`}>
+            <p className="text-red-500">مانده </p>
+            <table className="border-collapse w-full text-2xl">
+              <thead>
+                <tr className="text-yellow-400">
+                  <th className="style_table">تعداد موبایل</th>
+                  <th className="style_table">تعداد هدفون بیسم</th>
+                  <th className="style_table">تعداد لب تاب</th>
+                  <th className="style_table">تعداد فلش</th>
+                  <th className="style_table">تعداد هدفون باسیم</th>
+                  <th className="style_table w-[335px]">
+                    تعداد کل محصولات مانده
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="style_table">
+                    {totalMobile - totalPurchasedMobile}
+                  </td>
+                  <td className="style_table">
+                    {totalHeadbi - totalPurchasedHeadbi}
+                  </td>
+                  <td className="style_table">
+                    {totallabtab - totalPurchasedlabtab}
+                  </td>
+                  <td className="style_table">
+                    {totalFlash - totalPurchaseFlash}
+                  </td>
+                  <td className="style_table">
+                    {totalHeadba - totalPurchasedHeadba}
+                  </td>
+                  <td className="style_table">
+                    {totalProducts - totalOutProducts}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
