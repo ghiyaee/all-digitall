@@ -8,7 +8,15 @@ import { Store} from '../context/Store'
 function CheckOut() {
   const { state, dispatch } = useContext(Store)
   const { state: newState } = useLocation();
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState([])
+    useEffect(() => {
+      const fetchData = async () => {
+        const res = await axios.post('/api/order/new', { newState });
+        setOrder(res.data);
+        dispatch({ type: 'REST_CARTITEM' });
+      };
+      fetchData();
+    }, []);
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.post('/api/products/purchased', { newState })
@@ -16,15 +24,9 @@ function CheckOut() {
     }
     fetchData()
 },[])
+  
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.post('/api/order/new', { newState });
-      setOrder(res.data);
-      dispatch({ type: 'REST_CARTITEM' });
-    };
-    fetchData()
-  }, []);
+
   return (
     <div
       className="flex flex-col gap-7 justify-center 

@@ -57,7 +57,7 @@ productRouter.post('/dislike', async (req, res) => {
 });
 
 productRouter.post('/purchased', async (req, res) => {
-  const inStock = await Product.findOne({ product_id: req.body.product_id });
+  const inStock = await Product.findOne({ _id: req.body.newState[3] });
   inStock.purchased += req.body.newState[0];
   await inStock.save();
   res.send(inStock);
@@ -95,17 +95,16 @@ productRouter.post('/searchProduct', async (req, res) => {
   product.length > 0 ? res.send(product) : res.send({ msg: 'محصولی یافت نشد' });
 });
 productRouter.get('/filter', async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find({
+    $or: [
+      { category: 'mobile' },
+      { category: 'headbi' },
+      { category: 'headba' },
+      { category: 'flash' },
+      { category: 'labtab' },
+    ],
+  });
   res.send(products);
 });
 export default productRouter;
 
-// {
-//     $or: [
-//       { category: 'mobile' },
-//       { category: 'headbi' },
-//       { category: 'headba' },
-//       { category: 'flash' },
-//       { category: 'labtab' },
-//     ],
-//   }

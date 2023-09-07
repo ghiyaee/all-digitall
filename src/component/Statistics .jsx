@@ -52,7 +52,7 @@ function Statistics() {
 
   useEffect(() => {
     const fetachData = async () => {
-      const result = await axios.get('/api/products');
+      const result = await axios.get('/api/products/filter');
       setProducts(result.data);
     };
     fetachData();
@@ -74,7 +74,7 @@ function Statistics() {
             <th className="style_table">تعداد لب تاب</th>
             <th className="style_table">تعداد فلش</th>
             <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table">تعداد کل محصولات وارد شده</th>
+            <th className="style_table w-[335px]">تعداد کل محصولات وارد شده</th>
           </tr>
         </thead>
         <tbody>
@@ -97,7 +97,7 @@ function Statistics() {
             <th className="style_table">تعداد لب تاب</th>
             <th className="style_table">تعداد فلش</th>
             <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table"> تعداد کل محصولات خارج شده</th>
+            <th className="style_table w-[335px]">تعداد کل محصولات خارج شده</th>
           </tr>
         </thead>
         <tbody>
@@ -120,16 +120,24 @@ function Statistics() {
             <th className="style_table">تعداد لب تاب</th>
             <th className="style_table">تعداد فلش</th>
             <th className="style_table">تعداد هدفون باسیم</th>
-            <th className="style_table"> تعداد کل محصولات مانده</th>
+            <th className="style_table w-[335px]"> تعداد کل محصولات مانده</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td className="style_table">{totalMobile - totalOutProducts}</td>
-            <td className="style_table">{0}</td>
-            <td className="style_table">{0}</td>
+            <td className="style_table">
+              {totalMobile - totalPurchasedMobile}
+            </td>
+            <td className="style_table">
+              {totalHeadbi - totalPurchasedHeadbi}
+            </td>
+            <td className="style_table">
+              {totallabtab - totalPurchasedlabtab}
+            </td>
             <td className="style_table">{totalFlash - totalPurchaseFlash}</td>
-            <td className="style_table">{0}</td>
+            <td className="style_table">
+              {totalHeadba - totalPurchasedHeadba}
+            </td>
             <td className="style_table">{totalProducts - totalOutProducts}</td>
           </tr>
         </tbody>
