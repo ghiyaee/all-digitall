@@ -4,14 +4,12 @@ import FadeLoader from 'react-spinners/FadeLoader';
 function Statistics() {
   const [products, setProducts] = useState();
   const [isLoading, setIsLoading] = useState(false);
-    const [moveSlider1, setMoveSlider] = useState({
-      move: 'transform translate-x-[1500px]',
-    });
-   const [isLoading2, setIsLoading2] = useState(false);
-   const [moveSlider2, setMoveSlider2] = useState({
-     move: 'transform translate-x-[1500px]',
-   });
-  const [isLoading3, setIsLoading3] = useState(false);
+  const [moveSlider1, setMoveSlider] = useState({
+    move: 'transform translate-x-[1500px]',
+  });
+  const [moveSlider2, setMoveSlider2] = useState({
+    move: 'transform translate-x-[1500px]',
+  });
   const [moveSlider3, setMoveSlider3] = useState({
     move: 'transform translate-x-[1500px]',
   });
@@ -86,18 +84,18 @@ function Statistics() {
   useEffect(() => {
     setTimeout(() => {
       setMoveSlider('transform translate-x-[0px] ');
-    },3900)
-  })
-   useEffect(() => {
-     setTimeout(() => {
-       setMoveSlider2('transform translate-x-[0px] ');
-     }, 4500);
-   });
-   useEffect(() => {
-     setTimeout(() => {
-       setMoveSlider3('transform translate-x-[0px] ');
-     }, 5000);
-   });
+    }, 3900);
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setMoveSlider2('transform translate-x-[0px] ');
+    }, 4500);
+  });
+  useEffect(() => {
+    setTimeout(() => {
+      setMoveSlider3('transform translate-x-[0px] ');
+    }, 5000);
+  });
   return (
     <>
       {isLoading ? (
