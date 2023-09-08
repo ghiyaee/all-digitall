@@ -16,7 +16,7 @@ function SpecialOffers() {
         {link.map((link) => (
           <div
             key={link.name}
-            className="relative  hover:scale-110  duration-700 cursor-pointer"
+            className="relative  hover:scale-110  duration-700 cursor-pointer "
           >
             <div
               className="w-[250px] h-[230px] border-2 bg-gradient-to-r
@@ -24,7 +24,9 @@ function SpecialOffers() {
                     flex items-center justify-around text-black text-2xl
                     font-[yekan] rounded-b-2xl rounded-t-md z-10 relative"
             >
-              <p className="text-red-500 text-3xl font-[sogand] absolute -left-[53px] -rotate-90">Digital Market</p>
+              <p className="text-red-500 text-3xl font-[sogand] absolute -left-[53px] -rotate-90">
+                Digital Market
+              </p>
               <img src={link.img} alt="img" className="imgw" />
               {link.name}
             </div>
