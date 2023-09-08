@@ -4,9 +4,11 @@ import ListProducts from './ListProducts';
 import Categories from './Categories';
 import SpecialOffers from './SpecialOffers';
 import { CgScrollV } from 'react-icons/cg';
-import { useState ,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+
 function Main() {
+
   const [scroll, setScroll] = useState(false);
   const scrollUp = () => {
     window.scrollTo({
@@ -14,17 +16,18 @@ function Main() {
       behavior: 'smooth',
     });
   };
-   useEffect(() => {
-     window.addEventListener('scroll', () => {
-       if (window.scrollY > 100) {
-         setScroll(true);
-       } else {
-         setScroll(false);
-       }
-     });
-   }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    });
+  }, []);
   return (
     <>
+      
       {scroll && (
         <CgScrollV
           onClick={scrollUp}
@@ -32,7 +35,7 @@ function Main() {
         />
       )}
       <main className="flex flex-col  gap-28 container m-auto ">
-        <Navbar/>
+        <Navbar />
         <Slider />
         <ListProducts />
         <Categories />

@@ -112,10 +112,10 @@ function Statistics() {
         <div
           className="flex flex-col gap-5 justify-center 
     items-center text-2xl font-[yekan] container m-auto
-     bg-zinc-700 p-4 text-yellow-200 rounded-lg overflow-x-auto"
+     bg-zinc-700 p-4 text-yellow-200 rounded-lg overflow-x-auto "
         >
           <h2 className="text-3xl">آمار محصولات در یک نگاه</h2>
-          <div className={`${moveSlider1.move} duration-1000`}>
+          <div className={`${moveSlider1.move} duration-[2000ms]`}>
             <p className="text-red-500">واردشده</p>
             <table className="border-collapse w-full text-2xl ">
               <thead>
@@ -142,7 +142,7 @@ function Statistics() {
               </tbody>
             </table>
           </div>
-          <div className={`${moveSlider2.move} duration-1000`}>
+          <div className={`${moveSlider2.move} duration-[2000ms]`}>
             <p className=" text-red-500">خارج شده</p>
             <table className="border-collapse w-full text-2xl">
               <thead>
@@ -169,7 +169,7 @@ function Statistics() {
               </tbody>
             </table>
           </div>
-          <div className={`${moveSlider3.move} duration-1000`}>
+          <div className={`${moveSlider3.move} duration-[2000ms]`}>
             <p className="text-red-500">مانده </p>
             <table className="border-collapse w-full text-2xl">
               <thead>

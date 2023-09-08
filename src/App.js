@@ -23,42 +23,66 @@ import Message from './component/Message';
 import Messages from './component/Messages';
 import AddressUsers from './component/AddressUsers';
 import AddressEdit from './component/AddresseEdit';
+import FadeLoader from 'react-spinners/FadeLoader';
+import { useState } from 'react';
+import { useEffect } from 'react';
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    setIsLoading(true)
+    setTimeout(() => {
+      setIsLoading(false)
+    },3500)
+  },[])
   return (
-    <div className="flex flex-col justify-between min-h-screen ">
-      <SkeletonTheme baseColor="#202020" highlightColor="#444">
-        <BrowserRouter>
-          <Header />
-          <ToastContainer
-            position="top-center"
-            theme="light"
-            className={'text-xl font-bold font-[yekan]'}
-            limit={1}
-          />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/Products" element={<Products />} />
-            <Route path="/product/:slug" element={<Product />} />
-            <Route path="/Card" element={<Card />} />
-            <Route path="/SignIn" element={<SignIn />} />
-            <Route path="/SignUp" element={<SignUp />} />
-            <Route path="/CheckOut" element={<CheckOut />} />
-            <Route path="/Users" element={<Users />} />
-            <Route path="/Dashboard" element={<Dashboard />} />
-            <Route path="/DashboardUser" element={<DashboardUser />} />
-            <Route path="/ProductEdit" element={<ProductEdit />} />
-            <Route path="/Comments" element={<Comments />} />
-            <Route path="/SearchProduct" element={<SearchProduct />} />
-            <Route path="/SearchItem" element={<SearchItem />} />
-            <Route path="/Message" element={<Message />} />
-            <Route path="/Messages" element={<Messages />} />
-            <Route path="/AddressUsers" element={<AddressUsers />} />
-            <Route path="/AddressEdit" element={<AddressEdit />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </SkeletonTheme>
-    </div>
+    <>
+      {isLoading ? (
+        <>
+          <p
+            className="flex justify-center items-center text-3xl h-screen
+                                  font-[yekan] text-zinc-700 "
+          >
+            درحال بارگذاری سایت ...
+            <FadeLoader color={'#f41d3e'} loading={isLoading} size={100} />
+          </p>
+        </>
+      ) : (
+        <div className="flex flex-col justify-between min-h-screen ">
+          <SkeletonTheme baseColor="#202020" highlightColor="#444">
+            <BrowserRouter>
+              <Header />
+              <ToastContainer
+                position="top-center"
+                theme="light"
+                className={'text-xl font-bold font-[yekan]'}
+                limit={1}
+              />
+              <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/Products" element={<Products />} />
+                <Route path="/product/:slug" element={<Product />} />
+                <Route path="/Card" element={<Card />} />
+                <Route path="/SignIn" element={<SignIn />} />
+                <Route path="/SignUp" element={<SignUp />} />
+                <Route path="/CheckOut" element={<CheckOut />} />
+                <Route path="/Users" element={<Users />} />
+                <Route path="/Dashboard" element={<Dashboard />} />
+                <Route path="/DashboardUser" element={<DashboardUser />} />
+                <Route path="/ProductEdit" element={<ProductEdit />} />
+                <Route path="/Comments" element={<Comments />} />
+                <Route path="/SearchProduct" element={<SearchProduct />} />
+                <Route path="/SearchItem" element={<SearchItem />} />
+                <Route path="/Message" element={<Message />} />
+                <Route path="/Messages" element={<Messages />} />
+                <Route path="/AddressUsers" element={<AddressUsers />} />
+                <Route path="/AddressEdit" element={<AddressEdit />} />
+              </Routes>
+              <Footer />
+            </BrowserRouter>
+          </SkeletonTheme>
+        </div>
+      )}
+    </>
   );
 }
 
