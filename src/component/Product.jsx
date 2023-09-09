@@ -77,7 +77,7 @@ function Product() {
                  hover:text-[#ffea00] hover:border border-e-yellow-500
                   rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
                      ${
-                       product.countInStock > cart.cartItem.length
+                       product.countInStock > product.purchased
                          ? 'block'
                          : 'hidden'
                      }

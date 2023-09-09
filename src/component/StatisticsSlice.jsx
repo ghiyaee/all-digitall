@@ -16,14 +16,29 @@ const optionsBrand = [
   { value: '2', brand: 'pixel' },
   { value: '3', brand: 'samsung' },
   { value: '4', brand: 'motorola' },
+  { value: '4', brand: 'sandisk' },
 ];
 function StatisticsSlice() {
   const [category, setCategoryValue] = useState();
   const [brand, setBrandValue] = useState();
+  const [product, setProduct] = useState([]);
+  const [show, setShow] = useState('hidden');
   const handelCb = async () => {
+    if (category && brand) {
       const res = await axios.post('/api/products/cb', { category, brand });
-      
+      if (res.data.length > 0) {
+        setProduct(res.data);
+        setShow('hidden');
+        // setCategoryValue('');
+        // setBrandValue('');
+      } else {
+        setShow('block');
+      }
+    } else {
+      return;
+    }
   };
+  console.log(product);
   return (
     <div className="text-2xl flex flex-col items-center gap-5 ">
       <h2 className="text-yellow-400">انتخاب تفکیکی محصولات</h2>
@@ -69,6 +84,34 @@ function StatisticsSlice() {
           جستجو
         </button>
       </div>
+      {product.length > 0 ? (
+        <table className="border-collapse w-full">
+          <thead>
+            <tr className="text-yellow-400">
+              <th className="style_table">نام محصول</th>
+              <th className="style_table">تعداد خرید</th>
+              <th className="style_table">تعدا فروش</th>
+              <th className="style_table">مانده</th>
+            </tr>
+          </thead>
+          <tbody>
+            {product.map((p) => (
+              <tr className="text-yellow-400">
+                <>
+                  <td className="style_table">{p.name}</td>
+                  <td className="style_table">{p.countInStock}</td>
+                  <td className="style_table">{p.purchased}</td>
+                  <td className="style_table">
+                    {p.countInStock - p.purchased}
+                  </td>
+                </>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <div className={`text-yellow-400 ${show}`}>محصولی یافت نشد</div>
+      )}
     </div>
   );
 }
