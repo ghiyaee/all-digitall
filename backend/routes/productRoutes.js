@@ -112,7 +112,6 @@ productRouter.post('/cb', async (req, res) => {
     brand: req.body.brand,
   });
   res.send(cb)
-console.log(cb);
 })
 export default productRouter;
 

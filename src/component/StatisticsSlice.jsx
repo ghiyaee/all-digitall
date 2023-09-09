@@ -25,32 +25,45 @@ function StatisticsSlice() {
       
   };
   return (
-    <div className="text-2xl">
+    <div className="text-2xl flex flex-col items-center gap-5 ">
       <h2 className="text-yellow-400">انتخاب تفکیکی محصولات</h2>
-      <div className="flex gap-5">
+      <div className="flex gap-5 items-center">
         <div className="py-2 px-4 ">
           <select
             value={category}
             onChange={(e) => setCategoryValue(e.target.value)}
+            className="bg-yellow-400 cursor-pointer py-2 px-6 "
           >
             {optionsCategoty?.map((option) => (
-              <option value={option.category} key={option.value}>
+              <option
+                value={option.category}
+                key={option.value}
+                className="bg-zinc-700 text-yellow-400"
+              >
                 {option.category}
               </option>
             ))}
           </select>
         </div>
-        <div className="py-2 px-4">
-          <select value={brand} onChange={(e) => setBrandValue(e.target.value)}>
+        <div className="">
+          <select
+            value={brand}
+            onChange={(e) => setBrandValue(e.target.value)}
+            className="bg-yellow-400 cursor-pointer py-2 px-6 "
+          >
             {optionsBrand?.map((option) => (
-              <option value={option.brand} key={option.value}>
+              <option
+                value={option.brand}
+                key={option.value}
+                className="bg-zinc-700 text-yellow-400"
+              >
                 {option.brand}
               </option>
             ))}
           </select>
         </div>
         <button
-          className="bg-zinc-800 text-yellow-400 py-1 px-8 rounded-lg "
+          className="bg-zinc-800 text-yellow-400 py-4 px-8 rounded-lg "
           onClick={handelCb}
         >
           جستجو
