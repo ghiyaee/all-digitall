@@ -56,7 +56,7 @@ function Product() {
       {userinfo.length > 0 ? (
         <div className="flex container m-auto gap-10 mt-4 flex-col">
           <div className="flex  justify-around  ">
-            <div className="flex flex-wrap justify-center border p-10 items-center gap-[30px] shadow-2xl shadow-orange-400 text-black rounded-lg">
+            <div className="flex flex-wrap justify-center bg-zinc-700  text-yellow-300 border p-10 items-center gap-[30px] shadow-2xl shadow-orange-400  rounded-lg">
               <div className="w-96 p-6 rounded-lg ">
                 <img src={product.img} alt="img" />
               </div>
@@ -73,7 +73,9 @@ function Product() {
                 </p>
                 <button
                   onClick={() => handelAddItem(product)}
-                  className={`bg-blue-500 p-4 text-white rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
+                  className={`text-zinc-700 bg-[#ffea00] p-4 hover:bg-zinc-700 
+                 hover:text-[#ffea00] hover:border border-e-yellow-500
+                  rounded-lg w-full hover:scale-105  hover:rounded-[40px] duration-500
                      ${
                        product.countInStock > cart.cartItem.length
                          ? 'block'

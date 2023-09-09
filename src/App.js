@@ -32,17 +32,18 @@ function App() {
     setIsLoading(true)
     setTimeout(() => {
       setIsLoading(false)
-    },3500)
+    },4000)
   },[])
   return (
     <>
       {isLoading ? (
         <>
           <p
-            className="flex justify-center items-center text-3xl h-screen
+            className="flex flex-col justify-center items-center text-3xl h-screen
                                   font-[yekan] text-zinc-700 "
           >
-            درحال بارگذاری سایت ...
+            <p> درحال بارگذاری</p>
+            <p> لطفا از مرورگر کروم استفاده کنید</p>
             <FadeLoader color={'#f41d3e'} loading={isLoading} size={100} />
           </p>
         </>

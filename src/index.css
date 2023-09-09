@@ -80,11 +80,9 @@ text-7xl font-bold cursor-pointer
  hover:border-red-500 py-5 w-full hover:scale-95 rounded-lg duration-700;
 }
 .style_navbar_cur {
-  @apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4
-w-6 h-16 border-b-4 absolute
-absolute;
+  @apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4 absolute;
 }
 
 .style_table {
-  @apply border text-center py-[10px] px-[16px] bg-zinc-800;
+  @apply border text-center py-[12px] px-[16px] bg-zinc-800;
 }

@@ -34,7 +34,7 @@ function Main() {
           className=" fixed bottom-10  right-2 text-red-500  text-5xl"
         />
       )}
-      <main className="flex flex-col  gap-28 container m-auto ">
+      <main className="flex flex-col  gap-28 container m-auto  ">
         <Navbar />
         <Slider />
         <ListProducts />

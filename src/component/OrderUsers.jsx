@@ -26,11 +26,11 @@ function OrderUsers() {
 
       <div className="overflow-y-auto h-[450px] ">
         <>
-          <table className="border-collapse w-full">
+          <table className="border-collapse w-full ">
             <thead>
               <tr className="text-red-500">
-                <th className="style_table sticky top-0">تاریخ سفارش</th>
-                <th className="style_table sticky top-0">شماره سفارش</th>
+                <th className="style_table sticky top-0 ">تاریخ سفارش</th>
+                <th className="style_table sticky top-0 ">شماره سفارش</th>
                 <th className="style_table sticky top-0">نام محصول</th>
                 <th className="style_table sticky top-0">نام کاربر</th>
                 <th className="style_table sticky top-0">وضعیت</th>
@@ -52,10 +52,15 @@ function OrderUsers() {
                     <td className="style_table ">
                       {orders.status ? 'ارسال شد' : 'در حال ارسال'}
                     </td>
-                    <td className="style_table cursor-pointer" onClick={()=>handelOrderSend(orders)}>
-                      {orders.dateSend ?  moment(orders.dateSend)
-                        .locale('fa')
-                        .format('HH:D YYYY/MM/DD'):0}
+                    <td
+                      className="style_table cursor-pointer"
+                      onClick={() => handelOrderSend(orders)}
+                    >
+                      {orders.dateSend
+                        ? moment(orders.dateSend)
+                            .locale('fa')
+                            .format('HH:D YYYY/MM/DD')
+                        : 0}
                     </td>
                   </>
                 </tr>

@@ -10,7 +10,7 @@ import NewProduct from './NewProduct';
 import Messages from './Messages';
 import OrderUsers from './OrderUsers';
 import Statistics from './Statistics ';
-
+import StatisticsSlice from './StatisticsSlice';
 function Dashboard() {
   const { state } = useContext(Store);
   const { userinfo } = state;
@@ -20,7 +20,8 @@ function Dashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState(false);
   const [order, setOrder] = useState(false);
-  const [statistics,setsStatistics]=useState(false)
+  const [statistics, setsStatistics] = useState(false);
+  const [statisticsSlice, setsStatisticsSlice] = useState(false);
   const handelUsers = () => {
     setUsers(true);
   };
@@ -30,7 +31,8 @@ function Dashboard() {
     setProduct(false);
     setMessages(false);
     setOrder(false);
-    setsStatistics(false)
+    setsStatistics(false);
+    setsStatisticsSlice(false);
   };
   const handelComments = () => {
     setComments(true);
@@ -38,6 +40,7 @@ function Dashboard() {
     setProduct(false);
     setMessages(false);
     setOrder(false);
+    setsStatisticsSlice(false);
   };
   const handelNewProduct = () => {
     setProduct(true);
@@ -45,6 +48,7 @@ function Dashboard() {
     setUsers(false);
     setMessages(false);
     setOrder(false);
+    setsStatisticsSlice(false);
   };
   const handelMessages = () => {
     setMessages(true);
@@ -52,6 +56,7 @@ function Dashboard() {
     setComments(false);
     setProduct(false);
     setOrder(false);
+    setsStatisticsSlice(false);
   };
   const handelOreder = () => {
     setOrder(true);
@@ -59,25 +64,36 @@ function Dashboard() {
     setUsers(false);
     setComments(false);
     setProduct(false);
+    setsStatisticsSlice(false);
   };
-  const handelStatistics =() => {
+  const handelStatistics = () => {
+    setsStatisticsSlice(false);
     setOrder(false);
     setMessages(false);
     setUsers(false);
     setComments(false);
     setProduct(false);
-    setsStatistics(true)
-  }
+    setsStatistics(true);
+  };
+  const handelStatisticsSlice = () => {
+    setOrder(false);
+    setMessages(false);
+    setUsers(false);
+    setComments(false);
+    setProduct(false);
+    setsStatistics(false);
+    setsStatisticsSlice(true);
+  };
   return (
     <>
       {userinfo[0].isAdmin ? (
         <div className="flex container m-auto font-[yekan] mt-5 ">
-          <div className="border  w-52 min-h-screen flex flex-col items-center gap-5 rounded-lg bg-zinc-700">
+          <div className="border  w-[250px] min-h-screen flex flex-col items-center gap-5 rounded-lg bg-zinc-700">
             <div className="mt-4  p-6 rounded-full shadow shadow-red-400 bg-white">
               <FaUserAlt className="text-red-500" />
             </div>
             <h2 className="text-2xl text-yellow-100 ">داشبورد مدیر</h2>
-            <div className="flex flex-col gap-5 text-2xl  ">
+            <div className="flex flex-col gap-5 text-2xl p-2 overflow-y-auto h-[700px]">
               <button
                 onClick={() => handelProducts()}
                 className="style-button duration-500"
@@ -120,6 +136,12 @@ function Dashboard() {
               >
                 آمار محصولات
               </button>
+              <button
+                onClick={() => handelStatisticsSlice()}
+                className="style-button p-4 duration-500 cursor-pointer"
+              >
+                آمارتفکیکی کالا
+              </button>
             </div>
           </div>
           <div
@@ -138,6 +160,8 @@ function Dashboard() {
               <OrderUsers />
             ) : statistics === true ? (
               <Statistics />
+            ) : statisticsSlice === true ? (
+              <StatisticsSlice />
             ) : (
               <ProdcutsEdit />
             )}

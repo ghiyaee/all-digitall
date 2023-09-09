@@ -57,7 +57,7 @@ function CheckOut() {
           <span> کدپستی: {order.address_id?.postCode}</span>
         </div>
       </div>
-      <button className="bg-red-500 p-3 rounded-lg">درگاه پرداخت</button>
+      <p className="bg-red-500 p-3 rounded-lg">پرداخت با موفقعیت انجام شد</p>
     </div>
   );
 }

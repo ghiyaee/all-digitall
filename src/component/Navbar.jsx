@@ -25,23 +25,23 @@ function Navbar() {
   useEffect(() => {
     setTimeout(() => {
        setMoveSlider('transform translate-y-[0px]');
-     },300) 
+     },10) 
   }, [])
     useEffect(() => {
       setTimeout(() => {
         setMoveSlider1('transform translate-y-[0px]');
-      }, 1500);
+      }, 1000);
     }, []);
   return (
-    <navbar
-      className={`hidden md:inline-flex h-[100px] relative  items-center justify-center 
-     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 transform translate-y-3 scale-105 ${moveSlider.move} duration-[2000ms]`}
+    <div
+      className={`hidden md:inline-flex h-[100px]  items-center justify-center container m-auto
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 mt-3 scale-105 ${moveSlider.move} duration-[2000ms]`}
     >
       <ul className="flex gap-[150px] text-2xl ">
         {link.map((product) => (
           <li
             className={`style_navbar  font-[yekan]  hover:scale-110 duration-700 relative ${moveSlider1.move} duration-[2000ms]`}
-            key={product._id}
+            key={product.name}
             onClick={() => handelProduct(product.catgory)}
           >
             {product.name}
@@ -55,7 +55,7 @@ function Navbar() {
       </ul>
       <div className="style_navbar_cur  -left-6   border-l-4  rounded-bl-lg "></div>
       <div className="style_navbar_cur  -right-6  border-r-4  rounded-br-lg "></div>
-    </navbar>
+    </div>
   );
 }
 
