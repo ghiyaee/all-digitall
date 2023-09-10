@@ -89,8 +89,8 @@ function StatisticsSlice() {
           <thead>
             <tr className="text-yellow-400">
               <th className="style_table">نام محصول</th>
-              <th className="style_table">تعداد خرید</th>
-              <th className="style_table">تعدا فروش</th>
+              <th className="style_table">تعداد وارده</th>
+              <th className="style_table">تعداد خروج</th>
               <th className="style_table">مانده</th>
             </tr>
           </thead>

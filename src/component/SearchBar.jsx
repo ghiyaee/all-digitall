@@ -13,22 +13,22 @@ function SearchBar() {
   }
     return (
       <div>
-        <form className=" ">
-          <div className="relative">
+        <form className='relative'>
+          {/* <div className="relative flex "> */}
             <input
               type="text"
-              className=" p-4 w-[400px] md:w-[400px] rounded-lg  outline-none text-2xl shadow-md shadow-red-200"
+              className=" p-4 w-[385px] md:w-[400px] rounded-lg  outline-none text-xl shadow-md shadow-red-200"
               onChange={(e) => setProduct(e.target.value.toLowerCase())}
               value={product}
               placeholder=" جستجوکنید"
             />
             <button
               onClick={handelSearch}
-              className="text-2xl text-blue-500 absolute transform -translate-y-[50%] left-0 top-[50%] p-4"
+              className="text-xl text-blue-500 absolute transform -translate-y-[50%] left-0 top-[50%] px-2"
             >
               <GiClick />
             </button>
-          </div>
+          {/* </div> */}
         </form>
       </div>
     );

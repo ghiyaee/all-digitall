@@ -15,13 +15,13 @@ function Header() {
   return (
     <header className=" min-w-full">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
-        <Link to={'/'} className="text-3xl text-yellow-300">
-          <div className="flex gap-5 items-center">
+        <Link to={'/'} className="text-xl text-yellow-300">
+          <div className="flex gap-1 items-center">
             <div>
               <p> دیجیتال مارکت</p>
               <p className="font-[sogand] text-red-400">Digital Market</p>
             </div>
-            <div className="w-8 h-8 border-yellow-300 border-4 rounded-tr-2xl rounded-br-2xl relative -translate-x-12"></div>
+            <div className="w-8 h-8 border-yellow-300 border-4 rounded-tr-2xl rounded-br-2xl relative -translate-x-4"></div>
 
             <div className=" h-5 border-red-500 border-r-4 relative  flex items-center justify-center translate-x-4">
               <div className=" h-4 border-red-500  border-r-4 absolute top-0 transform -translate-x-1 rotate-45 "></div>
@@ -34,7 +34,7 @@ function Header() {
         </Link>
         <div className=" gap-3 hidden md:inline-flex ">
           <SearchBar />
-          <div className="flex bg-yellow-50 text-zinc-800  p-3 rounded-lg text-2xl shadow-md shadow-orange-200">
+          <div className="flex bg-yellow-50 text-zinc-800  p-1 rounded-lg text-xl shadow-md shadow-orange-200">
             <ul className="flex gap-5 items-center">
               <Link to={'/Card'}>
                 <li>سبدخرید</li>

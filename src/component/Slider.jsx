@@ -17,18 +17,18 @@ function Slider() {
      useEffect(() => {
        const timer = setInterval(() => {
          if (moveSlider.move === 'transform translate-x-[0rem]') {
-           setMoveSlider({ move: 'transform translate-x-[100rem]' });
+           setMoveSlider({ move: 'transform translate-x-[84rem]' });
          }
-         if (moveSlider.move === 'transform translate-x-[100rem]') {
-           setMoveSlider({ move: 'transform translate-x-[200rem]' });
+         if (moveSlider.move === 'transform translate-x-[84rem]') {
+           setMoveSlider({ move: 'transform translate-x-[168rem]' });
          }
-         if (moveSlider.move === 'transform translate-x-[200rem]') {
-           setMoveSlider({ move: 'transform translate-x-[300rem]' });
+         if (moveSlider.move === 'transform translate-x-[168rem]') {
+           setMoveSlider({ move: 'transform translate-x-[252rem]' });
          }
-         if (moveSlider.move === 'transform translate-x-[300rem]') {
-           setMoveSlider({ move: 'transform translate-x-[400rem]' });
+         if (moveSlider.move === 'transform translate-x-[252rem]') {
+           setMoveSlider({ move: 'transform translate-x-[336rem]' });
          }
-          if (moveSlider.move === 'transform translate-x-[400rem]') {
+          if (moveSlider.move === 'transform translate-x-[336rem]') {
             setMoveSlider({ move: 'transform translate-x-[0rem]' });
           }
        }, 5000);
@@ -37,14 +37,14 @@ function Slider() {
        };
      }, [moveSlider.move]);
   return (
-    <div className="hidden md:inline-flex  flex-wrap items-center gap-[100px] text-center">
-      <div className="flex flex-1 overflow-hidden gap-[65px]">
+    <div className="hidden md:inline-flex ">
+      <div className=" flex flex-1 overflow-hidden gap-[65px]">
         {slider.map((product) => (
           <div key={product.id}
             className={` flex gap-[200px] items-center bg-gradient-to-b 
              from-green-700 to-yellow-200 w-full p-10 rounded-xl  ${moveSlider.move} duration-1000`}
           >
-            <h1 className="text-zinc-800 text-6xl flex-1 w-[700px] font-[sogand] ">
+            <h1 className="text-zinc-800 text-6xl flex-1 w-[700px] font-[sogand] text-center ">
               {product.desc}
             </h1>
             <div className="flex flex-1 justify-center w-[700px] ">

@@ -18,18 +18,18 @@ function Categories() {
       <h1 className="text-zinc-800  text-3xl font-semibold">
         دسته بندی های دیجیتال مارکت
       </h1>
-      <div className="flex flex-wrap justify-center gap-[100px] ">
+      <div className="flex flex-wrap flex-col md:flex-row justify-center gap-[50px] ">
         {link.map((link) => (
           <div key={link.name}>
             <button
-              className="w-44 h-44 bg-zinc-500 rounded-full flex-col
+              className="w-40 h-40 bg-zinc-500 rounded-full flex-col
                     flex items-center justify-center text-black text-2xl
                     font-[yekan] animate-bounce  cursor-pointer relative"
               onClick={() => handelCatgory(link.catgory)}
             >
               <span
                 className="border-[6px] border-b-red-400  absolute top-0
-               w-44 h-44 rounded-full animate-spin "
+               w-40 h-40 rounded-full animate-spin "
               ></span>
               <img src={link.img} alt="img" className="imgw " />
             </button>
