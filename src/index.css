@@ -77,7 +77,7 @@ text-7xl font-bold cursor-pointer
 }
 .style-button {
   @apply bg-zinc-900 text-yellow-400 border-r-[3px] border-l-[3px]
- hover:border-red-500 py-5 w-full hover:scale-95 rounded-lg duration-700;
+ hover:border-red-500 py-2 w-full hover:scale-95 rounded-lg duration-700;
 }
 .style_navbar_cur {
   @apply border-red-600 transform -translate-y-[50%] w-6 h-16 border-b-4 absolute;
