@@ -84,5 +84,5 @@ text-7xl font-bold cursor-pointer
 }
 
 .style_table {
-  @apply border text-center py-[12px] px-[16px] bg-zinc-800;
+  @apply border text-center py-[8px] px-[16px] bg-zinc-800;
 }

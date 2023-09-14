@@ -59,7 +59,7 @@ function ProductEdit() {
         ''
       )}
       <div
-        className="flex flex-col bg-zinc-700 items-center container m-auto shadow-2xl rounded-lg
+        className="flex flex-col bg-zinc-700 items-center container m-auto shadow-xl rounded-lg
        shadow-orange-400 p-10 text-2xl font-[yekan] text-yellow-200 gap-10"
       >
         <h2>ویرایش محصول</h2>
@@ -71,7 +71,7 @@ function ProductEdit() {
               value={name}
               type="text"
               required
-              className="text-zinc-700 py-5 px-4 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 py-1 px-1 rounded-lg outline-none border-b text-center"
               onChange={(e) => setName(e.target.value)}
             />
           </div>
@@ -81,7 +81,7 @@ function ProductEdit() {
               value={price}
               type="text"
               required
-              className="text-zinc-700 py-5 px-4 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 py-1 px-1 w-36 rounded-lg outline-none border-b text-center"
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
@@ -91,18 +91,18 @@ function ProductEdit() {
               value={countInStock}
               type="text"
               required
-              className="text-zinc-700 py-5 px-2 rounded-lg outline-none border-b text-center"
+              className="text-zinc-700 w-24 py-1 px-1 rounded-lg outline-none border-b text-center"
               onChange={(e) => setCountInStock(e.target.value)}
             />
           </div>
           <button
-            className={`text-blue-700  bg-[#ffea00] ${hidden} py-5 px-2 rounded-lg`}
+            className={`text-blue-700  bg-[#ffea00] ${hidden} py-1 px-2 rounded-lg`}
             onClick={handelProductEdit}
           >
             تایید ویرایش
           </button>
           <button
-            className="text-blue-700  bg-[#ffea00] py-5 px-2 rounded-lg"
+            className="text-blue-700  bg-[#ffea00] py-1 px-2 rounded-lg"
             onClick={handelRedirect}
           >
             بازگشت به صفحه محصولات

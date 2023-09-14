@@ -76,7 +76,7 @@ function NewProduct() {
           <h2 className="text-black text-2xl text-yellow-400">فرم ثبت محصول</h2>
           <form
             className="flex gap-8 items-center shadow rounded-lg
-          bg-gradient-to-b from-zinc-800 to-zinc-600   shadow-orange-400 p-10 text-2xl font-[yekan] "
+          bg-gradient-to-b from-zinc-800 to-zinc-600   shadow-orange-400 p-5 text-2xl font-[yekan] "
           >
             <div className="flex flex-col gap-5">
               <input
@@ -155,7 +155,7 @@ function NewProduct() {
                 {img == '' || img == null ? (
                   ''
                 ) : (
-                  <img src={img} alt="img" className="w-24 h-24" />
+                  <img src={img} alt="img" className="w-20 h-20" />
                 )}
               </div>
               <button

@@ -114,10 +114,10 @@ function Statistics() {
     items-center text-2xl font-[yekan] container m-auto
      bg-zinc-700 p-4 text-yellow-200 rounded-lg overflow-x-auto "
         >
-          <h2 className="text-3xl">آمار محصولات در یک نگاه</h2>
+          <h2 className="text-2xl">آمار محصولات در یک نگاه</h2>
           <div className={`${moveSlider1.move} duration-[2000ms]`}>
             <p className="text-red-500">واردشده</p>
-            <table className="border-collapse w-full text-2xl ">
+            <table className="border-collapse w-full text-xl ">
               <thead>
                 <tr className="text-yellow-400">
                   <th className="style_table">تعداد موبایل</th>
@@ -144,7 +144,7 @@ function Statistics() {
           </div>
           <div className={`${moveSlider2.move} duration-[2000ms]`}>
             <p className=" text-red-500">خارج شده</p>
-            <table className="border-collapse w-full text-2xl">
+            <table className="border-collapse w-full text-xl">
               <thead>
                 <tr className="text-yellow-400">
                   <th className="style_table">تعداد موبایل</th>
@@ -171,7 +171,7 @@ function Statistics() {
           </div>
           <div className={`${moveSlider3.move} duration-[2000ms]`}>
             <p className="text-red-500">مانده </p>
-            <table className="border-collapse w-full text-2xl">
+            <table className="border-collapse w-full text-xl">
               <thead>
                 <tr className="text-yellow-400">
                   <th className="style_table">تعداد موبایل</th>
