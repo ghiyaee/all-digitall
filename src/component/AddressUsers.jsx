@@ -33,7 +33,7 @@ function AddressUsers() {
         <h2 className="text-yellow-200 text-2xl text-center">
           اطلاعات تکمیلی (آدرس)
         </h2>
-        <form className="flex  flex-col text-2xl gap-5 w-96 font-[yekan]">
+        <form className="flex  flex-col text-xl gap-5 w-96 font-[yekan]">
           <input
             value={province}
             onChange={(e) => setProvince(e.target.value)}
@@ -74,7 +74,7 @@ function AddressUsers() {
             value={street}
             onChange={(e) => setStreet(e.target.value)}
             type="text"
-            className="py-3 px-1 rounded-lg w-[1200px] outline-none"
+            className="py-3 px-1 rounded-lg w-[900px] outline-none"
             placeholder="خیابان"
           />
           <button

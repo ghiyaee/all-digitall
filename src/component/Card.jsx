@@ -59,7 +59,7 @@ function Card() {
             {cart.cartItem.map((item) => (
               <div
                 key={item.name}
-                className="flex items-center gap-5 bg-zinc-700 text-[#ffea00]  md:gap-10 border p:0 md:p-8 w-[650px] h-[190px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
+                className="flex items-center gap-5 bg-zinc-700 text-[#ffea00]  md:gap-10 border p:0 md:p-8 w-[650px] h-[130px] font-bold text-xl rounded-lg relative  shadow-2xl shadow-orange-400 "
               >
                 <div className="w-[100px] ">
                   <img src={item.img} alt="img" />
@@ -67,16 +67,16 @@ function Card() {
                 <div className="flex flex-col md:flex-row gap-2 md:gap-5 items-center justify-between w-[200px] md:w-[400px] ">
                   <p className="w-40 ">قیمت : {item.price}</p>
                   <div className="flex gap-4 items-center">
-                    <p className="   text-2xl">موجودی{item.countInStock}</p>
+                    <p className="text-xl">موجودی{item.countInStock}</p>
                     <span
-                      className="border bg-zinc-700 border-red-500  cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
+                      className="border bg-zinc-700 border-red-500 hover:bg-yellow-400 hover:text-zinc-700 duration-700 cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
                       onClick={() => handelDec(item)}
                     >
                       -
                     </span>
                     <span className=""> {item.conter}</span>
                     <span
-                      className="border bg-zinc-700 bg-yellow-50 border-red-500  cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
+                      className="border bg-zinc-700 bg-yellow-50 border-red-500 hover:bg-yellow-400 hover:text-zinc-700 duration-700  cursor-pointer w-9 h-9 flex items-center justify-center rounded-full "
                       onClick={() => handelInc(item)}
                     >
                       +
@@ -93,7 +93,7 @@ function Card() {
               </div>
             ))}
           </div>
-          <div className=" border p-8 h-4/4 font-[yekan] bg-zinc-700  text-2xl flex flex-col gap-4 md:gap-10 items-center rounded-lg text-yellow-300 shadow-2xl shadow-orange-400">
+          <div className=" border p-8 h-4/4 font-[yekan] bg-zinc-700  text-xl flex flex-col gap-4 md:gap-10 items-center rounded-lg text-yellow-300 shadow-2xl shadow-orange-400">
             <h2>پیش فاکتور خرید</h2>
             <div className="flex flex-col gap-5">
               <p>تعداد :{cart.cartItem.reduce((a, c) => a + c.conter, 0)} </p>

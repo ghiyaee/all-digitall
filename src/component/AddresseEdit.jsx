@@ -86,7 +86,7 @@ function AddressEdit() {
           value={street}
           onChange={(e) => setStreet(e.target.value.toLowerCase())}
           type="text"
-          className="py-3 px-1 rounded-lg w-[1200px] outline-none"
+          className="py-3 px-1 rounded-lg w-[900px] outline-none"
           placeholder="خیابان"
         />
         <button

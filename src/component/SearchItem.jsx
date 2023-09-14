@@ -32,7 +32,7 @@ function SearchItem() {
       <div className="container m-auto flex justify-center mt-4">
         {products.msg ? (
           <p
-            className="flex justify-center p-10 shadow-xl text-2xl font-[yekan] rounded-lg w-[384px]
+            className=" flex justify-center p-10 shadow-xl text-xl font-[yekan] rounded-lg w-[384px]
                 shadow-orange-400"
           >
             {products.msg}
@@ -41,7 +41,7 @@ function SearchItem() {
           <div className="flex flex-wrap justify-center gap-8  ">
             {products?.map((product) => (
               <div
-                className=" p-6 text-black
+                className="bg-zinc-700 p-6 text-yellow-400
                flex flex-col gap- justify-between 
                items-center relative  shadow-xl rounded-lg w-[384px]
                 shadow-orange-400"
@@ -58,13 +58,15 @@ function SearchItem() {
                 <div className="text-xl font-bold mt-6 flex flex-col gap-4 ">
                   <p>برند :{product.brand}</p>
                   <p> قیمت : {product.price} تومان</p>
-                  <p className="absolute top-0 left-0 bg-[#ffea00] p-1 rounded-tl-lg rounded-br-lg">
+                  <p className="absolute top-0 left-0 text-zinc-700 bg-[#ffea00] p-1 rounded-tl-lg rounded-br-lg">
                     امتیاز :{product.rating}
                   </p>
                   <Link to={`/product/${product.slug}`}>
                     <button
-                      className="text-black bg-blue-300 border rounded-lg p-2 hover:bg-blue-500 
-                    hover:text-white hover:rounded-3xl duration-500 w-full "
+                      className="text-zinc-700 bg-[#ffea00] hover:bg-zinc-700 
+                             hover:text-[#ffea00] hover:border border-e-yellow-500 py-2 
+                             px-6 rounded-lg 
+                             hover:scale-105 hover:rounded-3xl duration-500 w-full"
                     >
                       مشاهده
                     </button>

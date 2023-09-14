@@ -30,7 +30,7 @@ function CheckOut() {
   return (
     <div
       className="flex flex-col gap-7 justify-center 
-    items-center text-2xl font-[yekan] container m-auto
+    items-center text-xl font-[yekan] container m-auto
      bg-zinc-700 p-4 text-yellow-200 rounded-lg"
     >
       <h2 className="text-center">

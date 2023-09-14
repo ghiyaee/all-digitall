@@ -44,9 +44,9 @@ function SignUp() {
   return (
     <div className="container m-auto flex justify-center ">
       <form
-        className="flex flex-col gap-8 items-center shadow-2xl rounded-lg 
+        className="flex flex-col gap-8 items-center shadow-xl rounded-lg 
          bg-gradient-to-b from-zinc-800 to-zinc-600 
-       shadow-orange-400 p-10 text-2xl font-[yekan] w-[600px]"
+       shadow-orange-400 p-10 text-xl font-[yekan] w-[600px]"
       >
         {state ? (
           <h2 className="text-yellow-100">فرم ویرایش کاربران</h2>
@@ -59,7 +59,7 @@ function SignUp() {
           type="text"
           required
           placeholder="نام کاربری"
-          className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
+          className="py-1 px-8 rounded-lg outline-none border-b w-[500px] text-center"
           onChange={(e) => setName(e.target.value.toLowerCase())}
         />
         {!state ? (
@@ -68,7 +68,7 @@ function SignUp() {
             type="email"
             required
             placeholder="ایمیل"
-            className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
+            className="py-1 px-8 rounded-lg outline-none border-b w-[500px] text-center"
             onChange={(e) => setEmail(e.target.value.toLowerCase())}
           />
         ) : (
@@ -79,7 +79,7 @@ function SignUp() {
           type="password"
           required
           placeholder="رمزعبور"
-          className="py-5 px-8 rounded-lg outline-none border-b w-[500px] text-center"
+          className="py-1 px-8 rounded-lg outline-none border-b w-[500px] text-center"
           onChange={(e) => setPassword(e.target.value.toLowerCase())}
         />
         {state ? (

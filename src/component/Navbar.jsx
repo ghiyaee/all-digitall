@@ -35,7 +35,7 @@ function Navbar() {
   return (
     <div
       className={`hidden md:inline-flex h-[80px]  items-center justify-center container m-auto
-     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 mt-3  ${moveSlider.move} duration-[2000ms]`}
+     rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 mt-3  ${moveSlider.move} duration-[1500ms]`}
     >
       <ul className="flex gap-[100px] text-xl relative">
         {link.map((product) => (

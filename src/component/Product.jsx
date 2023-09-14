@@ -8,8 +8,8 @@ import { CgScrollV } from 'react-icons/cg';
 import Like from './Like';
 function Product() {
   const navigation = useNavigate();
-  const { dispatch, setCart, state } = useContext(Store);
-  const { userinfo, cart } = state;
+  const { dispatch, state } = useContext(Store);
+  const { userinfo} = state;
   const [product, setProduct] = useState([]);
   const params = useParams();
   const { slug } = params;
@@ -54,13 +54,13 @@ function Product() {
         />
       )}
       {userinfo.length > 0 ? (
-        <div className="flex container m-auto gap-10 mt-4 flex-col">
+        <div className="flex container m-auto gap-10 mt-0 flex-col">
           <div className="flex  justify-around  ">
-            <div className="flex flex-wrap justify-center bg-zinc-700  text-yellow-300 border p-10 items-center gap-[30px] shadow-2xl shadow-orange-400  rounded-lg">
+            <div className="flex flex-wrap justify-center bg-zinc-700  text-yellow-300 border p-5 items-center gap-[30px] shadow-2xl shadow-orange-400  rounded-lg">
               <div className="w-96 p-6 rounded-lg ">
                 <img src={product.img} alt="img" />
               </div>
-              <div className=" text-3xl font-[yekan] flex flex-col gap-2">
+              <div className=" text-xl font-[yekan] flex flex-col gap-2">
                 <h1 className="">برند :{product.name}</h1>
                 <p>امتیاز :{product.rating}</p>
                 <p>قیمت : {product.price} تومان</p>

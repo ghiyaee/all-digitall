@@ -39,7 +39,7 @@ function App() {
       {isLoading ? (
         <>
           <p
-            className="flex flex-col justify-center items-center text-3xl h-screen
+            className="flex flex-col justify-center items-center text-xl h-screen
                                   font-[yekan] text-zinc-700 "
           >
             <p> درحال بارگذاری</p>
