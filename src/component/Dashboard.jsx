@@ -102,13 +102,13 @@ function Dashboard() {
               </button>
               <button
                 onClick={() => handelNewProduct()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 ثبت محصول
               </button>
               <button
                 onClick={() => handelOreder()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 سفارشات
               </button>
@@ -120,25 +120,25 @@ function Dashboard() {
               </button>
               <button
                 onClick={() => handelComments()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 نظرات کاربران
               </button>
               <button
                 onClick={() => handelMessages()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 پیامهای ارسالی
               </button>
               <button
                 onClick={() => handelStatistics()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 آمار محصولات
               </button>
               <button
                 onClick={() => handelStatisticsSlice()}
-                className="style-button p-4 duration-500 cursor-pointer"
+                className="style-button p-2 duration-500 cursor-pointer"
               >
                 آمارتفکیکی کالا
               </button>
