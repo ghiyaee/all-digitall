@@ -8,11 +8,9 @@ userRoutes.get('/users', async (req, res) => {
   res.send(user);
 });
 userRoutes.post('/message', async (req, res) => {
-  console.log(req.body);
   const message = await User.findOne({ _id: req.body.state })
   message.msg = req.body.msg
   await message.save()
-  console.log(message);
 })
 userRoutes.post('/del', async (req, res) => {
   const user = await User.findOne({ _id: req.body.user });

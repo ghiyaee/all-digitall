@@ -42,7 +42,6 @@ orderRoute.post('/user', async (req, res) => {
     'product_id',
     'address_id',
   ]);
-  console.log(order)
   res.send(order)
 })
 orderRoute.get('/filter', async (req, res) => {

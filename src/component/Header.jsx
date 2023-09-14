@@ -13,8 +13,8 @@ function Header() {
   const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
   const resf = result.filter(f => f.isSync === false)
   return (
-    <header className=" min-w-full">
-      <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b  sticky top-0 z-50 bg-gradient-to-b from-zinc-800 to-zinc-600  ">
+    <header className=" min-w-full  sticky top-0 z-50 ">
+      <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b bg-gradient-to-b from-zinc-800 to-zinc-600  ">
         <Link to={'/'} className="text-xl text-yellow-300">
           <div className="flex gap-1 items-center">
             <div>
@@ -23,7 +23,7 @@ function Header() {
             </div>
             <div className="w-8 h-8 border-yellow-300 border-4 rounded-tr-2xl rounded-br-2xl relative -translate-x-4"></div>
 
-            <div className=" h-5 border-red-500 border-r-4 relative  flex items-center justify-center translate-x-4">
+            <div className=" h-6 border-red-500 border-r-4 relative  flex items-center justify-center translate-x-5">
               <div className=" h-4 border-red-500  border-r-4 absolute top-0 transform -translate-x-1 rotate-45 "></div>
             </div>
 
@@ -59,7 +59,7 @@ function Header() {
                       className="text-blue-600 flex gap-6 items-center"
                     >
                       {userinfo[0].name}
-                      {resf.length > 0? (
+                      {resf.length > 0 ? (
                         <span
                           className=" text-yellow-50 animate-bounce relative text-3xl 
                         flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full"

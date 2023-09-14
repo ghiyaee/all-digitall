@@ -9,7 +9,6 @@ messageRoute.post('/', async (req, res) => {
   });
   await message.save();
   res.send(message);
-  console.log(message);
 });
 messageRoute.get('/all', async (req, res) => {
   const msg = await Message.find().populate('user_id');

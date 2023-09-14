@@ -7,7 +7,6 @@ addressRouter.post('/', async (req, res) => {
     user_id: new ObjectId(req.body.userinfo[0]._id),
   });
   res.send(address);
-  console.log(address);
 });
 
 addressRouter.post('/addressNew', async (req, res) => {
