@@ -25,7 +25,7 @@ function AddressUsers() {
       mobile,
       tell,
     });
-    navigate('/')
+    navigate(-1)
   };
   return (
     <>
