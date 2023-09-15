@@ -8,25 +8,34 @@ function AddressUsers() {
   const navigate=useNavigate()
   const { state } = useContext(Store);
   const { userinfo } = state;
-  const [province, setProvince] = useState('');
-  const [city, setCity] = useState('');
-  const [street, setStreet] = useState('');
-  const [postCode, setPostCode] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [tell, setTell] = useState('');
+  const [province, setProvince] = useState();
+  const [city, setCity] = useState();
+  const [street, setStreet] = useState();
+  const [postCode, setPostCode] = useState();
+  const [mobile, setMobile] = useState();
+  const [tell, setTell] = useState();
   const handelAddress = async (e) => {
-    e.preventDefault();
-    const fetchData = await axios.post('/api/address/addressNew', {
-      userinfo,
-      province,
-      city,
-      street,
-      postCode,
-      mobile,
-      tell,
-    });
-    navigate(-1)
-  };
+    e.preventDefault();   
+    if (province && city && street && postCode && mobile && tell) {
+      
+      try {
+        const fetchData = await axios.post('/api/address/addressNew', {
+          userinfo,
+          province,
+          city,
+          street,
+          postCode,
+          mobile,
+          tell,
+        });
+        navigate(-1);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      return alert('باید تمامی مقدار واردشوند')
+    }
+    }
   return (
     <>
       <div className="flex flex-col  gap-4 p-10  bg-zinc-700 container m-auto">

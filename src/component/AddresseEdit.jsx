@@ -16,17 +16,27 @@ function AddressEdit() {
   const [tell, setTell] = useState('');
   const handelEdit = async (e) => {
     e.preventDefault();
-    const fetchData = await axios.post('/api/address/edit', {
-      userinfo,
-      province,
-      city,
-      street,
-      postCode,
-      mobile,
-      tell,
-    });
+    if (province && city && street && postCode && mobile && tell) {
+      try {
+         const fetchData = await axios.post('/api/address/edit', {
+           userinfo,
+           province,
+           city,
+           street,
+           postCode,
+           mobile,
+           tell,
+         });
 
-    navigate('/');
+         navigate('/');
+      } catch (error) {
+        console.log(error);
+      }
+      
+    } else {
+       return alert('باید تمامی مقدار واردشوند')
+    }
+   
   };
   useEffect(() => {
     const fetchData = async () => {
