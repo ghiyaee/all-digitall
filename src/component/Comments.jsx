@@ -45,9 +45,19 @@ function Comments() {
                 >
                   <div className="text-xl font-bold flex flex-col  gap-5 w-full">
                     <div className="flex  gap-5">
-                      <p>کاربر:</p>
-                      <span>
-                        <p className="text-blue-400">{comment.user_id.name}</p>
+                      <span className="flex gap-5 items-center">
+                        <p className="text-yellow-400">
+                          نظرکاربر :{comment.user_id.name}
+                        </p>
+                        <p className="text-yellow-400">{}</p>
+                        <p className="text-yellow-400">
+                          {comment.product_id.name}
+                        </p>
+                        <img
+                          src={comment.product_id.img}
+                          alt=""
+                          className="w-16"
+                        />
                       </span>
                     </div>
                     <p className=" w-[100%] "> {comment.text}</p>
