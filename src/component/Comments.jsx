@@ -32,12 +32,13 @@ function Comments() {
           </p>
         </>
       ) : (
-        <>
-          {comment.length > 0 ? (
-            <div className=" flex flex-col gap-6 font-[yekan] p-10 max-h-screen  overflow-y-auto">
+        <div>
               <h2 className="text-center text-xl font-bold mt-5 text-yellow-400">
                 ویرایش دیدگاه ها
               </h2>
+            {comment.length > 0 ? (
+              
+            <div className=" flex flex-col gap-6 font-[yekan] p-10 max-h-screen  overflow-y-auto">
               {comment?.map((comment) => (
                 <div
                   className=" p-5 rounded-lg bg-zinc-700 text-yellow-100 shadow shadow-orange-200 "
@@ -77,7 +78,7 @@ function Comments() {
               هیچ دیدگاهی ثبت نشده است
             </div>
           )}
-        </>
+        </div>
       )}
     </>
   );
