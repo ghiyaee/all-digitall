@@ -73,7 +73,7 @@ function NewProduct() {
         </div>
       ) : (
         <div className="contianer m-auto flex flex-col gap-5  items-center">
-          <h2 className="text-black text-2xl text-yellow-400">فرم ثبت محصول</h2>
+          <h2 className=" text-xl text-yellow-400">فرم ثبت محصول</h2>
           <form
             className="flex gap-8 items-center shadow rounded-lg
           bg-gradient-to-b from-zinc-800 to-zinc-600   shadow-orange-400 p-5 text-2xl font-[yekan] "
@@ -82,21 +82,21 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="نام کالا"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={name}
                 onChange={(e) => setName(e.target.value.toLocaleLowerCase())}
               />
               <input
                 type="text"
                 placeholder="نشان کالا"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={slug}
                 onChange={(e) => setSlug(e.target.value.toLocaleLowerCase())}
               />
               <input
                 type="text"
                 placeholder="نام برند"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={brand}
                 onChange={(e) => setBrand(e.target.value.toLocaleLowerCase())}
               />
@@ -104,7 +104,7 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="نام دسته بندی"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={category}
                 onChange={(e) =>
                   setCategory(e.target.value.toLocaleLowerCase())
@@ -113,7 +113,7 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="قیمت محصول"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={price}
                 onChange={(e) => setPrice(e.target.value.toLocaleLowerCase())}
               />
@@ -122,7 +122,7 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="تعداد محصول"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={countInStock}
                 onChange={(e) =>
                   setCountInStock(e.target.value.toLocaleLowerCase())
@@ -131,7 +131,7 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="توضیحات"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={descritp}
                 onChange={(e) =>
                   setDescritp(e.target.value.toLocaleLowerCase())
@@ -140,7 +140,7 @@ function NewProduct() {
               <input
                 type="text"
                 placeholder="امیتازگرفته شده"
-                className="py-3 px-8 rounded-lg outline-none border-b"
+                className="py-1 px-1 rounded-lg outline-none border-b"
                 value={rating}
                 onChange={(e) => setRating(e.target.value.toLocaleLowerCase())}
               />
@@ -148,14 +148,14 @@ function NewProduct() {
                 انتخاب تصویر
                 <input
                   type="file"
-                  className="py-3 px-8 outline-none"
+                  className="py-1 px-1 outline-none"
                   accept="png,jpg"
                   onChange={(e) => convertToBase64(e)}
                 />
-                {img == '' || img == null ? (
+                {img === '' || img === null ? (
                   ''
                 ) : (
-                  <img src={img} alt="img" className="w-20 h-20" />
+                  <img src={img} alt="img" className="w-10 h-10" />
                 )}
               </div>
               <button

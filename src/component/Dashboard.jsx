@@ -17,7 +17,6 @@ function Dashboard() {
   const [users, setUsers] = useState(false);
   const [comments, setComments] = useState(false);
   const [product, setProduct] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [messages, setMessages] = useState(false);
   const [order, setOrder] = useState(false);
   const [statistics, setsStatistics] = useState(false);

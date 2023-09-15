@@ -101,13 +101,14 @@ function ProdcutsEdit() {
                     />
                   </p>
                 </>
-              ) : (
-                <div
-                  className={`flex items-center flex-col gap-6 font-[yekan] p-10  max-h-screen  overflow-y-auto`}
-                >
+                  ) : (
+                      <div>
                   <h2 className="text-yellow-400 text-center text-2xl font-bold mt-0 border p-5 rounded-lg">
                     ویرایش محصولات
                   </h2>
+                <div
+                  className={`flex items-center flex-col gap-6 font-[yekan] p-10  max-h-screen  overflow-y-auto`}
+                >
                   {products?.map((product) => (
                     <div
                       className={` p-5  rounded-lg bg-zinc-700 text-yellow-100 h-[70px] 
@@ -142,7 +143,7 @@ function ProdcutsEdit() {
                     </div>
                   ))}
                 </div>
-              )}
+             </div> )}
             </>
           )}
         </>

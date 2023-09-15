@@ -26,7 +26,7 @@ function Comments() {
     <>
       {loading ? (
         <>
-          <p className="flex justify-center items-center text-5xl font-[yekan] text-yellow-400">
+          <p className="flex justify-center items-center text-xl font-[yekan] text-yellow-400">
             لطفا صبرکنید...
             <CgSearchLoading />
           </p>
@@ -35,12 +35,12 @@ function Comments() {
         <>
           {comment.length > 0 ? (
             <div className=" flex flex-col gap-6 font-[yekan] p-10 max-h-screen  overflow-y-auto">
-              <h2 className="text-center text-3xl font-bold mt-5 text-yellow-400">
+              <h2 className="text-center text-xl font-bold mt-5 text-yellow-400">
                 ویرایش دیدگاه ها
               </h2>
               {comment?.map((comment) => (
                 <div
-                  className=" p-10 rounded-lg bg-zinc-700 text-yellow-100 shadow shadow-orange-200 "
+                  className=" p-5 rounded-lg bg-zinc-700 text-yellow-100 shadow shadow-orange-200 "
                   key={comment._id}
                 >
                   <div className="text-xl font-bold flex flex-col  gap-5 w-full">
@@ -53,7 +53,7 @@ function Comments() {
                     <p className=" w-[100%] "> {comment.text}</p>
                     <button
                       onClick={() => handelDeleteProduct(comment._id)}
-                      className="text-white  bg-red-500 py-2  
+                      className="text-white  bg-red-500 py-1 
                       w-[100px] rounded-lg"
                     >
                       حذف

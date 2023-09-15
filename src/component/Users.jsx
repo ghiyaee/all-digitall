@@ -27,7 +27,7 @@ function Users() {
   return (
     <>
       {loading ? (
-        <p className="flex justify-center items-center text-5xl font-[yekan] text-yellow-400">
+        <p className="flex justify-center items-center text-2xl font-[yekan] text-yellow-400">
           لطفا صبر کنید...
         </p>
       ) : (
@@ -35,37 +35,36 @@ function Users() {
           {' '}
           {userinfo[0].isAdmin ? (
             <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] max-h-screen  overflow-y-auto ">
-              <h2 className="text-3xl mt-5 text-yellow-400"> کاربران</h2>
-                <div className=" py-3 px-10 text-lg w-[900px] bg-zinc-700 text-yellow-100 shadow
+              <h2 className="text-2xl mt-5 text-yellow-400">   لیست کاربران</h2>
+                <div className=" py-2 px-0 text-lg w-[900px] bg-zinc-700 text-yellow-100 shadow
                shadow-orange-400 overflow-x-hidden ">
                 {users?.map((user) => (
                   <div
                     key={user._id}
-                    className="flex justify-between items-center mt-5 gap-[0px] "
                   >
                     {user.isAdmin ? (
                       ''
                     ) : (
-                      <>
-                        <div>
+                      <div className='flex gap-5 py-2 justify-between items-center'>
+                        <div className='flex gap-5'>
                           <p className="text-2xl">{user.name}</p>
                           <p className="text-2xl">{user.email}</p>
                         </div>
                         <div className="flex gap-5">
                           <button
-                            className="text-blue-700  bg-[#ffea00] p-2 rounded-lg w-[100px]"
+                            className="text-blue-700  bg-[#ffea00] p-1 rounded-lg w-[100px]"
                             onClick={() => handelUserEdi(user)}
                           >
                            ارسال پیام
                           </button>
                           <button
-                            className="bg-red-500 text-white p-2 rounded-lg w-[100px]"
+                            className="bg-red-500 text-white p-1 rounded-lg w-[100px]"
                             onClick={() => handelUserDel(user._id)}
                           >
                             حذف
                           </button>
                         </div>
-                      </>
+                      </div>
                     )}
                   </div>
                 ))}

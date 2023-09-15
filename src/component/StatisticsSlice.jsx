@@ -40,14 +40,14 @@ function StatisticsSlice() {
   };
   console.log(product);
   return (
-    <div className="text-2xl flex flex-col items-center gap-5 ">
+    <div className="text-xl flex flex-col items-center gap-5 ">
       <h2 className="text-yellow-400">انتخاب تفکیکی محصولات</h2>
       <div className="flex gap-5 items-center">
         <div className="py-2 px-4 ">
           <select
             value={category}
             onChange={(e) => setCategoryValue(e.target.value)}
-            className="bg-yellow-400 cursor-pointer py-2 px-6 "
+            className="bg-yellow-400 cursor-pointer py-1 px-6 rounded-lg"
           >
             {optionsCategoty?.map((option) => (
               <option
@@ -64,7 +64,7 @@ function StatisticsSlice() {
           <select
             value={brand}
             onChange={(e) => setBrandValue(e.target.value)}
-            className="bg-yellow-400 cursor-pointer py-2 px-6 "
+            className="bg-yellow-400 cursor-pointer py-1 px-6 rounded-lg"
           >
             {optionsBrand?.map((option) => (
               <option
@@ -78,7 +78,7 @@ function StatisticsSlice() {
           </select>
         </div>
         <button
-          className="bg-zinc-800 text-yellow-400 py-4 px-8 rounded-lg "
+          className="bg-zinc-800 text-yellow-400 py-2 px-8 rounded-lg "
           onClick={handelCb}
         >
           جستجو
