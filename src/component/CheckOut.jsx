@@ -20,13 +20,12 @@ function CheckOut() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.post('/api/products/purchased', { newState })
-       console.log(res.data);
     }
     fetchData()
 },[])
   
 
-
+console.log(order);
   return (
     <div
       className="flex flex-col gap-7 justify-center 
@@ -45,7 +44,7 @@ function CheckOut() {
         </div>
       </div>
       <div className="flex gap-5 flex-col items-center">
-        <div>نام محصول :{order.product_id?.name}</div>
+        <div>نام محصول :{order.product_id?.map(i=> i.name)}</div>
         <div>تعداد :{order.numOrder}</div>
       </div>
       <div className="flex gap-5 flex-col items-center">

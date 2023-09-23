@@ -5,7 +5,7 @@ import Address from "./addressUsersModel.js"
 const orderSchema = mongoose.Schema(
   {
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    product_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    product_id:[ { type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
     address_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
     numOrder: { type: Number, default: 0 },
     total: { type: Number, default: 0 },

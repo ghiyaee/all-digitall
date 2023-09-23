@@ -41,7 +41,7 @@ function MessageUser() {
                         sync ? 'block' : 'hidden'
                       } duration-[2000ms] `}
                     />
-                    {moment(m.data).locale('fa').format('HH:D YYYY/MM/DD')}
+                    {moment(m.data).locale('fa').format('HH:DD YYYY/MM/DD')}
                   </div>
                 </div>
               </div>

@@ -47,7 +47,7 @@ function OrderUsers() {
                         .format('HH:D YYYY/MM/DD')}
                     </td>
                     <td className="style_table ">{orders._id}</td>
-                    <td className="style_table ">{orders.product_id?.name}</td>
+                    <td className="style_table ">{` ${orders.product_id?.map(i=>i.name)} `}</td>
                     <td className="style_table ">{orders.user_id?.name}</td>
                     <td className="style_table ">
                       {orders.status ? 'ارسال شد' : 'در حال ارسال'}

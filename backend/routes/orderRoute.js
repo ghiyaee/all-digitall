@@ -11,6 +11,7 @@ orderRoute.get('/', async (req, res) => {
   res.send(order)
 })
 orderRoute.post('/new', async (req, res) => {
+  console.log(req.body );
   const order = new Order({
     numOrder: req.body.newState[0],
     total: req.body.newState[1],

@@ -35,7 +35,7 @@ function Card() {
       0
     );
     const idUser = userinfo[0]._id;
-    const product_id = cart.cartItem[0]._id;
+    const product_id = cart.cartItem;
     const address_id = fetchData.data._id;
     if (fetchData.data) {
       navigate('/CheckOut', {
@@ -51,6 +51,7 @@ function Card() {
       navigate('/AddressUsers');
     }
   };
+  console.log(cart.cartItem);
   return (
     <div className="flex justify-center font-[yekan]">
       {cart.cartItem.length > 0 ? (

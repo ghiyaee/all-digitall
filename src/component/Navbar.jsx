@@ -25,16 +25,16 @@ function Navbar() {
   useEffect(() => {
     setTimeout(() => {
        setMoveSlider('transform translate-y-[0px]');
-     },5) 
-  }, [])
+     },1000) 
+  }, [moveSlider])
     useEffect(() => {
       setTimeout(() => {
         setMoveSlider1('transform translate-y-[0px]');
-      }, 1000);
-    }, []);
+      }, 1500);
+    }, [moveSlider1]);
   return (
     <div
-      className={`hidden md:inline-flex h-[80px]  items-center justify-center container m-auto
+      className={`hidden md:inline-flex h-[80px] relative items-center justify-center container m-auto
      rounded-lg bg-gradient-to-b from-zinc-800 to-zinc-600 mt-3  ${moveSlider.move} duration-[1500ms]`}
     >
       <ul className="flex gap-[100px] text-xl relative">
@@ -53,8 +53,8 @@ function Navbar() {
           </li>
         ))}
       </ul>
-      <div className="style_navbar_cur  left-4  border-l-4  rounded-bl-lg "></div>
-      <div className="style_navbar_cur  right-4  border-r-4  rounded-br-lg "></div>
+      <div className="style_navbar_cur  -left-6  border-l-4  rounded-bl-lg "></div>
+      <div className="style_navbar_cur  -right-6  border-r-4  rounded-br-lg "></div>
     </div>
   );
 }
