@@ -19,10 +19,10 @@ function OrderUser() {
   }, [])
   return (
     <>
-      {orders.length > 0  ? (
+      {orders.length > 0 ? (
         <div
           className="flex flex-col gap-7 justify-center 
-    items-center text-2xl font-[yekan] container m-auto
+    items-center text-xl font-[yekan] container m-auto
      bg-zinc-700 p-4 text-yellow-200 rounded-lg"
         >
           <h2 className="text-3xl">سفارشات شما</h2>
@@ -46,11 +46,15 @@ function OrderUser() {
                         <td className="style_table">
                           {moment(orders.dateOrder)
                             .locale('fa')
-                            .format('HH:D YYYY/MM/DD')}
+                            .format('HH:DD YYYY/MM/DD')}
                         </td>
                         <td className="style_table">{orders._id}</td>
                         <td className="style_table">
-                          {orders.product_id?.name}
+                          <ul>
+                            {orders.product_id?.map((n) => (
+                              <li>{n.name}</li>
+                            ))}
+                          </ul>
                         </td>
                         <td className="style_table">
                           {orders.status ? 'ارسال شد' : 'در حال ارسال'}
@@ -71,7 +75,7 @@ function OrderUser() {
           </div>
         </div>
       ) : (
-        <p className='text-yellow-400'>شما هیچ سفارش ثبت شده ای ندارید</p>
+        <p className="text-yellow-400">شما هیچ سفارش ثبت شده ای ندارید</p>
       )}
     </>
   );
