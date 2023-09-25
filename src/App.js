@@ -38,14 +38,14 @@ function App() {
     <>
       {isLoading ? (
         <>
-          <p
+          <div
             className="flex flex-col justify-center items-center text-xl h-screen
                                   font-[yekan] text-zinc-700 "
           >
             <p> درحال بارگذاری</p>
             <p> لطفا از مرورگر کروم استفاده کنید</p>
             <FadeLoader color={'#f41d3e'} loading={isLoading} size={100} />
-          </p>
+          </div>
         </>
       ) : (
         <div className="flex flex-col justify-between min-h-screen ">
