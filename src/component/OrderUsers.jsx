@@ -39,7 +39,7 @@ function OrderUsers() {
             </thead>
             <tbody>
               {orders?.map((orders) => (
-                <tr>
+                <tr key={orders._id}>
                   <>
                     <td className="style_table">
                       {moment(orders.dateOrder)
@@ -50,7 +50,7 @@ function OrderUsers() {
                     <td className="style_table ">
                       <ul>
                         {orders.product_id?.map((i) => (
-                          <li>{i.name}</li>
+                          <li key={i.name}>{i.name}</li>
                         ))}
                       </ul>
                     </td>

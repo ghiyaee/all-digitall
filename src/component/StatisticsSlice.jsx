@@ -16,7 +16,7 @@ const optionsBrand = [
   { value: '2', brand: 'pixel' },
   { value: '3', brand: 'samsung' },
   { value: '4', brand: 'motorola' },
-  { value: '4', brand: 'sandisk' },
+  { value: '5', brand: 'sandisk' },
 ];
 function StatisticsSlice() {
   const [category, setCategoryValue] = useState();
@@ -96,7 +96,7 @@ function StatisticsSlice() {
           </thead>
           <tbody>
             {product.map((p) => (
-              <tr className="text-yellow-400">
+              <tr className="text-yellow-400" key={p.name}>
                 <>
                   <td className="style_table">{p.name}</td>
                   <td className="style_table">{p.countInStock}</td>

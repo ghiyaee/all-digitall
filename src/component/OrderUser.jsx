@@ -52,7 +52,7 @@ function OrderUser() {
                         <td className="style_table">
                           <ul>
                             {orders.product_id?.map((n) => (
-                              <li>{n.name}</li>
+                              <li key={n.name}>{n.name}</li>
                             ))}
                           </ul>
                         </td>

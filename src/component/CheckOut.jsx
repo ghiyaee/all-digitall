@@ -44,7 +44,14 @@ console.log(order);
         </div>
       </div>
       <div className="flex gap-5 flex-col items-center">
-        <div>نام محصول :{order.product_id?.map(i=> i.name)}</div>
+        <div>
+          نام محصول :
+          <ul className='text-center'>
+            {order.product_id?.map((i) => (
+              <li>{i.name}</li>
+            ))}
+          </ul>
+        </div>
         <div>تعداد :{order.numOrder}</div>
       </div>
       <div className="flex gap-5 flex-col items-center">

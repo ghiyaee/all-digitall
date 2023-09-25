@@ -13,58 +13,76 @@ function Statistics() {
   const [moveSlider3, setMoveSlider3] = useState({
     move: 'transform translate-x-[1500px]',
   });
-  const productProducts = products?.map((f) => f.countInStock);
-  const totalProducts = productProducts?.reduce((a, b) => a + b, 0);
+  let totalProducts = products
+    ?.map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
 
-  const outProducts = products?.map((f) => f.purchased);
-  const totalOutProducts = outProducts?.reduce((a, b) => a + b, 0);
+  let totalOutProducts = products
+    ?.map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
 
-  const productMobile = products?.filter((f) => f.category === 'mobile');
-  const mobile = productMobile?.map((f) => f.countInStock);
-  const totalMobile = mobile?.reduce((a, b) => a + b, 0);
 
-  const outMobile = products?.filter((f) => f.category === 'mobile');
-  const mobileOut = outMobile?.map((f) => f.purchased);
-  const totalPurchasedMobile = mobileOut?.reduce((a, b) => a + b, 0);
+  let totalMobile = products
+    ?.filter((f) => f.category === 'mobile')
+    .map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
 
-  const productFlash = products?.filter((f) => f.category === 'flash');
-  const flash = productFlash?.map((f) => f.countInStock);
-  const totalFlash = flash?.reduce((a, b) => a + b, 0);
+  
 
-  const outFlash = products?.filter((f) => f.category === 'flash');
-  const flashOut = outFlash?.map((f) => f.purchased);
-  const totalPurchaseFlash = flashOut?.reduce((a, b) => a + b, 0);
+  let totalPurchasedMobile = products
+    ?.filter((f) => f.category === 'mobile')
+    .map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
 
-  const productLabtab = products?.filter((f) => f.category === 'labtab');
-  const labtab = productLabtab?.map((f) => f.countInStock);
-  const totallabtab = labtab?.reduce((a, b) => a + b, 0);
 
-  const outtLabtab = products?.filter((f) => f.category === 'labtab');
-  const labtabOut = outtLabtab?.map((f) => f.purchased);
-  const totalPurchasedlabtab = labtabOut?.reduce((a, b) => a + b, 0);
+  let totalFlash = products
+    ?.filter((f) => f.category === 'flash')
+    .map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
 
-  const productHeadba = products?.filter((f) => f.category === 'headba');
-  const headba = productHeadba?.map((f) => f.countInStock);
-  const totalHeadba = headba?.reduce((a, b) => a + b, 0);
 
-  const outHeadba = products?.filter((f) => f.category === 'headba');
-  const headbaOut = outHeadba?.map((f) => f.purchased);
-  const totalPurchasedHeadba = headbaOut?.reduce((a, b) => a + b, 0);
+  let totalPurchaseFlash = products
+    ?.filter((f) => f.category === 'flash')
+    .map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
+ 
 
-  const productHeadbi = products?.filter((f) => f.category === 'headbi');
-  const headbi = productHeadbi?.map((f) => f.countInStock);
-  const totalHeadbi = headbi?.reduce((a, b) => a + b, 0);
+  let totallabtab = products
+    ?.filter((f) => f.category === 'labtab')
+    .map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
+  
 
-  const outHeadbi = products?.filter((f) => f.category === 'headbi');
-  const headbiOut = outHeadbi?.map((f) => f.purchased);
-  const totalPurchasedHeadbi = headbiOut?.reduce((a, b) => a + b, 0);
-  useEffect(() => {
-    const fetachData = async () => {
-      const res = await axios.get('api/products/cb');
-      console.log(res.data);
-    };
-    fetachData();
-  });
+  let totalPurchasedlabtab = products
+    ?.filter((f) => f.category === 'labtab')
+    .map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
+ 
+
+  let totalHeadba = products
+    ?.filter((f) => f.category === 'headba')
+    .map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
+  
+
+  let totalPurchasedHeadba = products
+    ?.filter((f) => f.category === 'headba')
+    .map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
+  
+
+  let totalHeadbi = products
+    ?.filter((f) => f.category === 'headbi')
+    .map((f) => f.countInStock)
+    .reduce((a, b) => a + b, 0);
+
+
+  let totalPurchasedHeadbi = products
+    ?.filter((f) => f.category === 'headbi')
+    .map((f) => f.purchased)
+    .reduce((a, b) => a + b, 0);
+
+
 
   useEffect(() => {
     const fetachData = async () => {
@@ -96,6 +114,7 @@ function Statistics() {
       setMoveSlider3('transform translate-x-[0px] ');
     }, 5000);
   });
+  console.log(products);
   return (
     <>
       {isLoading ? (

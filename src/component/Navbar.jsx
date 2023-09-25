@@ -13,11 +13,12 @@ const link = [
 function Navbar() {
   const navigate = useNavigate();
     const [moveSlider, setMoveSlider] = useState({
-      move: 'transform -translate-y-[1500px]',
+      move: 'transform -translate-y-[800px]',
     });
      const [moveSlider1, setMoveSlider1] = useState({
-       move: 'transform -translate-y-[1500px]',
+       move: 'transform -translate-y-[800px]',
      });
+
   const handelProduct = (name) => {
     navigate('/searchProduct', { state: name });
   };
@@ -31,7 +32,7 @@ function Navbar() {
       setTimeout(() => {
         setMoveSlider1('transform translate-y-[0px]');
       }, 1500);
-    }, [moveSlider1]);
+    }, [ moveSlider1]);
   return (
     <div
       className={`hidden md:inline-flex h-[80px] relative items-center justify-center container m-auto
