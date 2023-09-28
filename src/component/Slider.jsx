@@ -29,7 +29,7 @@ function Slider() {
 
   return (
     
-      <div className=" flex  overflow-x-hidden gap-[65px] ">
+      <div className="hidden md:inline-flex  overflow-x-hidden gap-[65px] ">
         {slider.map((product) => (
           <div
             key={product.id}
