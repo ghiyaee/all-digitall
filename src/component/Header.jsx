@@ -94,7 +94,7 @@ function Header() {
           <HiMenuAlt1 />
         </div>
       </div>
-      <div className="flex flex-col gap-2 container m-auto md:hidden justify-between font-[yekan] mb-2 min-w-full">
+      <div className="flex flex-col gap-0 container m-auto md:hidden justify-between font-[yekan] mb-0 min-w-full">
         <SearchBar />
         <div className="flex bg-zinc-700 text-yellow-200  p-3  text-2xl shadow-md shadow-orange-200">
           <ul className="flex gap-1 ">
