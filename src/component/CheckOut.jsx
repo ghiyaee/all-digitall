@@ -48,7 +48,7 @@ console.log(order);
           نام محصول :
           <ul className='text-center'>
             {order.product_id?.map((i) => (
-              <li>{i.name}</li>
+              <li key={order._id}>{i.name}</li>
             ))}
           </ul>
         </div>

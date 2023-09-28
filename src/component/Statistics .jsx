@@ -21,68 +21,55 @@ function Statistics() {
     ?.map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
 
-
   let totalMobile = products
     ?.filter((f) => f.category === 'mobile')
     .map((f) => f.countInStock)
     .reduce((a, b) => a + b, 0);
-
-  
 
   let totalPurchasedMobile = products
     ?.filter((f) => f.category === 'mobile')
     .map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
 
-
   let totalFlash = products
     ?.filter((f) => f.category === 'flash')
     .map((f) => f.countInStock)
     .reduce((a, b) => a + b, 0);
-
 
   let totalPurchaseFlash = products
     ?.filter((f) => f.category === 'flash')
     .map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
  
-
   let totallabtab = products
     ?.filter((f) => f.category === 'labtab')
     .map((f) => f.countInStock)
     .reduce((a, b) => a + b, 0);
   
-
   let totalPurchasedlabtab = products
     ?.filter((f) => f.category === 'labtab')
     .map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
  
-
   let totalHeadba = products
     ?.filter((f) => f.category === 'headba')
     .map((f) => f.countInStock)
     .reduce((a, b) => a + b, 0);
   
-
   let totalPurchasedHeadba = products
     ?.filter((f) => f.category === 'headba')
     .map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
   
-
   let totalHeadbi = products
     ?.filter((f) => f.category === 'headbi')
     .map((f) => f.countInStock)
     .reduce((a, b) => a + b, 0);
 
-
   let totalPurchasedHeadbi = products
     ?.filter((f) => f.category === 'headbi')
     .map((f) => f.purchased)
     .reduce((a, b) => a + b, 0);
-
-
 
   useEffect(() => {
     const fetachData = async () => {

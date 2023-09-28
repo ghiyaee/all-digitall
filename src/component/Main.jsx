@@ -6,7 +6,6 @@ import SpecialOffers from './SpecialOffers';
 import { CgScrollV } from 'react-icons/cg';
 import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
-import Header from './Header'
 function Main() {
 
   const [scroll, setScroll] = useState(false);
