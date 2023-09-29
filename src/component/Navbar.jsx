@@ -47,8 +47,8 @@ function Navbar() {
           >
             {product.name}
             <span
-              className="border-[2px] border-red-500 absolute top-0 right-0
-              h-10 w-32 rounded-md 
+              className="border-[3px] border-red-500 absolute top-0 right-0
+              h-11 w-32 rounded-md 
              animate-ping hover:border-none"
             ></span>
           </li>

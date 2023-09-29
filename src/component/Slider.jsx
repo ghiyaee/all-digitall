@@ -4,10 +4,7 @@ import { useMemo } from 'react';
 import { useEffect, useState } from 'react';
 
 function Slider() {
-  const [moveSlider, setMoveSlider] = useState(0);
   const [slider, setSlider] = useState([]);
-  let maxSlides = useMemo(() => slider.length - 1, [slider]);
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get('/api/slider');
@@ -15,42 +12,30 @@ function Slider() {
     };
     fetchData();
   }, []);
-  let trans = useMemo(() => { return moveSlider * 84}, [moveSlider] )
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setMoveSlider((prev) => (prev === maxSlides ? 0 : prev + 1));
-       
-    }, 4000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [maxSlides]);
 
   return (
-    
-      <div className="hidden md:inline-flex  overflow-x-hidden gap-[65px] ">
-        {slider.map((product) => (
-          <div
-            key={product.id}
-            className={` flex gap-[200px]   items-center bg-gradient-to-b 
-             from-green-700 to-yellow-200  w-full 
-              p-6 mx-0  transform translate-x-[${trans}rem] duration-[2000ms]`}
-          >
-            <h1
-              className="text-zinc-800  text-6xl   
-            w-[700px] font-[sogand] text-center "
+    <div className="container m-auto flex flex-col gap-[60px] items-center my-10">
+      <div className="flex flex-wrap flex-col md:flex-row justify-center gap-[70px] ">
+        {slider.map((link) => (
+          <div key={link.name}>
+            <button
+              className="w-40 h-40 bg-zinc-700 rounded-full flex-col
+                    flex items-center justify-center text-black text-2xl
+                    font-[yekan] animate-bounce  cursor-pointer relative"
             >
-              {product.desc}
-            </h1>
-            <div className="flex  justify-center w-[700px] ">
-              <img src={product.img} alt="images" className="imgTop" />
-            </div>
+              <span
+                className="border-[8px] border-red-500  absolute top-0
+               w-40 h-40 rounded-full animate-ping "
+              ></span>
+              <img src={link.img} alt="img" className="imgw " />
+            </button>
+            <p className="text-center text-lg font-[yekan] "> {link.name}</p>
           </div>
         ))}
       </div>
-   );
+    </div>
+  );
 }
 
 export default Slider;
-

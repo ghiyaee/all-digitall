@@ -13,7 +13,7 @@ function Header() {
   const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
   const resf = result.filter(f => f.isSync === false)
   return (
-    <header className=" min-w-full  sticky top-0 z-50 ">
+    <header className=" min-w-full  sticky top-0 z-[1] ">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b bg-gradient-to-b from-zinc-800 to-zinc-600  ">
         <Link to={'/'} className="text-xl text-yellow-300">
           <div className="flex gap-1 items-center">
