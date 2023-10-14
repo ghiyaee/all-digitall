@@ -9,6 +9,7 @@ orderRoute.get('/', async (req, res) => {
     'address_id',
   ]);
   res.send(order)
+  console.log(order);
 })
 orderRoute.post('/new', async (req, res) => {
   console.log(req.body );

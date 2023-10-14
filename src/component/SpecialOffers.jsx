@@ -8,7 +8,7 @@ const link = [
 ];
 function SpecialOffers() {
   return (
-    <div className="container m-auto flex flex-col  gap-[80px] items-center">
+    <div className="container m-auto flex flex-col  gap-[80px] items-center z-0">
       <h1 className="text-zinc-800  text-3xl font-semibold">
         پیشنهاد ویژه دیجیتال مارکت
       </h1>
