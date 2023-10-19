@@ -10,6 +10,9 @@ function Comments() {
     const fetchData = await axios.post('/api/comment/del', { id });
     setComment(fetchData.data);
   };
+  const handelConfirmationComment =async (id) => {
+  const fetchData = axios.post('/api/comment/confirmation',{id});
+  }
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,11 +36,10 @@ function Comments() {
         </>
       ) : (
         <div>
-              <h2 className="text-center text-xl font-bold mt-5 text-yellow-400">
-                ویرایش دیدگاه ها
-              </h2>
-            {comment.length > 0 ? (
-              
+          <h2 className="text-center text-xl font-bold mt-5 text-yellow-400">
+            ویرایش دیدگاه ها
+          </h2>
+          {comment.length > 0 ? (
             <div className=" flex flex-col gap-6 font-[yekan] p-10 max-h-screen  overflow-y-auto">
               {comment?.map((comment) => (
                 <div
@@ -62,13 +64,22 @@ function Comments() {
                       </span>
                     </div>
                     <p className=" w-[100%] "> {comment.text}</p>
-                    <button
-                      onClick={() => handelDeleteProduct(comment._id)}
-                      className="text-white  bg-red-500 py-1 
+                    <div className="flex gap-5">
+                      <button
+                        onClick={() => handelDeleteProduct(comment._id)}
+                        className="text-white  bg-red-500 py-1 
                       w-[100px] rounded-lg"
-                    >
-                      حذف
-                    </button>
+                      >
+                        حذف
+                      </button>
+                      <button
+                        onClick={() => handelConfirmationComment(comment._id)}
+                        className="text-white  bg-green-500 py-1 
+                         w-[100px] rounded-lg"
+                      >
+                        تایید
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

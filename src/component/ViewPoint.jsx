@@ -14,6 +14,7 @@ function ViewPoint({ product }) {
   const {userinfo}=state
   const [newComment, setNewComment] = useState('');
   const [comment, setComment] = useState();
+  const [result_comment,setResult]=useState()
   const [user, setUser] = useState(userinfo[0]._id);
 
   const handelViewPoint = async (e) => {
@@ -27,13 +28,19 @@ function ViewPoint({ product }) {
          newComment,
          user,
        });
-       setComment(fetchText.data);
-       setNewComment('');
+       setResult(fetchText.data.msg);
+        setNewComment('');
+        console.log(fetchText.data.msg);
       }
     } else {
       navigate('/SignIn');
     }
   };
+  useEffect(() => {
+    setTimeout(() => {
+      setResult('')
+    },10000)
+  })
   useEffect(() => {
     const fetchComment = async () => {
       const fetchText = await axios.post('/api/comment/search', { product });
@@ -56,15 +63,20 @@ function ViewPoint({ product }) {
             onChange={(e) => setNewComment(e.target.value)}
             placeholder="نظرخودرااینجابنویسید"
           />
-          <button
-            className="bg-blue-500 text-white py-2 rounded-lg text-xl w-[110px]"
-            onClick={handelViewPoint}
-          >
-            ارسال نظر
-          </button>
+          <div className=" flex gap-10 items-center">
+            <button
+              className="bg-blue-500 text-white py-2 rounded-lg text-xl w-[110px]"
+              onClick={handelViewPoint}
+            >
+              ارسال نظر
+            </button>
+            <p className={`${result_comment ? 'block':"hidden"} bg-green-500 text-white p-2 rounded-lg text-xl`}>
+              {result_comment}
+            </p>
+          </div>
         </form>
       </div>
-      {comment?.length == 0 ? (
+      {comment?.length === 0 ? (
         <div className="text-xl mt-4">هیچ دیدگاهی ثبت نشده</div>
       ) : (
         <div className="flex flex-col gap-5 mt-5">
@@ -80,7 +92,7 @@ function ViewPoint({ product }) {
               </p>
               <p className="text-justify">{comment.text}</p>
               <div className="flex flex-wrap justify-between items-center">
-                {moment((comment.date)).locale('fa').format('HH:D YYYY/MM/DD')}
+                {moment(comment.date).locale('fa').format('HH:D YYYY/MM/DD')}
                 <LikeComment comment={comment} />
               </div>
             </div>

@@ -10,13 +10,13 @@ import commentRouter from './routes/commentRoutes.js'
 import messageRoute from "./routes/messageRoute.js"
 import addressRouter from "./routes/addressUserRoute.js";
 import orderRoute from "./routes/orderRoute.js";
+const app = express();
 dotenv.config();
 mongoose
 .connect(process.env.MONGOURL)
-.then(() => console.log('connect to digi'))
+.then(() => console.log('connect to database'))
 .catch((err) => console.log(err.message))
 
-const app = express();
 
 app.use(express.json({limit:'50mb'}));
 app.use(express.urlencoded({limit:'50mb', extended:true}))
