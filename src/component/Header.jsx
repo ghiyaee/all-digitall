@@ -1,17 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
 import { FaUserAlt } from 'react-icons/fa';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { MdOutlineLocalPostOffice } from 'react-icons/md';
 import SearchBar from './SearchBar';
-import axios from 'axios';
-import { toast } from 'react-toastify';
 function Header() {
   const { state } = useContext(Store);
-  const { userinfo, cart, message } = state;
+  const { userinfo, cart, message ,hidden} = state;
   const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
-  const resf = result.filter(f => f.isSync === false)
+  const resf = result.filter((f) => f.isSync === false);
   return (
     <header className=" min-w-full  sticky top-0 z-[1] ">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -61,11 +59,11 @@ function Header() {
                       {userinfo[0].name}
                       {resf.length > 0 ? (
                         <span
-                          className=" text-yellow-50 animate-bounce relative text-3xl 
-                        flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full"
+                          className={`${hidden} text-yellow-50 animate-bounce relative text-3xl 
+                        flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full`}
                         >
                           <MdOutlineLocalPostOffice />
-                          <span className="absolute -right-[16px] -top-[0px] text-3xl text-red-500 ">
+                          <span className=" absolute -right-[16px] -top-[0px] text-3xl text-red-500 ">
                             {resf.length}
                           </span>
                         </span>
@@ -94,15 +92,24 @@ function Header() {
           <HiMenuAlt1 />
         </div>
       </div>
-      <div className="flex flex-col gap-0 container m-auto md:hidden justify-between font-[yekan] mb-0 min-w-full">
+      <div
+        className="flex flex-col gap-0 container m-auto md:hidden 
+      justify-between font-[yekan] mb-0 min-w-full"
+      >
         <SearchBar />
-        <div className="flex bg-zinc-700 text-yellow-200  p-3  text-2xl shadow-md shadow-orange-200">
+        <div
+          className="flex bg-zinc-700 text-yellow-200  p-3 
+         text-2xl shadow-md shadow-orange-200"
+        >
           <ul className="flex gap-1 ">
             <Link to={'/Card'}>
               <li>سبدخرید</li>
             </Link>
             {cart.cartItem.length > 0 ? (
-              <span className="bg-blue-500 text-white font-bold w-8 h-8 rounded-full flex items-center justify-center">
+              <span
+                className="bg-blue-500 text-white font-bold w-8 h-8
+               rounded-full flex items-center justify-center"
+              >
                 {cart.cartItem.reduce((a, c) => a + c.conter, 0)}
               </span>
             ) : (

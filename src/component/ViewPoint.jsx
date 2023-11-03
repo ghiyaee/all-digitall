@@ -30,7 +30,6 @@ function ViewPoint({ product }) {
        });
        setResult(fetchText.data.msg);
         setNewComment('');
-        console.log(fetchText.data.msg);
       }
     } else {
       navigate('/SignIn');
@@ -39,7 +38,7 @@ function ViewPoint({ product }) {
   useEffect(() => {
     setTimeout(() => {
       setResult('')
-    },10000)
+    },5000)
   })
   useEffect(() => {
     const fetchComment = async () => {

@@ -6,7 +6,8 @@ const initail = {
   },
   userinfo: [],
   message: [],
-  address:[]
+  address: [],
+  hidden:''
 };
 
 const reducer = (state, action) => {
@@ -62,6 +63,12 @@ const reducer = (state, action) => {
         ...state,
         cart: { ...state.cart, cartItem: [] },
       };
+    case "HIDDEN_MESSAGE":
+      return {
+        ...state,
+        hidden:action.payload
+      };
+
     default:
       return state;
   }
@@ -81,4 +88,3 @@ export const StoreProvider = ({ children }) => {
     </Store.Provider>
   );
 };
-

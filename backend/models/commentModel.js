@@ -15,7 +15,7 @@ const commentSchema = new mongoose.Schema(
     },
     like: { type: Number ,default:0},
     disLike: { type: Number, default: 0 },
-    show_comment:{type:Boolean,default:false}
+    show_comment: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

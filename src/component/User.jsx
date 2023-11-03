@@ -23,7 +23,6 @@ function User() {
     };
     fetchuser();
   }, [user]);
-  console.log(users);
   return (
     <>
       <div className="flex items-center  flex-col gap-[30px] font-bold font-[yekan] ">

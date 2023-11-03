@@ -6,13 +6,15 @@ import { CgSearchLoading } from 'react-icons/cg';
 function Comments() {
   const [comment, setComment] = useState([]);
   const [loading, setLoading] = useState(true);
-  const handelDeleteProduct = async (id) => {
+
+  const handelDeleteComment = async (id) => {
     const fetchData = await axios.post('/api/comment/del', { id });
     setComment(fetchData.data);
   };
-  const handelConfirmationComment =async (id) => {
-  const fetchData = axios.post('/api/comment/confirmation',{id});
-  }
+  const handelConfirmationComment = async (id) => {
+    const fetchData = await axios.post('/api/comment/confirmation', { id });
+    setComment(fetchData.data);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,7 +68,7 @@ function Comments() {
                     <p className=" w-[100%] "> {comment.text}</p>
                     <div className="flex gap-5">
                       <button
-                        onClick={() => handelDeleteProduct(comment._id)}
+                        onClick={() => handelDeleteComment(comment._id)}
                         className="text-white  bg-red-500 py-1 
                       w-[100px] rounded-lg"
                       >
@@ -77,7 +79,7 @@ function Comments() {
                         className="text-white  bg-green-500 py-1 
                          w-[100px] rounded-lg"
                       >
-                        تایید
+                        {comment.show_comment ? 'تاییدشد' : 'منتظرتایید'}
                       </button>
                     </div>
                   </div>

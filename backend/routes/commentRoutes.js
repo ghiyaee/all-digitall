@@ -60,6 +60,7 @@ commentRouter.post('/confirmation', async (req, res) => {
   const comment = await Comment.findOne({ _id: req.body.id });
   comment.show_comment = true;
   await comment.save()
-  console.log(comment);
+  const comments = await Comment.find().populate(['user_id', 'product_id']);
+  res.send(comments);
 });
 export default commentRouter;
