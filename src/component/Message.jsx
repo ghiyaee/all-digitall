@@ -3,14 +3,22 @@ import React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import addNotification from 'react-push-notification';
 function Message() {
   const navigate = useNavigate();
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
   const handelMessage = async (e) => {
-     e.preventDefault();
+    e.preventDefault();
+    // addNotification({
+    //   title: 'admin',
+    //   message: 'شما پیام دارید',
+    //   duration: 5000,
+    //   native: true,
+    //   logo: 'M',
+    //   onClick: () => navigate('/MessageUser'),
+    // });
     if (msg === '') {
-     
       return
     } else{
       try {
@@ -18,7 +26,7 @@ function Message() {
         setMsg(res.data)
         navigate('/Dashboard');
       } catch (error) {}
-
+          console.log("error")
     }
   };
   return (

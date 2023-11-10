@@ -62,8 +62,8 @@ function Header() {
                           className={`${hidden} text-yellow-50 animate-bounce relative text-3xl 
                         flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full`}
                         >
-                          <MdOutlineLocalPostOffice />
-                          <span className=" absolute -right-[16px] -top-[0px] text-3xl text-red-500 ">
+                          <MdOutlineLocalPostOffice  className='relative'/>
+                          <span className=" w-5 h-5 flex items-center justify-center absolute right-0 -top-[3px] text-xl text-yellow-100 bg-red-500 rounded-full">
                             {resf.length}
                           </span>
                         </span>
