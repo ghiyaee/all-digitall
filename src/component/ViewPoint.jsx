@@ -38,7 +38,7 @@ function ViewPoint({ product }) {
   useEffect(() => {
     setTimeout(() => {
       setResult('')
-    },5000)
+    },7000)
   })
   useEffect(() => {
     const fetchComment = async () => {
