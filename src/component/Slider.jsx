@@ -12,7 +12,7 @@ function Slider() {
     };
     fetchData();
   }, []);
-  useEffect(() => {
+ ; useEffect(() => {
     let timer = setInterval(() => {
       setColor((prev) => {
         return prev === 'red' ? 'yellow' : 'red';
@@ -21,13 +21,12 @@ function Slider() {
     return () => {
       clearInterval(timer);
     };
-  }, []);
-
+  }, [])
   return (
     <div className="container m-auto flex flex-col gap-[60px] items-center my-10">
       <div className="flex flex-wrap flex-col md:flex-row justify-center gap-[70px] ">
         {slider.map((link) => (
-          <div key={link.name}>
+          <div key={link.id}>
             <button
               className="w-40 h-40 bg-zinc-700 rounded-full flex-col
                     flex items-center justify-center text-black text-2xl

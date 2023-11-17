@@ -75,7 +75,7 @@ function Prodcuts() {
                   className="p-6 bg-zinc-700  text-yellow-300
                flex flex-col gap-4 justify-between items-center relative  shadow-xl rounded-lg w-[384px]
                 shadow-orange-300"
-                  key={product._id}
+                  key={product.slug}
                 >
                   <Link to={`/product/${product.slug}`}>
                     <img

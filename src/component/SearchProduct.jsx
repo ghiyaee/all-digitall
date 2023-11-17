@@ -71,7 +71,7 @@ function SearchProduct() {
                           currentPage === n ? 'pageActive' : 'pageDeActive'
                         } w-10 h-10 flex justify-center items-center rounded-full  cursor-pointer  `}
                         onClick={() => setCurrentPage(n)}
-                      >
+                        key={n} >
                         {n}
                       </li>
                     ))

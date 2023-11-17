@@ -5,30 +5,28 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineLike } from 'react-icons/ai';
 import { AiOutlineDislike } from 'react-icons/ai';
 import moment from 'jalali-moment';
-import LikeComment from "./LikeComment"
+import LikeComment from './LikeComment';
 function ViewPoint({ product }) {
   const navigate = useNavigate();
-  const {
-    state,
-  } = useContext(Store);
-  const {userinfo}=state
+  const { state } = useContext(Store);
+  const { userinfo } = state;
   const [newComment, setNewComment] = useState('');
   const [comment, setComment] = useState();
-  const [result_comment,setResult]=useState()
+  const [result_comment, setResult] = useState();
   const [user, setUser] = useState(userinfo[0]._id);
 
   const handelViewPoint = async (e) => {
     e.preventDefault();
     if (userinfo.length > 0) {
       if (newComment === '') {
-         return;
+        return;
       } else {
-       const fetchText = await axios.post('/api/comment/newComment', {
-         product,
-         newComment,
-         user,
-       });
-       setResult(fetchText.data.msg);
+        const fetchText = await axios.post('/api/comment/newComment', {
+          product,
+          newComment,
+          user,
+        });
+        setResult(fetchText.data.msg);
         setNewComment('');
       }
     } else {
@@ -36,10 +34,15 @@ function ViewPoint({ product }) {
     }
   };
   useEffect(() => {
-    setTimeout(() => {
-      setResult('')
-    },7000)
-  })
+    let timer = setTimeout(() => {
+      setResult((prev) => {
+      return  prev = '';
+      });
+    }, 5000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [result_comment]);
   useEffect(() => {
     const fetchComment = async () => {
       const fetchText = await axios.post('/api/comment/search', { product });
@@ -69,7 +72,11 @@ function ViewPoint({ product }) {
             >
               ارسال نظر
             </button>
-            <p className={`${result_comment ? 'block':"hidden"} bg-green-500 text-white p-2 rounded-lg text-xl`}>
+            <p
+              className={`${
+                result_comment ? 'block' : 'hidden'
+              } bg-green-500 text-white p-2 rounded-lg text-xl`}
+            >
               {result_comment}
             </p>
           </div>
@@ -103,4 +110,3 @@ function ViewPoint({ product }) {
 }
 
 export default ViewPoint;
-

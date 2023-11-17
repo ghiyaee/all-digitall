@@ -40,12 +40,12 @@ function AddressUsers() {
   useEffect(() => {
     setTimeout(() => {
       setMsg(false);
-    }, 200000);
+    }, 4000);
   }, [msg]);
   return (
     <>
       {msg ? (
-        <div className="flex justify-center items-center  w-36  rounded-lg text-yellow-400 bg-zinc-800 p-2 text-xl">
+        <div className="absolute translate-x-[50%] -translate-y-[50%] right-[50%] top-[50%] flex justify-center items-center text-center w-80 h-36 rounded-lg text-yellow-400 bg-zinc-800 p-2 text-xl">
           باید تمامی مقدار وارد شوند
         </div>
       ) : (

@@ -1,8 +1,13 @@
+import io from 'socket.io-client';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { SkeletonTheme } from 'react-loading-skeleton';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Main from './component/Main';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Product from './component/Product';
 import Products from './component/Prodcuts';
 import Card from './component/Card';
@@ -14,33 +19,31 @@ import Dashboard from './component/Dashboard';
 import ProductEdit from './component/ProductEdit';
 import Comments from './component/Comments';
 import DashboardUser from './component/Dashboarduser';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import SearchProduct from './component/SearchProduct';
 import SearchItem from './component/SearchItem';
-import { SkeletonTheme } from 'react-loading-skeleton';
 import Message from './component/Message';
 import Messages from './component/Messages';
 import AddressUsers from './component/AddressUsers';
 import AddressEdit from './component/AddresseEdit';
 import FadeLoader from 'react-spinners/FadeLoader';
-import { useState } from 'react';
-import { useEffect } from 'react';
+
+// const socket = io();
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true)
+    setIsLoading(true);
     setTimeout(() => {
-      setIsLoading(false)
-    },4000)
-  },[])
+      setIsLoading(false);
+    }, 4000);
+  }, []);
+
   return (
     <>
       {isLoading ? (
         <>
           <div
             className="flex flex-col justify-center items-center text-xl h-screen
-                                  font-[yekan] text-zinc-700 "
+                       font-[yekan] text-zinc-700 "
           >
             <p> درحال بارگذاری</p>
             <p> لطفا از مرورگر کروم استفاده کنید</p>

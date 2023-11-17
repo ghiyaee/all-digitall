@@ -1,15 +1,20 @@
 import React, { useContext } from 'react';
+import  io  from 'socket.io-client';
 import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
 import { FaUserAlt } from 'react-icons/fa';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { MdOutlineLocalPostOffice } from 'react-icons/md';
 import SearchBar from './SearchBar';
+// const socket = io();
+// socket.on('message', (data) => {
+//   console.log(data);
+// });
 function Header() {
   const { state } = useContext(Store);
-  const { userinfo, cart, message ,hidden} = state;
+  const { userinfo, cart, message, hidden } = state;
   const result = message?.filter((i) => i.user_id?._id === userinfo[0]?._id);
-  const resf = result.filter((f) => f.isSync === false);
+  const resMessage = result.filter((f) => f.isSync === false);
   return (
     <header className=" min-w-full  sticky top-0 z-[1] ">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -57,7 +62,7 @@ function Header() {
                       className="text-blue-600 flex gap-6 items-center"
                     >
                       {userinfo[0].name}
-                      {resf.length > 0 ? (
+                      {resMessage.length > 0 ? (
                         <span
                           className={`${hidden} text-yellow-50 animate-bounce relative text-3xl 
                         flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full`}
@@ -65,7 +70,7 @@ function Header() {
                           <MdOutlineLocalPostOffice  className='relative'/>
                             <span className=" w-5 h-5 flex items-center justify-center absolute right-0 -top-[3px]
                            text-xl text-yellow-100 bg-red-500 rounded-full">
-                            {resf.length}
+                            {resMessage.length}
                           </span>
                         </span>
                       ) : (

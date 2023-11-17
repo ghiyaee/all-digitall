@@ -1,23 +1,18 @@
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
+import { io } from 'socket.io-client';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import addNotification from 'react-push-notification';
+import { useEffect } from 'react';
+// const socket = io();
 function Message() {
   const navigate = useNavigate();
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
   const handelMessage = async (e) => {
     e.preventDefault();
-    // addNotification({
-    //   title: 'admin',
-    //   message: 'شما پیام دارید',
-    //   duration: 5000,
-    //   native: true,
-    //   logo: 'M',
-    //   onClick: () => navigate('/MessageUser'),
-    // });
+  //  socket.emit('message', msg);
     if (msg === '') {
       return
     } else{
@@ -29,6 +24,11 @@ function Message() {
           console.log("error")
     }
   };
+  // useEffect(() => {
+  //   socket.on('connection', () => {
+          
+  //   });
+  // })
   return (
     <div className="flex items-center flex-col justify-center container m-auto  mt-5 ">
       <div className="py-5 px-16 rounded-lg flex items-center flex-col gap-5 bg-zinc-700 text-yellow-200 w-full text-2xl">
