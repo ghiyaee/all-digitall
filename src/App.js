@@ -27,7 +27,6 @@ import AddressUsers from './component/AddressUsers';
 import AddressEdit from './component/AddresseEdit';
 import FadeLoader from 'react-spinners/FadeLoader';
 
-// const socket = io();
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -37,6 +36,7 @@ function App() {
     }, 4000);
   }, []);
 
+  
   return (
     <>
       {isLoading ? (

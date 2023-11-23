@@ -5,12 +5,12 @@ import { Store } from '../context/Store';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 function SignIn() {
-  const { state, dispatch, userinfo, setUserInFo } = useContext(Store);
+  const { dispatch, socket } = useContext(Store);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(false);
   const navigate = useNavigate();
- const [move,setMove]=useState(`translate-y-[13.5rem]`)
+  const [move, setMove] = useState(`translate-y-[13.5rem]`);
   const handelSignin = async (e) => {
     e.preventDefault();
     if (email === '' || password === '') {
@@ -24,8 +24,8 @@ function SignIn() {
       });
 
       const message = await axios.get('/api/message/all');
-      dispatch({ type: 'LOGIN', payload: { ...data } });
       dispatch({ type: 'MESSAGE', payload: message.data });
+      dispatch({ type: 'LOGIN', payload: { ...data } });
       navigate('/');
     } catch (error) {
       toast.error('نام کاربری یا رمز عبور اشتباه است');
@@ -39,6 +39,7 @@ function SignIn() {
       clearTimeout(timer);
     };
   }, [message]);
+
   return (
     <div className="contianer m-auto flex justify-center  relative">
       <form

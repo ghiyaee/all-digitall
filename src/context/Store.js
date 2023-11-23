@@ -1,4 +1,6 @@
 import { createContext, useReducer } from 'react';
+import { io } from 'socket.io-client';
+let socket = io();
 export const Store = createContext();
 const initail = {
   cart: {
@@ -7,7 +9,8 @@ const initail = {
   userinfo: [],
   message: [],
   address: [],
-  hidden:''
+  hidden: '',
+  socket,
 };
 
 const reducer = (state, action) => {
@@ -51,8 +54,14 @@ const reducer = (state, action) => {
     case 'MESSAGE':
       return {
         ...state,
-        message: [...state.message, ...action.payload],
+        // message:state.message.concat(action.payload)
+         message: typeof action.payload === 'string'
+            ? [...state.message, action.payload]
+            : Array.isArray(action.payload)
+            ? [...state.message, ...action.payload]
+            : [...state.message, action.payload],
       };
+
     case 'ADDRESS':
       return {
         ...state,
@@ -63,10 +72,10 @@ const reducer = (state, action) => {
         ...state,
         cart: { ...state.cart, cartItem: [] },
       };
-    case "HIDDEN_MESSAGE":
+    case 'HIDDEN_MESSAGE':
       return {
         ...state,
-        hidden:action.payload
+        hidden: action.payload,
       };
 
     default:
@@ -88,3 +97,9 @@ export const StoreProvider = ({ children }) => {
     </Store.Provider>
   );
 };
+
+// case 'MESSAGE':
+//   return {
+//     ...state,
+//     message: typeof action.payload === 'string' ? [...state.message, action.payload] : state.message
+//   }

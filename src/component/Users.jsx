@@ -13,8 +13,9 @@ function Users() {
     const fetchUser = await axios.post('/api/user/del', { user });
     setUsers([...users, ...fetchUser]);
   };
-  const handelUserEdi = (user) => {
-    navigate('/Message', { state: user });
+  const handelSendUserId = (user) => {
+    console.log(user);
+    navigate('/Message',   {state: user });
   };
   useEffect(() => {
     const users = async () => {
@@ -53,7 +54,7 @@ function Users() {
                         <div className="flex gap-5">
                           <button
                             className="text-blue-700  bg-[#ffea00] p-1 rounded-lg w-[100px]"
-                            onClick={() => handelUserEdi(user)}
+                            onClick={() => handelSendUserId(user)}
                           >
                            ارسال پیام
                           </button>

@@ -1,34 +1,31 @@
 import React from 'react';
 import axios from 'axios';
-import { io } from 'socket.io-client';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-// const socket = io();
+import { useState, useContext } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { Store } from '../context/Store';
 function Message() {
+  const { state: sk } = useContext(Store);
+  const { socket } = sk;
   const navigate = useNavigate();
   const { state } = useLocation();
   let [msg, setMsg] = useState('');
   const handelMessage = async (e) => {
     e.preventDefault();
-  //  socket.emit('message', msg);
     if (msg === '') {
-      return
-    } else{
+      return;
+    } else {
+      // socket.emit('msg', {msg,state});
       try {
         const res = await axios.post('/api/message', { msg, state });
-        setMsg(res.data)
+        setMsg(res.data);
+        socket.emit('msg',res.data);
         navigate('/Dashboard');
-      } catch (error) {}
-          console.log("error")
+      } catch (error) {
+        console.log('error');
+      }
     }
   };
-  // useEffect(() => {
-  //   socket.on('connection', () => {
-          
-  //   });
-  // })
+
   return (
     <div className="flex items-center flex-col justify-center container m-auto  mt-5 ">
       <div className="py-5 px-16 rounded-lg flex items-center flex-col gap-5 bg-zinc-700 text-yellow-200 w-full text-2xl">

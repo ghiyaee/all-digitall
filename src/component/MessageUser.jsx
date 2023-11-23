@@ -20,9 +20,9 @@ function MessageUser() {
       setSync(true);
     }, 1800);
   }, []);
-  useEffect(() => {
-  dispatch({type:'HIDDEN_MESSAGE',payload:"hidden"})
-},[])
+//   useEffect(() => {
+//   dispatch({type:'HIDDEN_MESSAGE',payload:"hidden"})
+// },[])
   return (
     <div className="flex items-center flex-col max-h-screen overflow-y-auto">
       <div className=" p-10 flex flex-col gap-5 bg-zinc-700 text-yellow-200  text-2xl ">

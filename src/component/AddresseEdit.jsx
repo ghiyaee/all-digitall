@@ -54,14 +54,16 @@ function AddressEdit() {
   useEffect(() => {
     setTimeout(() => {
       setMsg(false)
-    },1600)
+    },1900)
   },[msg])
   return (
     <>
       {msg ? (
-        <div className='text-yellow-400 bg-zinc-800 p-2 text-xl'>باید تمامی مقدار وارد شوند</div>
+        <div className="text-yellow-200 bg-zinc-700 p-4 text-xl duration-700 rounded-xl">
+          باید تمامی مقدار وارد شوند
+        </div>
       ) : (
-        <div className="flex flex-col  gap-4 p-10  bg-zinc-700 container m-auto">
+        <div className="flex flex-col  gap-4 p-10  bg-zinc-700 container m-auto duration-700">
           <h2 className="text-yellow-200 text-2xl text-center">
             ویرایش اطلاعات تکمیلی (آدرس)
           </h2>

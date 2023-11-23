@@ -18,4 +18,12 @@ const editMessage = async (req, res) => {
     { isSync: true }
   );
 };
-export {home,allMessage,editMessage}
+const add = async (req, res) => {
+  const message = new Message({
+    message: req.body.msg,
+    user_id: req.body.state._id,
+  });
+  await message.save();
+  res.send(message);
+};
+export {home,allMessage,editMessage,add}
