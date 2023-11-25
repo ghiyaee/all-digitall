@@ -10,7 +10,7 @@ function MessageUser() {
     move: 'transform translate-x-[1000px]',
   });
   const filterMessage = message.filter(
-    (f) => f.user_id._id === userinfo[0]?._id
+    (f) => f.user_id === userinfo[0]?._id
   );
   useEffect(() => {
     setMoveSlider('transform translate-x-[0px]');
@@ -20,6 +20,7 @@ function MessageUser() {
       setSync(true);
     }, 1800);
   }, []);
+  console.log(message);
 //   useEffect(() => {
 //   dispatch({type:'HIDDEN_MESSAGE',payload:"hidden"})
 // },[])

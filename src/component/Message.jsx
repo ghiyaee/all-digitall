@@ -14,11 +14,9 @@ function Message() {
     if (msg === '') {
       return;
     } else {
-      // socket.emit('msg', {msg,state});
       try {
         const res = await axios.post('/api/message', { msg, state });
-        setMsg(res.data);
-        socket.emit('msg',res.data);
+        socket.emit('msg', res.data);
         navigate('/Dashboard');
       } catch (error) {
         console.log('error');

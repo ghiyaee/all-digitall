@@ -8,7 +8,7 @@ const home = async (req, res) => {
   res.send(message);
 }
 const allMessage = async (req, res) => {
-  const msg = await Message.find().populate('user_id');
+  const msg = await Message.find()
   res.send(msg);
 };
 
@@ -27,3 +27,6 @@ const add = async (req, res) => {
   res.send(message);
 };
 export {home,allMessage,editMessage,add}
+
+
+//.populate('user_id');

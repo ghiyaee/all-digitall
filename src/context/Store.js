@@ -54,7 +54,6 @@ const reducer = (state, action) => {
     case 'MESSAGE':
       return {
         ...state,
-        // message:state.message.concat(action.payload)
          message: typeof action.payload === 'string'
             ? [...state.message, action.payload]
             : Array.isArray(action.payload)

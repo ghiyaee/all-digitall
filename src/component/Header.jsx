@@ -1,25 +1,26 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Store } from '../context/Store';
 import { FaUserAlt } from 'react-icons/fa';
 import { HiMenuAlt1 } from 'react-icons/hi';
 import { MdOutlineLocalPostOffice } from 'react-icons/md';
 import SearchBar from './SearchBar';
-import { isArray } from 'lodash';
 function Header() {
   const { state, dispatch } = useContext(Store);
   const { userinfo, cart, message, socket } = state;
-  const result = message
-    ?.filter((i) => i.user_id?._id === userinfo[0]?._id)
-    .filter((f) => f.isSync === false);
-
-  useEffect(() => {
-    const handleSocketMessage = (msg) => {
-      dispatch({ type: 'MESSAGE', payload: msg });
-    };
-    socket.on('msg', handleSocketMessage);
-  }, [ dispatch,socket]);
+  const result = message.filter((i) => i.user_id === userinfo[0]._id)
+    const data =async () => {
+      await socket.on('msg', (msg) => {
+        dispatch({ type: 'MESSAGE', payload: msg });
+      })
+    }
+    useEffect(() => {
+      data()
+      return () => {
+        socket.off('msg');
+      };
+    },[socket])
+    
   return (
     <header className=" min-w-full  sticky top-0 z-[1] ">
       <div className=" h-24 flex p-2 md:p-10 justify-between items-center  font-[yekan] border-b bg-gradient-to-b from-zinc-800 to-zinc-600  ">
@@ -161,31 +162,4 @@ function Header() {
 }
 export default Header;
 
-// socket.on('msg', (msg) => {
-//   if (isArray(msg)) {
-//     for (let { message } of msg) {
-//       dispatch({ type: 'MESSAGE', payload: message });
-//     }
-//   }
-// });
 
-// const data = async () => {
-//   await socket.on('msg', (msg) => {
-//     console.log(msg);
-//     dispatch({ type: 'MESSAGE', payload: msg });
-//   });
-// };
-
-// useEffect(() => {
-//   data();
-// }, [msg]);
-
-// useEffect(() => {
-//   const data = async () => {
-//     await socket.on('msg', (msg) => {
-//       console.log(msg);
-//       dispatch({ type: 'MESSAGE', payload: msg });
-//     });
-//   };
-//   data();
-// }, [socket]);
