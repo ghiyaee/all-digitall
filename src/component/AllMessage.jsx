@@ -3,7 +3,7 @@ import { Store } from '../context/Store';
 import { TiTickOutline } from 'react-icons/ti';
 import moment from 'jalali-moment';
 import axios from 'axios';
-function MessageUser() {
+function AllMessage() {
   const { state, dispatch } = useContext(Store);
   const { message, userinfo } = state;
   const [sync, setSync] = useState(false);
@@ -23,12 +23,12 @@ function MessageUser() {
     const data = async () => {
       const res = await axios.post('/api/message/edit', userinfo);
       const data = res.data;
-      dispatch({ type: 'MESSAGE' ,payload:data});
+      dispatch({ type: 'MESSAGE', payload: data });
       console.log(data);
     };
     data();
   }, []);
-console.log(message);
+  console.log(message);
   return (
     <div className="flex items-center flex-col max-h-screen overflow-y-auto">
       <div className=" p-10 flex flex-col gap-5 bg-zinc-700 text-yellow-200  text-2xl ">
@@ -61,4 +61,4 @@ console.log(message);
     </div>
   );
 }
-export default MessageUser;
+export default AllMessage;

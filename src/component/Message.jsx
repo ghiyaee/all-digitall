@@ -4,7 +4,7 @@ import { useState, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Store } from '../context/Store';
 function Message() {
-  const { state: sk } = useContext(Store);
+  const { state: sk ,dispatch} = useContext(Store);
   const { socket } = sk;
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -17,6 +17,7 @@ function Message() {
       try {
         const res = await axios.post('/api/message', { msg, state });
         socket.emit('msg', res.data);
+         
         navigate('/Dashboard');
       } catch (error) {
         console.log('error');

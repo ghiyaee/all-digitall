@@ -1,5 +1,5 @@
 import io from 'socket.io-client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect ,useContext} from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { SkeletonTheme } from 'react-loading-skeleton';
@@ -26,6 +26,7 @@ import Messages from './component/Messages';
 import AddressUsers from './component/AddressUsers';
 import AddressEdit from './component/AddresseEdit';
 import FadeLoader from 'react-spinners/FadeLoader';
+import { Store } from './context/Store';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +37,6 @@ function App() {
     }, 4000);
   }, []);
 
-  
   return (
     <>
       {isLoading ? (

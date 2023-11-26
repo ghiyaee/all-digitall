@@ -9,7 +9,7 @@ const initail = {
   userinfo: [],
   message: [],
   address: [],
-  hidden: '',
+  hidden: "",
   socket,
 };
 

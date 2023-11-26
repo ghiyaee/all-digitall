@@ -25,6 +25,7 @@ function SignIn() {
 
       const message = await axios.get('/api/message/all');
       dispatch({ type: 'MESSAGE', payload: message.data });
+      //  dispatch({ type: 'HIDDEN_MESSAGE', payload: '' });
       dispatch({ type: 'LOGIN', payload: { ...data } });
       navigate('/');
     } catch (error) {

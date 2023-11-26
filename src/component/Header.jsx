@@ -7,11 +7,12 @@ import { MdOutlineLocalPostOffice } from 'react-icons/md';
 import SearchBar from './SearchBar';
 function Header() {
   const { state, dispatch } = useContext(Store);
-  const { userinfo, cart, message, socket } = state;
+  const { userinfo, cart, message, socket ,hidden} = state;
   const result = message.filter((i) => i.user_id === userinfo[0]._id)
     const data =async () => {
       await socket.on('msg', (msg) => {
         dispatch({ type: 'MESSAGE', payload: msg });
+        // dispatch({ type: 'HIDDEN_MESSAGE', payload: '' });
       })
     }
     useEffect(() => {
@@ -70,7 +71,7 @@ function Header() {
                       {userinfo[0].name}
                       {result.length > 0 ? (
                         <span
-                          className={`${''} text-yellow-50 animate-bounce relative text-3xl 
+                          className={`${hidden}  text-yellow-50 animate-bounce relative text-3xl 
                         flex w-10 h-10 justify-center items-center bg-blue-500 rounded-full`}
                         >
                           <MdOutlineLocalPostOffice className="relative" />

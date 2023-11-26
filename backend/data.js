@@ -9,6 +9,12 @@ const data = {
       isAdmin: false,
     },
     {
+      name: 'user2',
+      email: 'user2@gmail.com',
+      password: await bcrypt.hash('user12345678', saltRounds),
+      isAdmin: false,
+    },
+    {
       name: 'مدیر',
       email: 'admin@gmail.com',
       password: await bcrypt.hash('admin12345678', saltRounds),
@@ -29,7 +35,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-    
     },
     {
       name: 'apple14Pro',
@@ -44,7 +49,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-  
     },
     {
       name: 'motorolaz',
@@ -59,7 +63,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-  
     },
     {
       name: 'motorola1',
@@ -74,7 +77,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-   
     },
     {
       name: 'pixel',
@@ -89,7 +91,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-   
     },
     {
       name: 'pixelp',
@@ -104,7 +105,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-  
     },
     {
       name: 'samsungf',
@@ -119,7 +119,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-    
     },
     {
       name: 'samsungp',
@@ -134,7 +133,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'headbi1',
@@ -149,7 +147,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-     
     },
     {
       name: 'headbi3',
@@ -164,7 +161,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-    
     },
     {
       name: 'headbi4',
@@ -179,7 +175,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'headbi5',
@@ -194,7 +189,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-     
     },
     {
       name: 'headbi6',
@@ -209,7 +203,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'headbi2',
@@ -224,7 +217,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-   
     },
     {
       name: 'headbi7',
@@ -239,7 +231,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'headbi8',
@@ -254,7 +245,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-   
     },
     {
       name: 'headbi9',
@@ -269,7 +259,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-   
     },
     {
       name: 'labtab1',
@@ -284,7 +273,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-    
     },
     {
       name: 'labtab2',
@@ -299,7 +287,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-    
     },
     {
       name: 'labtab3',
@@ -314,7 +301,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-     
     },
     {
       name: 'flash1',
@@ -329,7 +315,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'flash2',
@@ -344,7 +329,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'flash3',
@@ -359,7 +343,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
     {
       name: 'flash4',
@@ -374,7 +357,6 @@ const data = {
       description: 'کیفیت عالی',
       like: 0,
       disLike: 0,
-      
     },
   ],
 };

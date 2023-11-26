@@ -15,6 +15,7 @@ function DashboardUser() {
   const [address, setAddress] = useState(false);
   const [msg, setMessage] = useState(false);
   const [order, setOrder] = useState(false);
+  const [allmsg,setAllmsg]=useState(false)
   const handelMessage = async () => {
     setAddress(false)
     setMessage(false)
@@ -32,6 +33,13 @@ function DashboardUser() {
     setMessage(false);
     setAddress(true);
   };
+   const handelAllMessage = () => {
+     setUser(false);
+     setMessage(false);
+     setAddress(false);
+     setMessage(false);
+     setAllmsg(true)
+   };
   return (
     <>
       <div className="flex container m-auto font-[yekan] ">
@@ -45,7 +53,13 @@ function DashboardUser() {
               onClick={() => handelMessage()}
               className="style-button p-4 "
             >
-              پیامها
+              نمایش پیام جدید
+            </button>
+            <button
+              onClick={() => handelAllMessage()}
+              className="style-button p-4 "
+            >
+              نمایش پیامها
             </button>
             <button
               onClick={() => handelAddress()}
@@ -71,7 +85,7 @@ function DashboardUser() {
             <MessageUser />
           ) : order === true ? (
             <OrderUser />
-          ) : (
+          ) :(
             ''
           )}
         </div>
